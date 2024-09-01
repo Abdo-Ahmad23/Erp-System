@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   
+
+    <!-- Form View for stores -->
+    <record id="view_store_form" model="ir.ui.view">
+        <field name="name">store.view.form</field>
+        <field name="model">store</field>
+        <field name="arch" type="xml">
+            <form string="store Name">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="street"/>
+                        <field name="city"/>
+                        <field name="state"/>
+                        <field name="zip_code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <!-- Tree View for stores -->
+    <record id="view_store_tree" model="ir.ui.view">
+        <field name="name">store.view.tree</field>
+        <field name="model">store</field>
+        <field name="arch" type="xml">
+            <tree string="store Names">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="street"/>
+                <field name="city"/>
+                <field name="state"/>
+                <field name="zip_code"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Action for stores -->
+    <record id="action_store" model="ir.actions.act_window">
+        <field name="name">stores</field>
+        <field name="res_model">store</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="all_stores" name="All stores" parent="store_main_menu" action="action_store"/>
+
+
+</odoo>
+
+                       

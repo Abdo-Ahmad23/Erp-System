@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   
+
+    <!-- Form View for categorys -->
+    <record id="view_category_form" model="ir.ui.view">
+        <field name="name">category.view.form</field>
+        <field name="model">category</field>
+        <field name="arch" type="xml">
+            <form string="category Name">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <!-- Tree View for categorys -->
+    <record id="view_category_tree" model="ir.ui.view">
+        <field name="name">category.view.tree</field>
+        <field name="model">category</field>
+        <field name="arch" type="xml">
+            <tree string="category Names">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for categorys -->
+    <record id="action_category" model="ir.actions.act_window">
+        <field name="name">categorys</field>
+        <field name="res_model">category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="all_categorys" name="All categorys" parent="category_main_menu" action="action_category"/>
+
+
+</odoo>
+
+                       

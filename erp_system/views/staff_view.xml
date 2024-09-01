@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   
+
+    <!-- Form View for staffs -->
+    <record id="view_staff_form" model="ir.ui.view">
+        <field name="name">staff.view.form</field>
+        <field name="model">staff</field>
+        <field name="arch" type="xml">
+            <form string="staff Name">
+                <sheet>
+                    <group>
+                        <field name="first_name"/>
+                        <field name="second_name"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="active"/>
+                        <field name="store_id"/>
+                        <field name="manager_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+
+
+
+     <!-- Tree View for staffs -->
+    <record id="view_staff_tree" model="ir.ui.view">
+        <field name="name">staff.view.tree</field>
+        <field name="model">staff</field>
+        <field name="arch" type="xml">
+            <tree string="staff Names">
+                <field name="first_name"/>
+                <field name="second_name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="active"/>
+                <field name="store_id"/>
+                <field name="manager_id"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Action for staffs -->
+    <record id="action_staff" model="ir.actions.act_window">
+        <field name="name">staffs</field>
+        <field name="res_model">staff</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="all_staffs" name="All staffs" parent="staff_main_menu" action="action_staff"/>
+
+
+</odoo>
+
+                       

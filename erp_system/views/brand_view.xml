@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   
+
+    <!-- Form View for Brands -->
+    <record id="view_brand_form" model="ir.ui.view">
+        <field name="name">brand.view.form</field>
+        <field name="model">brand</field>
+        <field name="arch" type="xml">
+            <form string="Brand Name">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <!-- Tree View for Brands -->
+    <record id="view_brand_tree" model="ir.ui.view">
+        <field name="name">brand.view.tree</field>
+        <field name="model">brand</field>
+        <field name="arch" type="xml">
+            <tree string="Brand Names">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for Brands -->
+    <record id="action_brand" model="ir.actions.act_window">
+        <field name="name">Brands</field>
+        <field name="res_model">brand</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="all_brands" name="All Brands" parent="brand_main_menu" action="action_brand"/>
+
+
+</odoo>

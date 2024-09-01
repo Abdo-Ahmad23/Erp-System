@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   
+
+    <!-- Form View for customers -->
+    <record id="view_customer_form" model="ir.ui.view">
+        <field name="name">customer.view.form</field>
+        <field name="model">customer</field>
+        <field name="arch" type="xml">
+            <form string="customer Name">
+                <sheet>
+                    <group>
+                        <field name="first_name"/>
+                        <field name="second_name"/>
+                        <field name="phone"/>
+                        <field name="street"/>
+                        <field name="city"/>
+                        <field name="state"/>
+                        <field name="zip_code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+
+
+     <!-- Tree View for customers -->
+    <record id="view_customer_tree" model="ir.ui.view">
+        <field name="name">customer.view.tree</field>
+        <field name="model">customer</field>
+        <field name="arch" type="xml">
+            <tree string="customer Names">
+                <field name="first_name"/>
+                <field name="second_name"/>
+                <field name="phone"/>
+                <field name="street"/>
+                <field name="city"/>
+                <field name="state"/>
+                <field name="zip_code"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Action for customers -->
+    <record id="action_customer" model="ir.actions.act_window">
+        <field name="name">customers</field>
+        <field name="res_model">customer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="all_customers" name="All customers" parent="customer_main_menu" action="action_customer"/>
+
+
+</odoo>
+
+                       

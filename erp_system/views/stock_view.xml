@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   
+
+    <!-- Form View for stocks -->
+    <record id="view_stock_form" model="ir.ui.view">
+        <field name="name">stock.view.form</field>
+        <field name="model">stock</field>
+        <field name="arch" type="xml">
+            <form string="stock Name">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="product_ids"/>
+                        <field name="store_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <!-- Tree View for stocks -->
+    <record id="view_stock_tree" model="ir.ui.view">
+        <field name="name">stock.view.tree</field>
+        <field name="model">stock</field>
+        <field name="arch" type="xml">
+            <tree string="stock Names">
+                <field name="name"/>
+                <field name="product_ids"/>
+                <field name="store_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for stocks -->
+    <record id="action_stock" model="ir.actions.act_window">
+        <field name="name">stocks</field>
+        <field name="res_model">stock</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="all_stocks" name="All stocks" parent="stock_main_menu" action="action_stock"/>
+
+
+</odoo>
+
+                       

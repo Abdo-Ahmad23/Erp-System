@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   
+
+    <!-- Form View for items -->
+    <record id="view_item_form" model="ir.ui.view">
+        <field name="name">item.view.form</field>
+        <field name="model">item</field>
+        <field name="arch" type="xml">
+            <form string="item Name">
+                <sheet>
+                    <group>
+                        <field name="product_ids"/>
+                        <field name="order_id"/>
+                        <field name="quantity"/>
+                        <field name="price"/>
+                        <field name="discount"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <!-- Tree View for items -->
+    <record id="view_item_tree" model="ir.ui.view">
+        <field name="name">item.view.tree</field>
+        <field name="model">item</field>
+        <field name="arch" type="xml">
+            <tree string="item Names">
+                <field name="product_ids"/>
+                <field name="order_id"/>
+                <field name="quantity"/>
+                <field name="price"/>
+                <field name="discount"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Action for items -->
+    <record id="action_item" model="ir.actions.act_window">
+        <field name="name">items</field>
+        <field name="res_model">item</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="all_items" name="All items" parent="item_main_menu" action="action_item"/>
+
+
+</odoo>
+
+                       

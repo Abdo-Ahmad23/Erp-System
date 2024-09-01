@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_brand,access_brand,model_brand,,1,1,1,1
+access_product,access_product,model_product,,1,1,1,1
+access_category,access_category,model_category,,1,1,1,1
+access_store,access_store,model_store,,1,1,1,1
+access_stock,access_stock,model_stock,,1,1,1,1

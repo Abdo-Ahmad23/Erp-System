@@ -1,0 +1,17 @@
+<odoo>
+   
+   <menuitem id="menu_system_root" name="System Management"/>
+   <menuitem id="brand_main_menu" name="Brands" sequence="1" parent="menu_system_root" />
+   <menuitem id="product_main_menu" name="Products" sequence="2" parent="menu_system_root" />
+   <menuitem id="category_main_menu" name="Categories" sequence="2" parent="menu_system_root" />
+   <menuitem id="stock_main_menu" name="Stocks" sequence="2" parent="menu_system_root" />
+   <menuitem id="store_main_menu" name="Stores" sequence="2" parent="menu_system_root" />
+   <menuitem id="item_main_menu" name="Items" sequence="2" parent="menu_system_root" />
+   <menuitem id="order_main_menu" name="Orders" sequence="2" parent="menu_system_root" />
+   <menuitem id="customer_main_menu" name="Customer" sequence="2" parent="menu_system_root" />
+   <menuitem id="staff_main_menu" name="Staff" sequence="2" parent="menu_system_root" />
+
+
+
+
+</odoo>
