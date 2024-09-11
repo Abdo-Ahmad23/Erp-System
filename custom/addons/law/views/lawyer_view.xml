@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+
+    <record id="view_lawyers_form" model="ir.ui.view">
+        <field name="name">lawyers.view.form</field>
+        <field name="model">lawyers</field>
+        <field name="arch" type="xml">
+            <form string="Lawyer Management">
+                <sheet>
+                    <group>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="date"/>
+                    <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="view_lawyers_tree" model="ir.ui.view">
+        <field name="name">lawyers.view.tree</field>
+        <field name="model">lawyers</field>
+        <field name="arch" type="xml">
+            <tree string="Lawyer Management">
+                    <field name="name"/>
+                    <field name="age"/>
+                    
+            </tree>
+        </field>
+    </record>
+
+    <record id="actions_lawyers_views" model="ir.actions.act_window">
+        <field name="name">lawyers management</field>
+        <field name="res_model">lawyers</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem id="law_root_menu" name="Lawyer And Order" sequence="1"/>
+    
+    <menuitem id="lawyers_main_menu" name="Lawyers" parent="law_root_menu" sequence="1"/>
+
+    <menuitem id="all_lawyers_menu" name="All Lawyers" parent="lawyers_main_menu" sequence="1" action="actions_lawyers_views"/>
+   
+</odoo>

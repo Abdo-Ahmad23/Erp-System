@@ -1,0 +1,13 @@
+<odoo>
+    <menuitem id="app_root_menu" 
+        name="To Do App" 
+        sequence="1"
+    />
+    
+    <menuitem id="to_do_app_main_menu" 
+        name="Tasks" 
+        parent="app_root_menu" 
+        sequence="1"
+    />
+
+</odoo>
