@@ -1,0 +1,69 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_maximum_leave
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.1alpha1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-21 11:13+0000\n"
+"PO-Revision-Date: 2020-10-21 11:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_maximum_leave
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave__display_name
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave_type__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: sh_maximum_leave
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave__id
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave_type__id
+msgid "ID"
+msgstr "ID"
+
+#. module: sh_maximum_leave
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave__is_changed_max_days
+msgid "Is Changed Max Days"
+msgstr "更改最大天数"
+
+#. module: sh_maximum_leave
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave____last_update
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave_type____last_update
+msgid "Last Modified on"
+msgstr "最后修改时间"
+
+#. module: sh_maximum_leave
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave_type__set_max_days_leave_month
+msgid "Maximum Days Leave in Month"
+msgstr "一个月的最大天假"
+
+#. module: sh_maximum_leave
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave_type__set_max_days_leave
+msgid "Maximum Days in Leave"
+msgstr "最长休假天数"
+
+#. module: sh_maximum_leave
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave_type__no_max_days_leave
+msgid "No. of Maximum Days in Leave"
+msgstr "休假天数"
+
+#. module: sh_maximum_leave
+#: model:ir.model.fields,field_description:sh_maximum_leave.field_hr_leave_type__no_max_days_leave_month
+msgid "No. of Maximum Days in Month"
+msgstr "每月最大天数"
+
+#. module: sh_maximum_leave
+#: model:ir.model,name:sh_maximum_leave.model_hr_leave
+msgid "Time Off"
+msgstr "休息时间"
+
+#. module: sh_maximum_leave
+#: model:ir.model,name:sh_maximum_leave.model_hr_leave_type
+msgid "Time Off Type"
+msgstr "休息时间类型"

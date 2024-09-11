@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inherit_stock_picking_form" model="ir.ui.view">
+        <field name="name">inherit.stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <field name="timer_start" widget="timer_timer" class="text-danger ml-auto h2 ml-4 font-weight-bold"
+                       readonly="1" attrs="{'invisible':[('timer_stop','=',False)]}"/>
+                <field name="timer_stop" widget="float_time" class="text-danger ml-auto h2 ml-4 font-weight-bold"
+                       readonly="1" attrs="{'invisible':[('timer_start','!=',False)]}"/>
+            </xpath>
+
+            <field name="origin" position="after">
+                <field name="timer_pause" invisible="1"/>
+                <field name="is_timer_running" invisible="1"/>
+                <field name="res_model" invisible="1"/>
+                <field name="res_id" invisible="1"/>
+                <field name="user_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="inherit_stock_picking_kanban" model="ir.ui.view">
+        <field name="name">inherit.stock.picking.kanban</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.stock_picking_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_kanban_record_headings')]" position="after">
+                <button string="validate" name="button_validate" data-hotkey="v" type="object"
+                        class="btn btn-primary btn-sm" attrs="{'invisible': [('state', '!=','assigned')]}">
+                    <span>done</span>
+                </button>
+            </xpath>
+            <xpath expr="//div[hasclass('o_kanban_record_top')]/strong" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="origin"/>
+            </xpath>
+
+            <xpath expr="//div[hasclass('oe_kanban_bottom_right')]/t[1]" position="replace">
+                <t t-esc="record.origin.value"/>
+
+            </xpath>
+            <!--            <xpath expr="//div[hasclass('o_kanban_record_bottom')]" position="after">-->
+            <!--                <div class="o_kanban_record_bottom d-block mx-2">-->
+            <!--                    <hr class="mt4 mb4"/>-->
+            <!--                    <span>-->
+            <!--                        <field name="move_ids_without_package" widget="many2many_tags"/>-->
+            <!--                    </span>-->
+
+            <!--                </div>-->
+
+            <!--            </xpath>-->
+            <xpath expr="//div[hasclass('o_kanban_record_bottom')]" position="after">
+                <div class="o_kanban_record_bottom d-block mx-2">
+                    <hr class="mt4 mb4"/>
+                    <span>
+                        <i class="fa fa-calendar" role="img" aria-label="Date" title="Date"></i>
+                        <t t-esc="record.scheduled_date.value and record.scheduled_date.value.split(' ')[0] or False"/>
+                    </span>
+                    <span class="pull-right" name="duration">
+                        <field name="timer_start" widget="timer_timer"
+                               class="text-danger ml-auto h2 ml-4 font-weight-bold"
+                               attrs="{'invisible':[('timer_stop','=',False)]}"/>
+                        <field name="timer_stop" widget="float_time"
+                               class="text-danger ml-auto h2 ml-4 font-weight-bold"
+                               attrs="{'invisible':[('timer_start','!=',False)]}"/>
+                    </span>
+                </div>
+
+            </xpath>
+
+
+        </field>
+    </record>
+    <record id="stock.action_picking_tree_all" model="ir.actions.act_window">
+        <field name="view_mode">kanban,tree,form,calendar</field>
+    </record>
+</odoo>
+

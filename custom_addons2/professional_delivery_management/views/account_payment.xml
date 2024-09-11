@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="delivery_boy_commission_payment_action" model="ir.actions.act_window">
+        <field name="name">Delivery Commission Payment</field>
+        <field name="res_model">account.payment</field>
+        <field name="view_mode">tree,kanban,form,graph</field>
+        <field name="search_view_id" ref="account.view_account_supplier_payment_tree"/>
+        <field name="context">{'default_payment_type': 'outbound', 'default_partner_type': 'supplier',
+            'search_default_outbound_filter': 1, 'default_move_journal_types': ('bank', 'cash')}
+        </field>
+        <field name="domain">[('delivery_boy_bill', '=', True)]</field>
+    </record>
+    <record id="delivery_customer_payment_action" model="ir.actions.act_window">
+        <field name="name">Delivery Customer Payment</field>
+        <field name="res_model">account.payment</field>
+        <field name="view_mode">tree,kanban,form,graph</field>
+        <field name="search_view_id" ref="account.view_account_supplier_payment_tree"/>
+        <field name="context">{'default_payment_type': 'inbound', 'default_partner_type': 'customer',
+            'search_default_inbound_filter': 1, 'default_move_journal_types': ('bank', 'cash')}
+        </field>
+        <field name="domain">[('delivery_customer_invoice', '=', True)]</field>
+    </record>
+</odoo>

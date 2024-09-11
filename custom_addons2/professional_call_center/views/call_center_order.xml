@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="call_center_order_sequence" model="ir.sequence">
+        <field name="name">Call Center Order</field>
+        <field name="code">call.center.order</field>
+        <field name="prefix">CO/</field>
+        <field name="padding">5</field>
+        <field name="number_increment">1</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <record id="call_center_order_form" model="ir.ui.view">
+        <field name="name">call.center.order.form</field>
+        <field name="model">call.center.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" states="draft"/>
+                    <!-- <button name="action_view_register_payment_wizard" string="Hi ALi" type="object"
+                            attrs="{'invisible':[('state','in',['draft','done'])]}" class="oe_highlight"/> -->
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,in_preparation,delivery_invoices,done"/>
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button name="action_view_delivery" string="Delivery" type="object" class="oe_stat_button"
+                                icon="fa-truck" attrs="{'invisible':[('state','=','draft')]}"/>
+                        <button name="action_view_account_move" string="Invoice" type="object" class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                attrs="{'invisible':[('state','in',['draft','in_preparation'])]}"
+                                groups="professional_call_center.group_all_documents"/>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" style="font-size: 30px;"  decoration-success="order_available == 'in_hand'"  decoration-danger="order_available == 'manufacturing'"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="partner_details">
+                            <field name="partner_id"
+                                   context="{'call_center': '1','res_partner_search_mode': 'customer'}"
+                                   options="{&quot;always_reload&quot;: True}"/>
+                            <field name="mobile"/>
+                            <field name="customer_code"/>
+                            <label for="street" style="font-weight: bold;" string="Street"/>
+                            <div class="d-flex">
+                                <field name="street" force_save="1"/>
+                                <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Street2</span>
+                                <field name="street2" force_save="1"/>
+                            </div>
+                            <label for="zone_id" style="font-weight: bold;" string="Zone"/>
+                            <div class="d-flex">
+                                <field name="zone_id" force_save="1"/>
+                                <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">District</span>
+                                <field name="district_id" force_save="1"/>
+                            </div>
+                            <label for="state_id" style="font-weight: bold;" string="State"/>
+                            <div class="d-flex">
+                                <field name="state_id" force_save="1"/>
+                                <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Country</span>
+                                <field name="country_id" force_save="1"/>
+                            </div>
+                            <label for="land_mark" style="font-weight: bold;" string="Land Mark"/>
+                            <div class="d-flex">
+                                <field name="land_mark" force_save="1"/>
+                                <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Building Type
+                                </span>
+                                <field name="building_type_id" force_save="1"/>
+
+                            </div>
+                            <label for="building_number" style="font-weight: bold;" string="Building Number"/>
+                            <div class="d-flex">
+                                <field name="building_number" force_save="1"/>
+                                <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Floor Number
+                                </span>
+                                <field name="floor_number" force_save="1"/>
+                                <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Flat Number</span>
+                                <field name="flat_number" force_save="1"/>
+                            </div>
+                            <field name="account_move_id" invisible="1"/>
+                            <field name="delivery_address_info_ids" invisible="1"/>
+                            <field name="delivery_address_info_id" options="{'no_open': True, 'no_create': True}"/>
+                        </group>
+                        <group name="order_details">
+                            <field name="order_available"  style="font-size: 20px;"/>
+                            <field name="date_order"/>
+                            <field name="delivery_date"/>
+                            <field name="delivery_type_id" options="{'no_open': True, 'no_create': True}"/>
+                            <!-- <field name="call_center_agent_id"/> -->
+                            <field name="order_type"/>
+                            <field name="picking_type_id"
+                                   domain="[('code', '=', 'outgoing'),('company_id','=',company_id)]"/>
+                            <field name="warehouse_id" string="Branch"/>
+                            <field name="location_id"/>
+                            <field name="attachment"/>
+                            <field name="prepaid"/>
+<!--                            <field name="active"/>-->
+                        </group>
+                    </group>
+                    <group name="lines_orders">
+                        <field name="cancel_reason" string="Canceled Reason"/>
+                        <field name="call_center_lines"  widget="badge" decoration-success="state" tracking="1"/>
+                    </group>
+                    <notebook>
+                        <page name="order_lines" string="Order Lines">
+                            <div>
+                                <button name="add_service_product" string="Add Service Product" type="object"
+                                        states="draft" class="oe_highlight"/>
+                            </div>
+                            <field name="call_center_line_ids" widget="section_and_note_one2many">
+                                <tree editable="bottom">
+                                    <field name="product_id" attrs="{'required': [('display_type', '=', False)]}"
+                                           force_save="1" widget="product_configurator"/>
+                                    <field name="name_des" widget="section_and_note_text"/>
+                                    <field name="qty_available" force_save="1"/>
+                                    <field name="virtual_available" force_save="1"/>
+                                    <field name="qty_in_location"/>
+                                    <field name="quantity"/>
+                                    <field name="unit_price" force_save="1"/>
+                                   <field name="order_available" string="Availablilty"/>
+                                    <field name="tax_ids"
+                                           options="{'no_open': True, 'no_create': True,'color_field': 'id'}"
+                                           widget="many2many_tags"/>
+                                    <field name="price_subtotal"/>
+                                    <field name="display_type" force_save="1" invisible="1"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="display_type" invisible="1"/>
+                                            <field name="product_id"/>
+                                            <field name="name_des" widget="section_and_note_text"/>
+                                            <field name="qty_available"/>
+                                            <field name="virtual_available"/>
+                                            <field name="qty_in_location"/>
+                                        </group>
+                                        <group>
+                                            <field name="quantity"/>
+                                            <field name="unit_price" force_save="1"/>
+                                            <field name="tax_ids"
+                                                   options="{'no_open': True, 'no_create': True,'color_field': 'id'}"
+                                                   widget="many2many_tags"/>
+                                            <field name="price_subtotal"/>
+                                            <field name="product_category"/>
+                                           <field name="order_available" string="Availablilty"/>
+                                            <field name="product_type"/>
+
+                                        </group>
+                                    </group>
+                                    <label for="name_des" string="Description"
+                                           attrs="{'invisible': [('display_type', '!=', False)]}"/>
+                                    <label for="name_des" string="Section"
+                                           attrs="{'invisible': [('display_type', '!=', 'line_section')]}"/>
+                                    <label for="name_des" string="Note"
+                                           attrs="{'invisible': [('display_type', '!=', 'line_note')]}"/>
+                                    <field name="name_des" widget="text"/>
+                                </form>
+                            </field>
+                            <group name="note_group" col="6" class="mt-2 mt-md-0">
+                                <group colspan="4">
+                                    <field name="note" class="oe-bordered-editor" nolabel="1"
+                                           placeholder="Terms and conditions..."/>
+                                </group>
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="call_center_total">
+                                    <field name="subtotal"/>
+                                    <field name="tax_amount"/>
+                                    <field name="amount_total" class="oe_subtotal_footer_separator"/>
+                                    <field name="paid_amount" attrs="{'invisible':[('prepaid','=',False)]}"/>
+                                    <field name="amount_due" class="oe_subtotal_footer_separator"
+                                           attrs="{'invisible':[('prepaid','=',False)]}"/>
+                                </group>
+                                <div class="oe_clear"/>
+                            </group>
+                        </page>
+                        <page name="other_info" string="Other Info">
+                            <group>
+                                <group>
+                                    <field name="company_id"/>
+                                    <field name="team_id"/>
+                                    <field name="user_id"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="call_center_order_tree" model="ir.ui.view">
+        <field name="name">call.center.order.tree</field>
+        <field name="model">call.center.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Ref"  widget="badge"  decoration-success="order_available == 'in_hand'"  decoration-danger="order_available == 'manufacturing'" />
+                <field name="partner_id" string="Customer"/>
+                <field name="create_date"/>
+                <field name="delivery_date"/>
+                <field name="user_id"/>
+                <!-- <field name="team_id"/> -->
+                <field name="warehouse_id" string="Branch"/>
+                <!-- <field name="company_id"/> -->
+                <field name="amount_total"/>
+                <field name="cancel_reason" string="Canceled Reason"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'"  decoration-warning="state == 'in_preparation'" decoration-info="state == 'delivery_invoices' or state == 'delivery_assigned' or state == 'delivery_on_way' or state == 'delivery_arrived' or state == 'delivery_collection' "  decoration-danger="state == 'delivery_canceled'"/>
+                 <field name="order_available" optional="1"/>
+<!--                <field name="product_category"/>-->
+            </tree>
+        </field>
+    </record>
+    <record id="call_center_order_search" model="ir.ui.view">
+        <field name="name">call.center.order.search</field>
+        <field name="model">call.center.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="warehouse_id" string="Branch"/>
+                <field name="create_date"/>
+                <field name="user_id"/>
+                <field name="company_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Branch" name="group_warehouse_id" context="{'group_by':'warehouse_id'}"/>
+                    <filter string="Partner" name="group_partner_id" context="{'group_by':'partner_id'}"/>
+                    <filter string="User" name="group_user_id" context="{'group_by':'user_id'}"/>
+                    <filter string="Company" name="group_company_id" context="{'group_by':'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="call_center_order_action" model="ir.actions.act_window">
+        <field name="name">Orders</field>
+        <field name="res_model">call.center.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new document
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="forecasted_purchasing_form" model="ir.ui.view">
+        <field name="name">forecasted.purchasing.form</field>
+        <field name="model">forecasted.purchasing</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="compute_forecasted_purchasing"
+                            string="Compute"
+                            type="object" class="oe_highlight"
+                    />
+                    <button name="create_purchase_orders"
+                            string="Create Purchase Orders"
+                            type="object" class="oe_highlight"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_purchase_order"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-shopping-cart">
+                            <div class="o_stat_info">
+                                <field name="purchase_order_number"
+                                       class="o_stat_value"/>
+                                <span class="o_stat_text">Purchase(s)</span>
+                            </div>
+                        </button>
+                    </div>
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <field name="warehouse_ids" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="product_ids" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="product_category_ids" widget="many2many_tags"/>
+                    </group>
+
+
+                    <group>
+
+                        <group>
+                            <field name="vendor_id"/>
+                            <field name="replenish_period"/>
+                            <field name="purchase_order_ids" invisible="1"/>
+                            <field name="minimum_replenish_period"/>
+
+                        </group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="Period_days" force_save="1"/>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="forecasted_purchasing_Information" string="Forecasted Purchasing Information">
+                            <!-- add  context="{'default_field' : field}" to set default value -->
+                            <field name="forecasted_purchasing_information_ids" options="{'no_create': True}">
+                                <tree editable="bottom">
+                                    <!-- add  domain="[('id','=',parent.field)]" to set default domain -->
+                                    <field name="forecasted_purchasing_id" invisible="1"/>
+                                    <field name="product_id" optional="show"/>
+                                    <field name="expected_quantity" optional="show"/>
+                                    <field name="minimum_quantity" optional="show"/>
+                                    <field name="on_hand" optional="show"/>
+                                    <field name="virtual_available" optional="show"/>
+                                    <field name="stock_warehouse_id" string="Warehouse" optional="show"/>
+                                    <field name="stock_location_id" optional="show"/>
+                                    <field name="total_sold_period" optional="show"/>
+                                    <field name="total_purchased_period" optional="show"/>
+                                    <field name="date_from_balance" optional="hide"/>
+                                    <field name="date_to_balance" optional="hide"/>
+                                    <field name="turn_over_rate" optional="show"/>
+                                    <field name="last_purchase_price" optional="show"/>
+                                    <field name="vendor_id" optional="show"/>
+                                    <field name="stock_picking_id" optional="show"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="forecasted_purchasing_tree" model="ir.ui.view">
+        <field name="name">forecasted.purchasing.tree</field>
+        <field name="model">forecasted.purchasing</field>
+        <!--<field name="field_parent">children_ids if_want_to_add_Childs</field>-->
+        <field name="arch" type="xml">
+            <tree>
+                <field name="warehouse_ids"/>
+                <field name="product_ids"/>
+                <field name="replenish_period"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="Period_days"/>
+                <field name="minimum_replenish_period"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="forecasted_purchasing_action" model="ir.actions.act_window">
+        <field name="name">Forecasted Purchasing</field>
+        <field name="res_model">forecasted.purchasing</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new document
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="forecasted_purchasing_menu"
+              name="Forecasted Purchasing"
+              action="forecasted_purchasing_action"
+              web_icon="pharmacy_forecasted_purchasing,static/description/icon.png"
+              sequence="-1"/>
+
+
+    <record id="inherit_purchase_order_form" model="ir.ui.view">
+        <field name="name">inherit.purchase.order.form</field>
+        <field name="model">purchase.order</field>
+        <!--<field name="mode">primary</field>-->
+        <!--<field name="groups_id" eval="[(4, ref(''))]"/>-->
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="forecasted_purchasing_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="forecasted_purchasing_sequence" model="ir.sequence">
+        <field name="name">Forecasted Purchasing</field>
+        <field name="code">forecasted.purchasing</field>
+        <field name="prefix">FP/</field>
+        <field name="padding">5</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

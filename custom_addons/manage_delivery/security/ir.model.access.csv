@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_manage_delivery,manage_delivery,model_manage_delivery,base.group_user,1,1,1,1
+access_manage_delivery_liens,manage_delivery_liens,model_manage_delivery_liens,base.group_user,1,1,1,1
+access_delivery_boy,delivery_boy,model_delivery_boy,base.group_user,1,1,1,1
+access_select_delivery_invoice,select_delivery_invoice,model_select_delivery_invoice,base.group_user,1,1,1,1
+access_delivery_invoice_lines,delivery_invoice_lines,model_delivery_invoice_lines,base.group_user,1,1,1,1

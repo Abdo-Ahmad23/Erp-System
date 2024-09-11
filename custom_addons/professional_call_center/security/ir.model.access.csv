@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_order_call_center_order_own,Call Center Order,model_call_center_order,group_own_documents_only,1,1,1,0
+access_order_call_center_order_all,Call Center Order,model_call_center_order,group_all_documents,1,1,1,1
+
+access_order_call_center_line_all,Call Center Line,model_call_center_line,group_own_documents_only,1,1,1,1
+
+access_delivery_type_all,Delivery Type,model_delivery_type,group_own_documents_only,1,1,1,1
+access_delivery_type_line_own,Delivery Type Line,model_delivery_type_line,group_own_documents_only,1,1,1,1
+
+access_delivery_address_info_own,Delivery Address Info,model_delivery_address_info,group_own_documents_only,1,1,1,1
+
+access_order_report_wizard_own,Order Report Wizard,model_order_report_wizard,group_own_documents_only,1,1,1,1
+access_register_payment_wizard_own,register_payment_wizard,model_register_payment_wizard,group_own_documents_only,1,1,1,1
+

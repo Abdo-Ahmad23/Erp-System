@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_country_district_internal_user,access.res.country.district.internal.user,contact_address.model_res_country_district,base.group_user,1,0,0,0
+access_res_country_district_admin,access.res.country.district.admin,contact_address.model_res_country_district,base.group_erp_manager,1,1,1,1
+access_res_country_zone_internal_user,access.res.country.zone.internal.user,contact_address.model_res_country_zone,base.group_user,1,0,0,0
+access_res_country_zone_admin,access.res.country.zone.admin,contact_address.model_res_country_zone,base.group_erp_manager,1,1,1,1
+access_building_type_internal_user,access.building.type.internal.user,contact_address.model_building_type,base.group_user,1,0,0,0
+access_building_type_admin,access.building.type.admin,contact_address.model_building_type,base.group_erp_manager,1,1,1,1

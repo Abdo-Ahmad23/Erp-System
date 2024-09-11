@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_draft']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') == 1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_cancel'][1]" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') == 1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_cancel'][2]" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') == 1</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="call_center_account_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="professional_call_center.account_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='journal_id']/.." position="after">
+                <separator/>
+                <field name="delivery_boy_id" invisible="context.get('delivery_invoice') != 1" optional="show"/>
+                <field name="mobile" invisible="context.get('delivery_invoice') != 1"/>
+                <field name="transportation" invisible="context.get('delivery_invoice') != 1"/>
+                <field name="delivery_state" invisible="1"/>
+                <field name="delivery_billed" invisible="1"/>
+                <field name="delivery_boy_bill" invisible="1"/>
+            </xpath>
+            <xpath expr="//group[@name='call_center_info']/group[1]" position="after">
+                <group>
+                    <field name="send_date" invisible="context.get('delivery_invoice') != 1"/>
+                    <field name="arrived_date" invisible="context.get('delivery_invoice') != 1"/>
+                    <separator/>
+                    <field name="prepaid" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                    <field name="paid_amount" string="Order Paid amount"
+                           attrs="{'invisible':['|',('prepaid','=',False),('call_center_order_id','=',False)]}"/>
+                    <field name="amount_due" string="Order amount Due"
+                           attrs="{'invisible':['|',('prepaid','=',False),('call_center_order_id','=',False)]}" />
+                </group>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="delivery_on_way" string="Delivery In Way" type="object"
+                        attrs="{'invisible':[('delivery_state','!=','delivery_assigned')]}" class="oe_highlight"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <button name="delivery_arrived" string="Delivery Arrived" type="object"
+                        attrs="{'invisible':[('delivery_state','!=','delivery_on_way')]}" class="oe_highlight"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <button name="delivery_collection" string="Delivery Collection" type="object"
+                        attrs="{'invisible':[('delivery_state','!=','delivery_arrived')]}" class="oe_highlight"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <button name="delivery_canceled" string="Cancel" type="object"
+                        groups="professional_delivery_management.group_all_documents"
+                        attrs="{'invisible':[('delivery_state','in',['delivery_canceled','delivery_collection'])]}"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <button name="set_to_delivery_invoices" string="Set To  Draft" type="object"
+                        attrs="{'invisible':[('delivery_state','!=','delivery_canceled')]}"
+                        invisible="context.get('delivery_invoice') != 1"/>
+            </xpath>
+            <xpath expr="//sheet/div[1]" position="after">
+                <widget name="web_ribbon" title="In Delivery Area"
+                        attrs="{'invisible': [ '|',('delivery_state', '!=', 'delivery_invoices'),('order_type', '!=', 'delivery')]}"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <widget name="web_ribbon" title="Delivery Assigned"
+                        attrs="{'invisible': [ ('delivery_state', '!=', 'delivery_assigned')]}"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <widget name="web_ribbon" title="Delivery In Way"
+                        attrs="{'invisible': [ ('delivery_state', '!=', 'delivery_on_way')]}"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <widget name="web_ribbon" title="Delivery Arrived"
+                        attrs="{'invisible': [ ('delivery_state', '!=', 'delivery_arrived')]}"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <widget name="web_ribbon" title="Delivery Boy Received Money"
+                        attrs="{'invisible': [ ('delivery_state', '!=', 'delivery_collection')]}"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <widget name="web_ribbon" title="Canceled"
+                        attrs="{'invisible': [ ('delivery_state', '!=', 'delivery_canceled')]}"
+                        invisible="context.get('delivery_invoice') != 1"/>
+            </xpath>
+            <xpath expr="//field[@name='call_center_order_id']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_type']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='delivery_date']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='delivery_type_id']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='picking_id']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='attachment']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='zone_id']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='district_id']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='land_mark']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='building_type_id']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='building_number']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='floor_number']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='flat_number']" position="attributes">
+                <attribute name="invisible">context.get('delivery_invoice') != 1</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="account_move_tree" model="ir.ui.view">
+        <field name="name">account.move.tree</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_out_invoice_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="call_center_order_id" string="Order"/>
+                <field name="partner_id" string="Customer"/>
+            </field>  
+            <field name="invoice_date_due" position="after">
+                <field name="delivery_date" string="Delivery Date"/>
+            </field>
+            <!-- <xpath expr="//field[@name='activity_ids']" position="attributes">
+                <attribute name="invisible">
+                1
+                </attribute>
+            </xpath> -->
+
+            <!-- <xpath expr="//field[@name='activity_ids']" position="attributes">
+                   <attribute name="options">{'optional': hide }</attribute> 
+            </xpath> -->
+
+            <!-- <xpath expr="//field[@name='activity_id']" position="attributes">
+                <attribute name="invisible=">1</attribute>
+            </xpath> -->
+            <field name="payment_state" position="before">
+                <field name="paid" sum="Total Paid" decoration-bf="1"/>
+                <field name="amount_residual" string="Due Value" sum="Total Due"/>
+                <field name="delivery_boy_id" optional="hide"/>
+                <field name="order_type" invisible="1"/>
+                <field name="amount_due" string="Order Amount Due" optional="hide"/>
+                <field name="delivery_state" widget="badge" decoration-danger="delivery_state == 'delivery_canceled'"
+                       decoration-info="delivery_state in ['delivery_invoices','delivery_assigned']"
+                       decoration-success="delivery_state == 'delivery_collection'" optional="show"
+                       invisible="context.get('delivery_invoice') != 1"/>
+                <button name="delivery_on_way" string="Delivery On Way" type="object"
+                        attrs="{'invisible':[('delivery_state','!=','delivery_assigned')]}" icon="fa-icon_you_like"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <!-- <button name="print_boy_id" string="Pring Boy Id" type="oject"/> -->
+                <button name="delivery_arrived" string="Delivery Arrived" type="object"
+                        attrs="{'invisible':[('delivery_state','!=','delivery_on_way')]}" icon="fa-icon_you_like"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <button name="delivery_collection" string="Delivery Collection" type="object"
+                        attrs="{'invisible':[('delivery_state','!=','delivery_arrived')]}" icon="fa-icon_you_like"
+                        invisible="context.get('delivery_invoice') != 1"/>
+                <button name="delivery_canceled" string="Cancel Delivery" type="object"
+                        groups="professional_delivery_management.group_all_documents"
+                        attrs="{'invisible':['|',('delivery_state','in',['delivery_canceled','delivery_collection']),('order_type','!=','delivery')]}"
+                        icon="fa-icon_you_like" invisible="context.get('delivery_invoice') != 1"/>
+                <button name="set_to_delivery_invoices" string="Set To Invoices" type="object"
+                        attrs="{'invisible':[('delivery_state','!=','delivery_canceled')]}" icon="fa-icon_you_like"
+                        invisible="context.get('delivery_invoice') != 1"/>
+            </field>
+            <xpath expr="//header" position="inside">
+                <button name="assign_delivery_boy" string="Assign Delivery Boy" type="object"
+                        groups="professional_delivery_management.group_own_documents_only"
+                        invisible="context.get('delivery_assign_boy') == 0 or context.get('delivery_invoice') == 0"/>
+                <button name="create_delivery_boy_bill" string="Create Delivery Boy Bill" type="object"
+                        groups="professional_delivery_management.group_own_documents_only"
+                        invisible="context.get('delivery_boy_collection') == 0 or context.get('delivery_invoice') == 0"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="account_move_search" model="ir.ui.view">
+        <field name="name">inherit.account.move.search</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="delivery_boy_id" optional="show"/>
+            </field>
+            <xpath expr="//search/group" position="inside">
+                <filter string="Delivery Boy" name="group_by_delivery_boy_id" context="{'group_by':'delivery_boy_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_move_action" model="ir.actions.act_window">
+        <field name="name">Delivery Invoice</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'create': False, 'delivery_assign_boy': 1, 'delivery_boy_collection': 0,
+            'delivery_invoice': 1}
+        </field>
+        <field name="domain">[('move_type', '=', 'out_invoice'), ('call_center_order_id', '!=', False),
+            ('delivery_state', '=', 'delivery_invoices'), ('order_type', '=', 'delivery')]
+        </field>
+        <field name="view_id" ref="account.view_out_invoice_tree"/>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    </record>
+    <record id="assign_delivery_account_move_action" model="ir.actions.act_window">
+        <field name="name">Delivery Assigned</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'create': False, 'delivery_assign_boy': 0, 'delivery_boy_collection': 0,
+            'delivery_invoice': 1}
+        </field>
+        <field name="domain">[('move_type', '=', 'out_invoice'), ('call_center_order_id', '!=', False),
+            ('delivery_state', '=', 'delivery_assigned'), ('order_type', '=', 'delivery')]
+        </field>
+        <field name="view_id" ref="account.view_out_invoice_tree"/>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    </record>
+    <record id="delivery_on_way_account_move_action" model="ir.actions.act_window">
+        <field name="name">Delivery On Way</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'create': False, 'delivery_assign_boy': 0, 'delivery_boy_collection': 0,
+            'delivery_invoice': 1}
+        </field>
+        <field name="domain">[('move_type', '=', 'out_invoice'), ('call_center_order_id', '!=', False),
+            ('delivery_state', '=', 'delivery_on_way'), ('order_type', '=', 'delivery')]
+        </field>
+        <field name="view_id" ref="account.view_out_invoice_tree"/>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    </record>
+    <record id="delivery_arrived_account_move_action" model="ir.actions.act_window">
+        <field name="name">Delivery Arrived</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'create': False, 'delivery_assign_boy': 0, 'delivery_boy_collection': 0,
+            'delivery_invoice': 1}
+        </field>
+        <field name="domain">[('move_type', '=', 'out_invoice'), ('call_center_order_id', '!=', False),
+            ('delivery_state', '=', 'delivery_arrived'), ('order_type', '=', 'delivery')]
+        </field>
+        <field name="view_id" ref="account.view_out_invoice_tree"/>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    </record>
+    <record id="delivery_collection_account_move_action" model="ir.actions.act_window">
+        <field name="name">Delivery Collection</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'default_move_type': 'out_invoice', 'create': False, 'delivery_assign_boy': 0,
+            'delivery_boy_collection': 0, 'delivery_invoice': 1}
+        </field>
+        <field name="domain">[('move_type', '=', 'out_invoice'), ('payment_state', 'in', ['not_paid', 'partial']),
+            ('call_center_order_id', '!=', False), ('delivery_state', '=', 'delivery_collection'), ('order_type', '=',
+            'delivery')]
+        </field>
+        <field name="view_id" ref="account.view_out_invoice_tree"/>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    </record>
+    <record id="delivery_paid_account_move_action" model="ir.actions.act_window">
+        <field name="name">Delivery Paid</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'create': False, 'delivery_assign_boy': 0, 'delivery_boy_collection': 1,
+            'delivery_invoice': 1}
+        </field>
+        <field name="domain">[('move_type', '=', 'out_invoice'), ('delivery_billed', '=', False), ('payment_state',
+            'in', ['paid', 'in_payment']), ('delivery_state', '=', 'delivery_collection'), ('call_center_order_id',
+            '!=', False), ('order_type', '=', 'delivery')]
+        </field>
+        <field name="view_id" ref="account.view_out_invoice_tree"/>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    </record>
+    <record id="commission_order_account_move_action" model="ir.actions.act_window">
+        <field name="name">Delivery Commission Orders</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'create': False, 'delivery_assign_boy': 0, 'delivery_boy_collection': 0,
+            'delivery_invoice': 1}
+        </field>
+        <field name="domain">[('delivery_billed', '=', True), ('payment_state', 'in', ['paid', 'in_payment']),
+            ('order_type', '=', 'delivery')]
+        </field>
+        <field name="view_id" ref="account.view_out_invoice_tree"/>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    </record>
+    <record id="delivery_canceled_account_move_action" model="ir.actions.act_window">
+        <field name="name">Delivery Canceled</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'create': False, 'delivery_assign_boy': 0, 'delivery_boy_collection': 0,
+            'delivery_invoice': 1}
+        </field>
+        <field name="domain">[('move_type', '=', 'out_invoice'), ('call_center_order_id', '!=', False),
+            ('delivery_state', '=', 'delivery_canceled'), ('order_type', '=', 'delivery')]
+        </field>
+        <field name="view_id" ref="account.view_out_invoice_tree"/>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    </record>
+    <record id="delivery_boy_bill_account_move_action" model="ir.actions.act_window">
+        <field name="name">Delivery Boy Bill</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'default_move_type': 'in_invoice', 'create': False, 'delivery_assign_boy': 0,
+            'delivery_boy_collection': 0, 'delivery_invoice': 0}
+        </field>
+        <field name="domain">[('move_type', '=', 'in_invoice'), ('delivery_boy_bill', '=', True), ('payment_state',
+            'in', ['not_paid', 'partial'])]
+        </field>
+        <field name="view_id" ref="account.view_in_invoice_bill_tree"/>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    </record>
+    <!--                             In Branch Invoices Tree                         -->
+
+    <record id="account.action_move_out_invoice_type" model="ir.actions.act_window">
+        <field name="context">{'delivery_invoice': 0, 'default_move_type': 'out_invoice'}</field>
+    </record>
+    <record id="account.action_move_in_invoice_type" model="ir.actions.act_window">
+        <field name="context">{'delivery_invoice': 0, 'default_move_type': 'in_invoice'}</field>
+    </record>
+    <record id="branch_account_move_tree" model="ir.ui.view">
+        <field name="name">account.move.tree</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <tree string="Invoices" js_class="account_tree" decoration-info="state == 'draft'" sample="1">
+                <header>
+                    <button name="action_register_payment" type="object" string="Register Payment"
+                            groups="account.group_account_user"
+                            invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund', 'out_receipt', 'in_invoice', 'in_refund','in_receipt')"/>
+                </header>
+                <field name="name" decoration-bf="1"/>
+                <field name="partner_id" invisible="1"/>
+                <field name="invoice_source_email" invisible="1"/>
+                <field name="invoice_partner_display_name"
+                       invisible="context.get('default_move_type') not in ('in_invoice', 'in_refund','in_receipt')"
+                       groups="base.group_user" string="Vendor"/>
+                <field name="invoice_partner_display_name"
+                       invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')"
+                       groups="base.group_user" string="Customer"/>
+                <field name="invoice_date" optional="show" attrs="{'invisible':[('payment_state','=','in_payment')]}"
+                       invisible="context.get('default_move_type') not in ('in_invoice', 'in_refund','in_receipt')"
+                       string="Bill Date"/>
+                <field name="invoice_date" optional="show"
+                       invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')"
+                       string="Invoice Date"/>
+                <field name="date" optional="hide"
+                       invisible="context.get('default_move_type') in ('out_invoice', 'out_refund', 'out_receipt')"
+                       string="Accounting Date"/>
+                <field name="invoice_date_due" widget="remaining_days" optional="show"
+                       attrs="{'invisible': [['payment_state', 'in', ('paid', 'in_payment', 'reversed')]]}"/>
+                <field name="invoice_origin" optional="hide" string="Source Document"/>
+                <field name="payment_reference" optional="hide"
+                       invisible="context.get('default_move_type') in ('out_invoice', 'out_refund','out_receipt')"/>
+                <field name="ref" optional="hide"/>
+                <field name="invoice_user_id" optional="hide"
+                       invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')"
+                       string="Salesperson" widget="many2one_avatar_user"/>
+                <field name="activity_ids" widget="list_activity" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" optional="hide"/>
+                <field name="amount_untaxed_signed" optional="hide"/>
+                <field name="call_center_order_id"/>
+                <field name="amount_tax_signed" string="Tax" sum="Total" optional="hide"/>
+                <field name="amount_total_signed" string="Total" sum="Total" decoration-bf="1" optional="hide"/>
+                <field name="paid"/>
+                <field name="amount_total_in_currency_signed" optional="hide"/>
+               
+                <field name="amount_residual_signed" string="Amount Due" sum="Amount Due" optional="hide"/>
+                <field name="currency_id" groups="base.group_multi_currency" optional="hide"/>
+                <field name="company_currency_id" invisible="1"/>
+                <field name="to_check" optional="hide" widget="boolean_toggle"/>
+                <field name="payment_state" widget="badge" decoration-danger="payment_state == 'not_paid'"
+                       decoration-warning="payment_state in ('partial', 'in_payment')"
+                       decoration-success="payment_state in ('paid', 'reversed')"
+                       attrs="{'invisible': [('payment_state', 'in', ('invoicing_legacy'))]}" optional="show"/>
+                <field name="state" widget="badge" decoration-success="state == 'posted'"
+                       decoration-info="state == 'draft'" optional="show"/>
+                <field name="move_type" invisible="context.get('default_move_type', True)"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <!--                             In Branch Invoices                         -->
+    <record id="in_branch_invoices_account_move_action" model="ir.actions.act_window">
+        <field name="name">In Branch Invoices</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'create': False, 'delivery_assign_boy': 0, 'delivery_boy_collection': 0,
+            'delivery_invoice': 1}
+        </field>
+        <field name="domain">[('move_type', '=', 'out_invoice'), ('call_center_order_id', '!=', False),
+            ('delivery_state', 'in', ['delivery_invoices', 'delivery_canceled']), ('order_type', '!=', 'delivery')]
+        </field>
+        <field name="view_id" ref="professional_delivery_management.branch_account_move_tree"/>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    </record>
+</odoo>

@@ -1,0 +1,163 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* model_card_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20220307\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-19 15:18+0000\n"
+"PO-Revision-Date: 2022-05-19 15:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__amount
+msgid "Amount"
+msgstr "القيمه الاجمالي"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__amount_balance
+msgid "Amount Balance"
+msgstr "الرصيد بالقيمة"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__balance
+msgid "Balance"
+msgstr "الرصيد"
+
+#. module: model_card_product
+#: model_terms:ir.ui.view,arch_db:model_card_product.model_card_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: model_card_product
+#: code:addons/model_card_product/wizard/card_product_wizard.py:0
+#: model:ir.actions.act_window,name:model_card_product.model_card_wizard_action
+#: model:ir.model,name:model_card_product.model_card_product_report
+#, python-format
+msgid "Card Product Report"
+msgstr ""
+
+#. module: model_card_product
+#: model_terms:ir.ui.view,arch_db:model_card_product.model_card_wizard_form
+msgid "Confirm"
+msgstr ""
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__create_uid
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__create_date
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_wizard__date_from
+msgid "Date From"
+msgstr "التاريخ من"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_wizard__date_to
+msgid "التاريخ الى"
+msgstr ""
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__display_name
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: model_card_product
+#: model_terms:ir.ui.view,arch_db:model_card_product.card_product_report_search
+msgid "Group By"
+msgstr ""
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__id
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report____last_update
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__write_uid
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__write_date
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: model_card_product
+#: model:ir.ui.menu,name:model_card_product.model_card_wizard_menu
+msgid "Model Card Product Report"
+msgstr "نموذج كارت صنف "
+
+#. module: model_card_product
+#: model:ir.model,name:model_card_product.model_card_product_wizard
+msgid "Model Card Wizard"
+msgstr "نموذج كارت صنف "
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__partner_code
+msgid "Partner Code"
+msgstr "كود العميل"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__partner_name
+msgid "Partner Name"
+msgstr "اسم العميل"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__picking_type_name
+msgid "Picking Type Name"
+msgstr "نوع العمليه"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__price_unit
+msgid "Price Unit"
+msgstr "سعر الوحده"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_wizard__product_ids
+#: model_terms:ir.ui.view,arch_db:model_card_product.card_product_report_search
+msgid "Product"
+msgstr "المنتج"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__quantity
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__stock_name
+msgid "Stock Name"
+msgstr "اسم المخزن"
+
+#. module: model_card_product
+#: model:ir.model.fields,field_description:model_card_product.field_card_product_report__stock_picking_name
+msgid "Stock Picking Name"
+msgstr "رقم الاذن"

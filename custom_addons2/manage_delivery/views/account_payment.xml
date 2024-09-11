@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="inherit_account_payment_form" model="ir.ui.view">
+        <field name="name">inherit.account.payment.form</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_bank_id']" position="after">
+                <field name="delivery_boy" attrs="{'invisible':[('from_delivery_move','!=',True)]}"/>
+                <field name="from_delivery_move" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_account_payment_tree" model="ir.ui.view">
+        <field name="name">inherit.account.payment.tree</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="delivery_boy" optional="hide"/>
+                <field name="from_delivery_move" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_account_payment_search" model="ir.ui.view">
+        <field name="name">inherit.account.payment.search</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="delivery_boy"/>
+                <field name="from_delivery_move"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="account_payment_delivery_action" model="ir.actions.act_window">
+        <field name="name">Account Payment</field>
+        <field name="res_model">account.payment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('from_delivery_move', '=', True)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Account Payment
+            </p>
+        </field>
+    </record>
+    <menuitem id="account_payment_menu"
+              name="Account Payments"
+              action="account_payment_delivery_action"
+              parent="manage_delivery_orders_menu"
+              sequence="10"/>
+</odoo>

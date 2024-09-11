@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="model_card_wizard_form" model="ir.ui.view">
+        <field name="name">card.product.wizard.form</field>
+        <field name="model">card.product.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                        </group>
+                        <group>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="product_ids" widget="many2many_tags" options="{'color_field': 'id'}"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="confirm" string="Confirm" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="model_card_wizard_action" model="ir.actions.act_window">
+        <field name="name">Card Product Report</field>
+        <field name="res_model">card.product.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="model_card_wizard_menu"
+              name="Model Card Product Report"
+              action="model_card_wizard_action"
+              parent="stock.menu_warehouse_report"
+              sequence="160"/>
+</odoo>

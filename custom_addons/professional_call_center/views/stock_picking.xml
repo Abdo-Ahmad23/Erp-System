@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="origin" position="after">
+                <field name="order_type" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <field name="delivery_date" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <field name="delivery_type_id" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <field name="call_center_agent_id" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <field name="attachment" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <field name="account_move_id" invisible="1"/>
+                <field name="call_center_order_id" invisible="1"/>
+            </field>
+            <xpath expr="//field[@name='backorder_id']" position="after">
+                <label for="street" style="font-weight: bold;" string="Street"
+                       attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <div class="d-flex" attrs="{'invisible':[('call_center_order_id','=',False)]}">
+                    <field name="street" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Street2</span>
+                    <field name="street2" force_save="1"/>
+                </div>
+                <label for="zone_id" style="font-weight: bold;" string="Zone"
+                       attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <div class="d-flex" attrs="{'invisible':[('call_center_order_id','=',False)]}">
+                    <field name="zone_id" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">District</span>
+                    <field name="district_id" force_save="1"/>
+                </div>
+                <label for="state_id" style="font-weight: bold;" string="State"
+                       attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <div class="d-flex" attrs="{'invisible':[('call_center_order_id','=',False)]}">
+                    <field name="state_id" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Country</span>
+                    <field name="country_id" force_save="1"/>
+                </div>
+                <label for="land_mark" style="font-weight: bold;" string="Land Mark"
+                       attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <div class="d-flex" attrs="{'invisible':[('call_center_order_id','=',False)]}">
+                    <field name="land_mark" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Building Type</span>
+                    <field name="building_type_id" force_save="1"/>
+                </div>
+                <label for="building_number" style="font-weight: bold;" string="Building Number"
+                       attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <div class="d-flex" attrs="{'invisible':[('call_center_order_id','=',False)]}">
+                    <field name="building_number" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Floor Number</span>
+                    <field name="floor_number" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Flat Number</span>
+                    <field name="flat_number" force_save="1"/>
+                </div>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_account_move" string="Invoice" type="object" class="oe_stat_button"
+                        icon="fa-pencil-square-o" groups="professional_call_center.group_all_documents"
+                        attrs="{'invisible':['|',('account_move_id','=',False),('call_center_order_id','=',False)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='move_ids_without_package']/tree//field[@name='product_uom']"
+                   position="after">
+                <field name="price_unit"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

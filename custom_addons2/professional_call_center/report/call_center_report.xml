@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="call_center_report_page_template">
+        <div class="page">
+            <t t-if="sequence2 == 1">
+                <h1 class="text-center">التقرير الكامل للمنتجات</h1>
+                <br/>
+                <br/>
+                <div class="row">
+                    <table class="table text-center">
+                        <thead class="table-active">
+                            <tr>
+                                <th class="align-middle">Date From</th>
+                                <th class="align-middle">Date To</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <td>
+                                        <t t-esc="date_from"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="date_to"/>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+            </t>  
+            <t t-if="group_by_branch">
+                <h2 class="align-center">
+                    <storng>
+                        Branch :
+                        <t t-esc="warehouse.name"/>
+                    </storng>
+                </h2>
+            </t>  
+            <br/>
+            <div class="row">
+                <table class="table table-bordered table-sm text-center">
+                    <thead class="table-active">
+                        <tr>
+                            <th class="align-middle">#</th>
+                            <th class="align-middle">Customer</th>
+                            <th class="align-middle">Product</th>
+                            <th class="align-middle">Description</th>
+                            <th class="align-middle">Quantity</th>
+                            <th class="align-middle">Delivery Date &amp; Time</th>
+                            <t t-if=" not group_by_branch">
+                                <th class="align-middle">Branch</th>
+                            </t>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="sequence" t-value="1"/>
+                        <t t-foreach="order_ids[warehouse.id]" t-as="order">
+                                <tr>
+                                    <td>
+                                        <t t-esc="sequence"/>
+                                        <t t-set="sequence" t-value="sequence + 1"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="order.order_id.partner_id.name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="order.product_id.name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="order.name_des"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="order.quantity"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="order.order_id._convert_date_front(order.order_id.delivery_date)"/>
+                                    </td>
+                                    <t t-if=" not group_by_branch">
+                                        <td>
+                                            <t t-esc="order.order_id.warehouse_id.name"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </template>
+    <template id="order_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-set="sequence2" t-value="1"/>
+                <t t-foreach="warehouses" t-as="warehouse">
+                    <t t-call="professional_call_center.call_center_report_page_template"/>
+                    <p style="page-break-after: always;"/>
+                    <t t-set="sequence2" t-value="2"/>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

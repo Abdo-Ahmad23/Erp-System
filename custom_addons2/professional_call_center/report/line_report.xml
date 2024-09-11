@@ -1,0 +1,137 @@
+<odoo>
+    <record id="paperformat_custom_temp_line" model="report.paperformat">
+        <field name="name">Print Receipt</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">100</field>
+        <field name="page_width">80</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">3</field>
+        <field name="dpi">80</field>
+    </record>
+
+    <record id="lines_report" model="ir.actions.report" >
+       <field name="name">Lines Report</field>
+       <field name="model">call.center.line</field>
+       <field name="report_type">qweb-pdf</field>  <!--qweb-pdf or qweb-html  -->
+       <field name="binding_model_id" ref="model_call_center_line"/>
+       <field name="binding_type">report</field>  <!-- this field have to type  [ report - [defult] no wirte ]-->
+       <field name="report_name">professional_call_center.report_style_template_line</field> <!-- this field take value = "addon_name.id"  this id for style template and this id must be uneiq-->
+       <field name="paperformat_id" ref="professional_call_center.paperformat_custom_temp_line"></field>
+    </record>
+
+
+
+ <template id="report_style_template_line">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="professional_call_center.report_lines_document2"/>
+            </t>
+       </t>
+    </template>
+
+<!--    <template id="report_style_template">-->
+<!--        <t t-call="web.html_container">-->
+<!--            <t t-foreach="docs" t-as="doc">-->
+<!--                <t t-call="sale.report_saleorder_document" t-lang="doc.partner_id.lang"/>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+            <template id="report_lines_document2">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                                    <table style="font-size:12px;width:100%;padding:5px;font-weight:bold;text-align:center;font-family: 'Poppins', sans-serif;">
+                                        <tbody style="width:100%;">
+                                            <tr style="width:100%;">
+                                                <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;" t-if="o.date_order" class="text-left">
+                                                    <div>Order</div>
+                                                </td>
+                                                <td style="width:60%;padding:3px;font-size:11px;">
+                                                    <span t-field="o.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="width:100%;">
+                                                <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;" t-if="o.date_order" class="text-left">
+                                                    <div>Branch</div>
+                                                </td>
+                                                <td style="width:60%;padding:3px;font-size:11px;">
+                                                <span t-field="o.warehouse_id.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="width:100%;">
+                                                <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;">
+                                                    <div>Customer</div>
+                                                </td>
+                                                <td style="width:60%;padding:3px;font-size:11px;">
+                                                    <strong t-field="o.partner_id.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr style="width:100%;">
+                                                <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;" t-if="o.delivery_date" class="text-left">
+                                                    <div>Delivery Date</div>
+                                                </td>
+                                                <td style="width:60%;padding:3px;font-size:11px;">
+                                                        <span t-esc="o.order_id._convert_date()"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table table-condensed" style="width:100%;font-family: 'Poppins', sans-serif;  border: 1px solid #000000;">
+                                        <thead>
+                                            <tr style="font-size:12px;font-weight:bold">
+                                                <th style="font-size:14px;" colspan="5" class="text-left">Product</th>
+                                                <th colspan="1" class="text-left">Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                       <!-- <t t-foreach="o.call_center_line_ids" t-as="line">
+                                           <t t-if="o.product_id.product_tmpl_id.detailed_type == 'product'" > -->
+                                                <tr style="font-size:12px;text-align:center;">
+                                                    <td style="font-size:14px;text-align:center;" colspan="5" class="text-left">
+                                                        <span t-field="o.product_description"/>
+                                                    </td>
+                                                    <td style="font-weight:bold;" colspan="1" class="text-left">
+                                                        <span t-field="o.quantity"/>
+                                                    </td>
+                                                </tr>
+                                                <tr style="font-size:12px;text-align:center;background-color:#DDD;" t-if="o.name_des">
+                                                    <td style="font-size:14px;text-align:center;" colspan="8" class="text-left">
+                                                        <span t-field="o.name_des"/>
+                                                    </td>
+                                                </tr>
+                                            <!-- </t> -->
+            <!--                            </t>-->
+                                        </tbody>
+                                    </table>
+
+
+                                    <table style="border: 0px solid #FFFFFF;font-size:9px;width:100%;">
+                                            <tbody style="width:100%;">
+                                                <tr style="width:100%;">
+                                                    <td style="width:30%;padding:3px;font-size:9px;">
+                                                        <span t-esc="user.name"/>
+                                                    </td>
+                                                    <td style="width:50%;padding:3px;font-size:9px;">
+                                                        <span t-esc="o.order_id._get_now_date()"/>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                    </table>
+
+                                    <div style="width: 100%;border-top: 2px solid #000000;"></div>
+
+                                </div>
+                </t>
+            </template>
+
+<!-- <t t-call="web.external_layout"></t> -->
+ <!-- <t t-call="web.basic_layout"></t> -->
+
+</odoo>

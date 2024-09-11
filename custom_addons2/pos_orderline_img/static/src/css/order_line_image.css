@@ -1,0 +1,40 @@
+.salesperson-scroll{
+  height: 270px;
+  overflow: auto;
+}
+
+.salesperson {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.salesperson td{
+  text-align: left;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.salesperson tr:nth-child(even){background-color: #f2f2f2;}
+
+.salesperson tr:hover {background-color: #ddd;}
+
+.orderline-salesperson{
+    padding:0;
+    float:right;
+}
+.pos .order .orderline .pos_product_image{
+    float:left;
+    margin:auto;
+    margin-right:10px;
+}
+.pos .order {
+    padding-top: 0px !important;
+}
+.pos .order .orderline .product-name {
+    padding-top: 11px !important;
+}
+.pos .order .orderline .info-list {
+    color: #888;
+    margin-left: 10px;
+    padding-bottom: 19px;
+}

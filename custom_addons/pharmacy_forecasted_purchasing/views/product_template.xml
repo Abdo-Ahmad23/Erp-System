@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inherit_product_template_form" model="ir.ui.view">
+        <field name="name">inherit.product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position="inside">
+                <span class="d-inline-block">
+                    <field name="return_security"/>
+                    <label for="return_security"/>
+                </span>
+            </xpath>
+
+            <xpath expr="//field[@name='invoice_policy']" position="after">
+                <field name="unit_value"/>
+                <field name="type_of_product" string="Type"/>
+                <field name="origin"/>
+                <field name="using_way_id"/>
+                <field name="producing_company_id"/>
+                <field name="discounted"/>
+                <field name="max_discount"/>
+                <field name="effective_material"/>
+                <field name="scientific_group_id"/>
+                <field name="international_code" invisible="1"/>
+            </xpath>
+
+
+            <xpath expr="//field[@name='categ_id']" position="before">
+                <field name="price_without_vat"/>
+                <field name="price_vat"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="type_of_product_form" model="ir.ui.view">
+        <field name="name">type.of.product.form</field>
+        <field name="model">type.of.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="type_of_product_tree" model="ir.ui.view">
+        <field name="name">type.of.product.tree</field>
+        <field name="model">type.of.product</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="type_of_product_action" model="ir.actions.act_window">
+        <field name="name">Type Of Product</field>
+        <field name="res_model">type.of.product</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new document
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="type_of_product_menu"
+              name="type"
+              action="type_of_product_action"
+              parent="stock.menu_product_in_config_stock"
+              sequence="100"
+    />
+
+
+    <record id="using_way_form" model="ir.ui.view">
+        <field name="name">using.way.form</field>
+        <field name="model">using.way</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="using_way_tree" model="ir.ui.view">
+        <field name="name">using.way.tree</field>
+        <field name="model">using.way</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="using_way_action" model="ir.actions.act_window">
+        <field name="name">Using Way</field>
+        <field name="res_model">using.way</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new document
+            </p>
+        </field>
+    </record>
+    <menuitem id="using_way_menu"
+              name="Using Way"
+              action="using_way_action"
+              parent="stock.menu_product_in_config_stock"
+              sequence="105"
+    />
+
+    <record id="producing_company_form" model="ir.ui.view">
+        <field name="name">producing.company.form</field>
+        <field name="model">producing.company</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="producing_company_tree" model="ir.ui.view">
+        <field name="name">producing.company.tree</field>
+        <field name="model">producing.company</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="producing_company_action" model="ir.actions.act_window">
+        <field name="name">Producing Company</field>
+        <field name="res_model">producing.company</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new document
+            </p>
+        </field>
+    </record>
+    <menuitem id="producing_company_action_menu"
+              name="Producing Company"
+              action="producing_company_action"
+              parent="stock.menu_product_in_config_stock"
+              sequence="110"/>
+
+    <record id="scientific_group_form" model="ir.ui.view">
+        <field name="name">scientific.group.form</field>
+        <field name="model">scientific.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="scientific_group_tree" model="ir.ui.view">
+        <field name="name">scientific.group.tree</field>
+        <field name="model">scientific.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="scientific_group_action" model="ir.actions.act_window">
+        <field name="name">Scientific Group</field>
+        <field name="res_model">scientific.group</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Scientific Group
+            </p>
+        </field>
+
+    </record>
+    <menuitem id="scientific_group_menu"
+              name="Scientific Group"
+              action="scientific_group_action"
+              parent="stock.menu_product_in_config_stock"
+              sequence="111"/>
+
+    <record id="product_origin_action" model="ir.actions.act_window">
+        <field name="name">Product Origin</field>
+        <field name="res_model">product.origin</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Product Origin
+            </p>
+        </field>
+    </record>
+
+    <record id="product_origin_form" model="ir.ui.view">
+        <field name="name">product.origin.form</field>
+        <field name="model">product.origin</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_origin_tree" model="ir.ui.view">
+        <field name="name">product.origin.tree</field>
+        <field name="model">product.origin</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="product_origin_menu"
+              name="Origin"
+              action="product_origin_action"
+              parent="stock.menu_product_in_config_stock"
+              sequence="120"/>
+
+
+</odoo>

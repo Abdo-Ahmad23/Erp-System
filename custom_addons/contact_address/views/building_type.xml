@@ -1,0 +1,51 @@
+<odoo>
+
+    <record id="building_type_form" model="ir.ui.view">
+        <field name="name">building.type.form</field>
+        <field name="model">building.type</field>
+        <field name="arch" type="xml">
+            <form string="building Type">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Name"/>
+                        <h1>
+                            <field name="name" required="1"
+                                   placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="building_type_tree" model="ir.ui.view">
+        <field name="name">building_type_tree</field>
+        <field name="model">building.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="building_type_action" model="ir.actions.act_window">
+        <field name="name">Building Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">building.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="building_type_menu"
+            name="Building Type"
+            parent="contacts.menu_localisation"
+            action="contact_address.building_type_action"
+    />
+
+</odoo>

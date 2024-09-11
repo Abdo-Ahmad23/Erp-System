@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="paperformat_custom_temp_del" model="report.paperformat">
+        <field name="name">Print Receipt</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">2000</field>
+        <field name="page_width">80</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">3</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">8</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">3</field>
+        <field name="dpi">80</field>
+    </record>
+
+    <record id="order_report" model="ir.actions.report" >
+       <field name="name">Order Report</field>
+       <field name="model">account.move</field>
+       <field name="report_type">qweb-pdf</field>   
+       <field name="binding_model_id" ref="model_account_move"/>
+       <field name="binding_type">report</field>  
+       <field name="report_name">professional_delivery_management.report_style_template_del</field>   
+       <field name="paperformat_id" ref="professional_delivery_management.paperformat_custom_temp_del"></field>
+    </record>
+
+
+    <template id="report_style_template_del">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                            <div class="row" style="font-size:25px;text-align:center">
+                                <div class="col-xs-3 mb4">
+                                    <img  t-att-src="'/professional_delivery_management/static/description/icons/logo1.jpg'" style="width:100%;height:80px;"/>
+                                </div>
+                            </div>
+                            <t t-if="o.call_center_order_id.order_type == 'delivery'">
+                                <table style="font-size:12px;width:100%;padding:5px;font-weight:bold;text-align:center;font-family: 'Poppins', sans-serif;">
+                                    <tbody style="width:100%;">
+                                        <tr style="width:100%;">
+                                            <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;" t-if="o.call_center_order_id.date_order" class="text-left">
+                                                <div>Order</div>
+                                            </td>
+                                            <td style="width:60%;padding:3px;font-size:11px;">
+                                                <span t-field="o.call_center_order_id.name"/> 
+                                            </td>
+                                        </tr>
+                                        <tr style="width:100%;">
+                                            <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;" t-if="o.call_center_order_id.date_order" class="text-left">
+                                                <div>Branch</div>
+                                            </td>
+                                            <td style="width:60%;padding:3px;font-size:11px;">
+                                            <span t-field="o.call_center_order_id.warehouse_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="width:100%;">
+                                            <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;" t-if="o.call_center_order_id.delivery_date" class="text-left">
+                                                <div>Delivery Date</div>
+                                            </td>
+                                            <td style="width:60%;padding:3px;font-size:11px;">
+                                               <span t-esc="o.call_center_order_id._convert_date()"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="width:100%;">
+                                            <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;">
+                                                <div>Customer</div>
+                                            </td>
+                                            <td style="width:60%;padding:3px;font-size:11px;">
+                                                <strong t-field="o.call_center_order_id.partner_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="width:100%;">
+                                            <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;">
+                                                <div>Phone 1</div>
+                                            </td>
+                                            <td style="width:60%;padding:3px;font-size:11px;">
+                                                <strong t-field="o.call_center_order_id.mobile"/>
+                                            </td>
+                                        </tr>
+                                        <t t-if="o.call_center_order_id.mobile_2">
+                                            <tr style="width:100%;">
+                                                <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;">
+                                                    <div>Phone 2</div>
+                                                </td>
+                                                <td style="width:60%;padding:3px;font-size:11px;">
+                                                    <strong t-field="o.call_center_order_id.mobile_2"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <t t-if="o.call_center_order_id.mobile_3">
+                                            <tr style="width:100%;">
+                                                <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;">
+                                                    <div>Phone 3</div>
+                                                </td>
+                                                <td style="width:60%;padding:3px;font-size:11px;">
+                                                    <strong t-field="o.call_center_order_id.mobile_3"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <t t-if="o.call_center_order_id.mobile_4">
+                                            <tr style="width:100%;">
+                                                <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;">
+                                                    <div>Phone 4</div>
+                                                </td>
+                                                <td style="width:60%;padding:3px;font-size:11px;">
+                                                    <strong t-field="o.call_center_order_id.mobile_4"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <t t-if="o.call_center_order_id.mobile_5">
+                                            <tr style="width:100%;">
+                                                <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;">
+                                                    <div>Phone 5</div>
+                                                </td>
+                                                <td style="width:60%;padding:3px;font-size:11px;">
+                                                    <strong t-field="o.call_center_order_id.mobile_5"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr style="width:100%;">
+                                            <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;">
+                                                <div>Delivery Place</div>
+                                            </td>
+                                            <td style="width:60%;padding:3px;font-size:11px;">
+                                                <strong t-esc="o.call_center_order_id.get_address()"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <t t-if="o.call_center_order_id.order_type == 'in_the_branch'">
+                                <table style="font-size:12px;width:100%;padding:5px;font-weight:bold;text-align:center;font-family: 'Poppins', sans-serif;">
+                                    <tbody style="width:100%;">
+                                        <tr style="width:100%;">
+                                            <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;" t-if="o.call_center_order_id.date_order" class="text-left">
+                                                <div>Order</div>
+                                            </td>
+                                            <td style="width:60%;padding:3px;font-size:11px;">
+                                                <span t-field="o.call_center_order_id.name"/> 
+                                            </td>
+                                        </tr>
+                                        <tr style="width:100%;">
+                                            <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;" t-if="o.call_center_order_id.date_order" class="text-left">
+                                                <div>Branch</div>
+                                            </td>
+                                            <td style="width:60%;padding:3px;font-size:11px;">
+                                            <span t-field="o.call_center_order_id.warehouse_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="width:100%;">
+                                            <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;" t-if="o.call_center_order_id.delivery_date" class="text-left">
+                                                <div>Date</div>
+                                            </td>
+                                            <td style="width:60%;padding:3px;font-size:11px;">
+                                                <span t-esc="o.call_center_order_id._convert_date()"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="width:100%;">
+                                            <td style="width:35%;padding:3px;font-size:12px;font-weight:bold;">
+                                                <div>Customer</div>
+                                            </td>
+                                            <td style="width:60%;padding:3px;font-size:11px;">
+                                                <strong t-field="o.call_center_order_id.partner_id.name"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <br/>
+
+                            <table class="table table-condensed" style="width:100%;font-family: 'Poppins', sans-serif;  border: 1px solid #000000;">
+                                <t t-set="price" t-value="0"/>
+
+                                <thead>
+                                    <tr style="font-size:12px;font-weight:bold">
+                                        <th style="font-size:14px;" colspan="5" class="text-left">Product</th>
+                                        <th colspan="1" class="text-left">Qty</th>
+                                        <th colspan="1" class="text-left">Price</th>
+                                        <th colspan="1" class="text-left">Sum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <t t-foreach="o.call_center_order_id.call_center_line_ids" t-as="line">
+                                    <tr style="font-size:12px;text-align:center;">
+                                        <td style="font-size:14px;text-align:center;" colspan="5" class="text-left">
+                                            <span t-field="line.product_id"/>
+                                        </td>
+                                        <td style="font-weight:bold;" colspan="1" class="text-left">
+                                            <span t-field="line.quantity"/>
+                                        </td>
+                                        <td style="font-weight:bold;" colspan="1" class="text-left">
+                                            <span t-esc="line.unit_price"/>
+                                        </td>
+                                        <t t-set="price" t-value="price + line.unit_price"/>
+                                        <td style="font-weight:bold;" colspan="1" class="text-left">
+                                            <span t-esc="line.price_subtotal"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-size:12px;text-align:center;background-color:#DDD;" t-if="line.name">
+                                        <td style="font-size:14px;text-align:center;" colspan="8" class="text-left">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                    </tr>    
+
+                                </t>    
+                                    <tr style="font-size:13px;font-weight:bold;">
+                                        <th colspan="7" class="text-center">
+                                            <span>Subtotal</span>
+                                        </th>
+                                        <th colspan="1" class="text-left">
+                                            <strong t-esc="o.call_center_order_id.subtotal"/>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="col" style="font-size:15px;font-weight:bold;font-family:'Poppins', sans-serif;">
+                                <div>
+                                    <strong>Total : </strong>
+                                    <strong t-field="o.call_center_order_id.amount_total"/>
+                                </div>
+                                <t t-if="o.call_center_order_id.tax_amount>0">
+                                    <div>
+                                        <strong>Tax : </strong>
+                                        <strong t-field="o.call_center_order_id.tax_amount"/>
+                                    </div>
+                                </t>
+                                <t t-if="o.call_center_order_id.amount_total != o.amount_residual">
+                                    <div>
+                                        <strong>Paid : </strong>
+                                        <strong  t-esc="o.amount_total - o.amount_residual"/>
+                                       
+
+                                    </div>
+                                    <div>
+                                        <strong>Due : </strong>
+                                        <strong t-field="o.amount_residual"/>
+                                    </div>
+                                </t>
+                                <div class="row" style="font-size:25px;text-align:center">
+                                    <div class="col-xs-3 mb4">
+                                        <img  t-att-src="'/professional_delivery_management/static/description/icons/image_bo.jpg'" style="width:100%;height:80px;"/>
+                                    </div>
+                                </div>
+                                <table style="border: 0px solid #FFFFFF;font-size:9px;width:100%;">
+                                        <tbody style="width:100%;">
+                                            <tr style="width:100%;">
+                                                <td style="width:30%;padding:3px;font-size:9px;">
+                                                    <span t-esc="user.name"/>
+                                                </td>
+                                                <td style="width:50%;padding:3px;font-size:9px;">
+                                                    <span t-esc="o.call_center_order_id._get_now_date()"/>
+                                                </td>
+                                                <td style="width:20%;padding:3px;font-size:9px;">
+                                                    <span t-esc="o.number_copy"/>
+                                                    <span t-esc="o.add_copy()"/>
+                                                </td>
+                                            </tr>  
+
+                                        </tbody>    
+                                    </table>
+                                <div style="width: 100%;border-top: 2px solid #000000;"></div>
+                            </div>
+                    </div>
+                </t>
+            </t>
+       </t>
+    </template>
+
+</odoo>
+
+

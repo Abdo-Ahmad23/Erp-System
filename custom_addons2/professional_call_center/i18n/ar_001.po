@@ -1,0 +1,1303 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* call_center
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-08 15:04+0000\n"
+"PO-Revision-Date: 2023-05-08 15:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.res_config_settings_view_form_call_center
+msgid "<span class=\"o_form_label\">Delivery Product</span>"
+msgstr "<span class=\"o_form_label\">المنتج</span>"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid ""
+"<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+"\">Building Type</span>"
+msgstr "<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+       "\">نوع المبنى</span>"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid ""
+"<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+"\">Country</span>"
+msgstr ""
+"<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+"\">الدوله</span>"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid ""
+"<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+"\">District</span>"
+msgstr "<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+       "\">المنطقه</span>"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid ""
+"<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+"\">Flat Number</span>"
+msgstr "<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+       "\">رقم الشقه</span>"
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid ""
+"<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+"\">Floor Number</span>"
+msgstr "<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+       "\">رقم الطابق</span>"
+
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid ""
+"<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+"\">Street2</span>"
+msgstr "<span style=\"font-weight: bold;\" class=\"oe_inline o_form_label mx-4 "
+       "\">الشارع 2</span>"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__access_warning
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__access_warning
+msgid "Access warning"
+msgstr ""
+
+#. module: call_center
+#: code:addons/call_center/models/call_center_order.py:0
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__account_move_id
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__account_move_id
+#, python-format
+msgid "Account Move"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_needaction
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__active
+msgid "Active"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__activity_ids
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__activity_exception_decoration
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__activity_state
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__activity_type_icon
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+msgid "Add Service Product"
+msgstr ""
+
+#. module: call_center
+#: model:res.groups,name:call_center.group_administrator
+msgid "Administrator"
+msgstr ""
+
+#. module: call_center
+#: model:res.groups,name:call_center.group_all_documents
+msgid "All Documents"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_register_payment_wizard__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__amount_due
+#: model:ir.model.fields,field_description:call_center.field_account_move__amount_due
+#: model:ir.model.fields,field_description:call_center.field_account_payment__amount_due
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__amount_due
+msgid "Amount Due"
+msgstr "المبلغ  المدفوعه"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__amount_total
+msgid "Amount Total"
+msgstr "المبلغ الكلى"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__attachment
+#: model:ir.model.fields,field_description:call_center.field_account_move__attachment
+#: model:ir.model.fields,field_description:call_center.field_account_payment__attachment
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__attachment
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__attachment
+msgid "Attachment"
+msgstr "المرفقات"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_attachment_count
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__warehouse_id
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__warehouse_ids
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_line_search
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_search
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_tree
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_report_page_template
+msgid "Branch"
+msgstr "الفرع"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_report_page_template
+msgid "Branch :"
+msgstr "الفرع :"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__building_number
+#: model:ir.model.fields,field_description:call_center.field_account_move__building_number
+#: model:ir.model.fields,field_description:call_center.field_account_payment__building_number
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__building_number
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__building_number
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__building_number
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid "Building Number"
+msgstr "رقم المبنى"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__building_type_id
+#: model:ir.model.fields,field_description:call_center.field_account_move__building_type_id
+#: model:ir.model.fields,field_description:call_center.field_account_payment__building_type_id
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__building_type_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__building_type_id
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__building_type_id
+#: model:ir.ui.menu,name:call_center.building_type_menu
+msgid "Building Type"
+msgstr "نوع المبنى"
+
+#. module: call_center
+#: model:ir.module.category,name:call_center.call_center_category
+#: model:ir.ui.menu,name:call_center.call_center_menu
+#: model_terms:ir.ui.view,arch_db:call_center.res_config_settings_view_form_call_center
+msgid "Call Center"
+msgstr "مركز الاتصال"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__call_center_agent_id
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__call_center_agent_id
+msgid "Call Center Agent"
+msgstr "عامل مركز الاتصال"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_call_center_line
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__call_center_line_ids
+msgid "Call Center Line"
+msgstr "خط مركز الاتصال"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_call_center_order
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__call_center_order_id
+#: model:ir.model.fields,field_description:call_center.field_account_move__call_center_order_id
+#: model:ir.model.fields,field_description:call_center.field_account_payment__call_center_order_id
+#: model:ir.model.fields,field_description:call_center.field_register_payment_wizard__call_center_order_id
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__call_center_order_id
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_line_search
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_line_tree
+msgid "Call Center Order"
+msgstr "مركز الاتصال"
+
+#. module: call_center
+#: model:ir.actions.act_window,name:call_center.call_center_line_action
+#: model:ir.actions.report,name:call_center.call_center_report
+#: model:ir.ui.menu,name:call_center.call_center_line_menu
+#: model:ir.ui.menu,name:call_center.order_report_wizard_menu
+msgid "Call Center Report"
+msgstr "تقرير مركز الاتصال"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.order_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:call_center.register_payment_wizard_form
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__city
+msgid "City"
+msgstr "المدينه"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__code
+msgid "Code"
+msgstr "كود"
+
+#. module: call_center
+#: model:ir.model.constraint,message:call_center.constraint_delivery_type_unique_code
+msgid "Code must be unique"
+msgstr "الكود يجب ان يكون الا يتكرر"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+msgid "Collection Amount"
+msgstr "تحصيل المبلغ"
+
+#. module: call_center
+#: code:addons/call_center/models/call_center_order.py:0
+#, python-format
+msgid "Collection Amount Wizard"
+msgstr "تحصيل المبلغ"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_res_company
+msgid "Companies"
+msgstr "شركات"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__company_id
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_search
+msgid "Company"
+msgstr "الشركه"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الاعدادات"
+
+#. module: call_center
+#: model:ir.ui.menu,name:call_center.call_config_menu
+msgid "Configuration"
+msgstr "إعدادات"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+msgid "Confirm"
+msgstr "مؤكد"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__country_id
+#: model:ir.model.fields,field_description:call_center.field_account_move__country_id
+#: model:ir.model.fields,field_description:call_center.field_account_payment__country_id
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__country_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__country_id
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__country_id
+msgid "Country"
+msgstr "الدوله"
+
+#. module: call_center
+#: model_terms:ir.actions.act_window,help:call_center.call_center_order_action
+#: model_terms:ir.actions.act_window,help:call_center.delivery_type_action
+msgid "Create a new document"
+msgstr "قم بإنشاء مستند جديد"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__create_uid
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__create_uid
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__create_uid
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__create_uid
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line__create_uid
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__create_uid
+#: model:ir.model.fields,field_description:call_center.field_register_payment_wizard__create_uid
+msgid "Created by"
+msgstr "انشئ بواسطة"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__create_date
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__create_date
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__create_date
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line__create_date
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__create_date
+#: model:ir.model.fields,field_description:call_center.field_register_payment_wizard__create_date
+msgid "Created on"
+msgstr "انشى فى"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__create_date
+msgid "Creation Date"
+msgstr "تاريخ الانشاء"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__partner_id
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_tree
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_report_page_template
+msgid "Customer"
+msgstr "العميل"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__customer_code
+#: model:ir.model.fields,field_description:call_center.field_res_partner__customer_code
+#: model:ir.model.fields,field_description:call_center.field_res_users__customer_code
+msgid "Customer Code"
+msgstr "كود العميل"
+
+#. module: call_center
+#: model:ir.model.constraint,message:call_center.constraint_res_partner_unique_customer_code
+msgid "Customer Code must be unique"
+msgstr "كود العميل لابد ان يكون فريد"
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__access_url
+#: model:ir.model.fields,help:call_center.field_delivery_type__access_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: call_center
+#: model:ir.ui.menu,name:call_center.customer_invoice_menu
+msgid "Customers"
+msgstr "العملاء"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__date_from
+msgid "Date From"
+msgstr "التاريخ من"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_report_page_template
+msgid "Date From :"
+msgstr "التاريخ من"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__date_to
+msgid "Date To"
+msgstr "التاريخ الى"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_report_page_template
+msgid "Date To :"
+msgstr "التاريخ الى"
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__create_date
+msgid "Date on which sales order is created."
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__account_move__order_type__delivery
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__order_type__delivery
+#: model:ir.model.fields.selection,name:call_center.selection__stock_picking__order_type__delivery
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+msgid "Delivery"
+msgstr "التسليم"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_delivery_address_info
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__delivery_address_info_id
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__delivery_address_info_ids
+#: model:ir.model.fields,field_description:call_center.field_res_partner__delivery_address_info_ids
+#: model:ir.model.fields,field_description:call_center.field_res_users__delivery_address_info_ids
+#: model_terms:ir.ui.view,arch_db:call_center.res_partner_form
+msgid "Delivery Address Info"
+msgstr "معلومات عنوان التسليم"
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__state__delivery_arrived
+msgid "Delivery Arrived"
+msgstr "تم وصول الطلب"
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__state__delivery_assigned
+msgid "Delivery Assigned"
+msgstr "تعيين التسليم"
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__state__delivery_canceled
+msgid "Delivery Canceled"
+msgstr "تم الغاء الطلب"
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__state__delivery_collection
+msgid "Delivery Collection"
+msgstr "تم تحصيل الطلب"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__delivery_date
+#: model:ir.model.fields,field_description:call_center.field_account_move__delivery_date
+#: model:ir.model.fields,field_description:call_center.field_account_payment__delivery_date
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__delivery_date
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__delivery_date
+msgid "Delivery Date & Time"
+msgstr "تاريخ/وقت الطلب"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_report_page_template
+msgid "Delivery Date &amp; Time"
+msgstr "تاريخ/وقت الطلب"
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__state__delivery_invoices
+msgid "Delivery Invoices"
+msgstr "فاتوره الطلب"
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__state__delivery_on_way
+msgid "Delivery On Way"
+msgstr "الطلب فى الطريق"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__picking_id
+#: model:ir.model.fields,field_description:call_center.field_account_move__picking_id
+#: model:ir.model.fields,field_description:call_center.field_account_payment__picking_id
+msgid "Delivery Order"
+msgstr "طلب التوصيل"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_res_company__delivery_product_id
+#: model:ir.model.fields,field_description:call_center.field_res_config_settings__delivery_product_id
+msgid "Delivery Product"
+msgstr "المنتج"
+
+#. module: call_center
+#: model:ir.actions.act_window,name:call_center.delivery_type_action
+#: model:ir.model,name:call_center.model_delivery_type
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__delivery_type_id
+#: model:ir.model.fields,field_description:call_center.field_account_move__delivery_type_id
+#: model:ir.model.fields,field_description:call_center.field_account_payment__delivery_type_id
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__delivery_type_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line__delivery_type_id
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__delivery_type_id
+#: model:ir.ui.menu,name:call_center.delivery_type_menu
+msgid "Delivery Type"
+msgstr "نوع التسليم"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_delivery_type_line
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__delivery_type_line_ids
+#: model_terms:ir.ui.view,arch_db:call_center.delivery_type_form
+msgid "Delivery Type Line"
+msgstr "خط نوع التسليم"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__name
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_report_page_template
+msgid "Description"
+msgstr "الوصف"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__display_name
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__display_name
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__display_name
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__display_name
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line__display_name
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__display_name
+#: model:ir.model.fields,field_description:call_center.field_register_payment_wizard__display_name
+msgid "Display Name"
+msgstr "الاسم"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__display_type
+msgid "Display Type"
+msgstr "نوع العرض"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__district_id
+#: model:ir.model.fields,field_description:call_center.field_account_move__district_id
+#: model:ir.model.fields,field_description:call_center.field_account_payment__district_id
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__district_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__district_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line__district_id
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__district_id
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_search
+msgid "District"
+msgstr "المنطقه"
+
+#. module: call_center
+#: model:ir.ui.menu,name:call_center.res_district_menu
+msgid "Districts"
+msgstr "المناطق"
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__state__done
+msgid "Done"
+msgstr "تم"
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__state__draft
+msgid "Draft"
+msgstr "مسوده"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__flat_number
+#: model:ir.model.fields,field_description:call_center.field_account_move__flat_number
+#: model:ir.model.fields,field_description:call_center.field_account_payment__flat_number
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__flat_number
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__flat_number
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__flat_number
+msgid "Flat Number"
+msgstr "رقم الشقه"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__floor_number
+#: model:ir.model.fields,field_description:call_center.field_account_move__floor_number
+#: model:ir.model.fields,field_description:call_center.field_account_payment__floor_number
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__floor_number
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__floor_number
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__floor_number
+msgid "Floor Number"
+msgstr "الطابق"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_follower_ids
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_partner_ids
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__activity_type_icon
+#: model:ir.model.fields,help:call_center.field_delivery_type__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__virtual_available
+msgid "Forecasted Quantity"
+msgstr "الكمية المتوقعة"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_line_search
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_search
+#: model_terms:ir.ui.view,arch_db:call_center.delivery_type_search
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__group_by_branch
+msgid "Group By Branch"
+msgstr "تجميع حسب الفرع"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__has_message
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__id
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__id
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__id
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__id
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line__id
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__id
+#: model:ir.model.fields,field_description:call_center.field_register_payment_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__activity_exception_icon
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__activity_exception_icon
+#: model:ir.model.fields,help:call_center.field_delivery_type__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__message_needaction
+#: model:ir.model.fields,help:call_center.field_call_center_order__message_unread
+#: model:ir.model.fields,help:call_center.field_delivery_type__message_needaction
+#: model:ir.model.fields,help:call_center.field_delivery_type__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__message_has_error
+#: model:ir.model.fields,help:call_center.field_call_center_order__message_has_sms_error
+#: model:ir.model.fields,help:call_center.field_delivery_type__message_has_error
+#: model:ir.model.fields,help:call_center.field_delivery_type__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__state__in_preparation
+msgid "In Preparation"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__account_move__order_type__in_the_branch
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_order__order_type__in_the_branch
+#: model:ir.model.fields.selection,name:call_center.selection__stock_picking__order_type__in_the_branch
+msgid "In The Branch"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_stock_location
+msgid "Inventory Locations"
+msgstr "مواقع المخزون"
+
+#. module: call_center
+#: code:addons/call_center/models/stock_picking.py:0
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+#, python-format
+msgid "Invoice"
+msgstr "الفاتوره"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_is_follower
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_res_partner__is_customer
+#: model:ir.model.fields,field_description:call_center.field_res_users__is_customer
+msgid "Is a Customer"
+msgstr "عميل"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_res_partner__is_vendor
+#: model:ir.model.fields,field_description:call_center.field_res_users__is_vendor
+msgid "Is a Vendor"
+msgstr "المورد"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__land_mark
+#: model:ir.model.fields,field_description:call_center.field_account_move__land_mark
+#: model:ir.model.fields,field_description:call_center.field_account_payment__land_mark
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__land_mark
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__land_mark
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__land_mark
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid "Land Mark"
+msgstr "علامه مميزه"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line____last_update
+#: model:ir.model.fields,field_description:call_center.field_call_center_order____last_update
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info____last_update
+#: model:ir.model.fields,field_description:call_center.field_delivery_type____last_update
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line____last_update
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard____last_update
+#: model:ir.model.fields,field_description:call_center.field_register_payment_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__write_uid
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__write_uid
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__write_uid
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__write_uid
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line__write_uid
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__write_uid
+#: model:ir.model.fields,field_description:call_center.field_register_payment_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__write_date
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__write_date
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__write_date
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__write_date
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line__write_date
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__write_date
+#: model:ir.model.fields,field_description:call_center.field_register_payment_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__location_id
+msgid "Location"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_main_attachment_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_has_error
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_ids
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__mobile
+msgid "Mobile"
+msgstr "المحمول"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_res_partner__mobile
+#: model:ir.model.fields,field_description:call_center.field_res_users__mobile
+msgid "Mobile 1"
+msgstr "المحمول 1"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_res_partner__mobile_2
+#: model:ir.model.fields,field_description:call_center.field_res_users__mobile_2
+msgid "Mobile 2"
+msgstr "المحمول 2"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_res_partner__mobile_3
+#: model:ir.model.fields,field_description:call_center.field_res_users__mobile_3
+msgid "Mobile 3"
+msgstr "المحمول 3"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_res_partner__mobile_4
+#: model:ir.model.fields,field_description:call_center.field_res_users__mobile_4
+msgid "Mobile 4"
+msgstr "المحمول 4"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_res_partner__mobile_5
+#: model:ir.model.fields,field_description:call_center.field_res_users__mobile_5
+msgid "Mobile 5"
+msgstr "المحمول 5"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__my_activity_date_deadline
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__name
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: call_center
+#: code:addons/call_center/models/call_center_order.py:0
+#: code:addons/call_center/models/call_center_order.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__activity_date_deadline
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__activity_summary
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__activity_type_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__note
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_line__display_type__line_note
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+msgid "Note"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_needaction_counter
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_has_error_counter
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__message_needaction_counter
+#: model:ir.model.fields,help:call_center.field_delivery_type__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__message_has_error_counter
+#: model:ir.model.fields,help:call_center.field_delivery_type__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__message_unread_counter
+#: model:ir.model.fields,help:call_center.field_delivery_type__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__order_id
+msgid "Order"
+msgstr "الطلب"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__date_order
+msgid "Order Date"
+msgstr "تاريخ الطلب"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+msgid "Order Lines"
+msgstr "خطوط الطلب"
+
+#. module: call_center
+#: model:ir.actions.act_window,name:call_center.order_report_wizard_action
+#: model:ir.model,name:call_center.model_order_report_wizard
+msgid "Order Report Wizard"
+msgstr "تقرير الطلب"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__order_type
+#: model:ir.model.fields,field_description:call_center.field_account_move__order_type
+#: model:ir.model.fields,field_description:call_center.field_account_payment__order_type
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__order_type
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__order_type
+msgid "Order Type"
+msgstr "نوع الطلب"
+
+#. module: call_center
+#: model:ir.actions.act_window,name:call_center.call_center_order_action
+#: model:ir.ui.menu,name:call_center.call_center_order_menu
+msgid "Orders"
+msgstr "الطلبات"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_report_page_template
+msgid "Orders Report"
+msgstr "تقرير الطلبات"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+msgid "Other Info"
+msgstr "معلومات اخر"
+
+#. module: call_center
+#: model:ir.ui.menu,name:call_center.pdf_menu
+msgid "PDF"
+msgstr ""
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.register_payment_wizard_form
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__paid_amount
+#: model:ir.model.fields,field_description:call_center.field_account_move__paid_amount
+#: model:ir.model.fields,field_description:call_center.field_account_payment__paid_amount
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__paid_amount
+msgid "Paid Amount"
+msgstr "المبلغ المدفوع"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__partner_id
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_search
+msgid "Partner"
+msgstr "العميل"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__picking_id
+msgid "Picking"
+msgstr "استلام"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__picking_type_id
+msgid "Picking Type"
+msgstr "نوع الاسلام"
+
+#. module: call_center
+#: code:addons/call_center/models/call_center_order.py:0
+#, python-format
+msgid "Please define an accounting sales journal for the company %s (%s)."
+msgstr ""
+
+#. module: call_center
+#: code:addons/call_center/models/call_center_order.py:0
+#, python-format
+msgid "Please enter delivery product in setting"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__access_url
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__prepaid
+#: model:ir.model.fields,field_description:call_center.field_account_move__prepaid
+#: model:ir.model.fields,field_description:call_center.field_account_payment__prepaid
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__prepaid
+msgid "Prepaid"
+msgstr "مسبوق الدفع"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line__price
+msgid "Price"
+msgstr "السعر"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__price_subtotal
+msgid "Price Subtotal"
+msgstr "الإجمالي الفرعي"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.order_report_wizard_form
+msgid "Print"
+msgstr "طباعه"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__product_id
+#: model:ir.model.fields,field_description:call_center.field_order_report_wizard__product_ids
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_line_search
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_report_page_template
+msgid "Product"
+msgstr "المنتج"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.res_config_settings_view_form_call_center
+msgid "Product used for delivery order"
+msgstr "المنتج المستخدم فى طلب التوصيل"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__quantity
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_report_page_template
+msgid "Quantity"
+msgstr "الكميه"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__qty_in_location
+msgid "Quantity In Location"
+msgstr "الكميه فى المكان"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__qty_available
+msgid "Quantity On Hand"
+msgstr "الكميه فى الايد"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_tree
+msgid "Ref"
+msgstr "مرجع"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_register_payment_wizard
+msgid "Register Payment Wizard"
+msgstr "تسجيل الدفع "
+
+#. module: call_center
+#: model:ir.ui.menu,name:call_center.reports_menu
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__activity_user_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_has_sms_error
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__team_id
+msgid "Sales Team"
+msgstr "فريق المبيعات"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__user_id
+msgid "Salesperson"
+msgstr "مندوب المبيعات "
+
+#. module: call_center
+#: model:ir.model.fields.selection,name:call_center.selection__call_center_line__display_type__line_section
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+msgid "Section"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__access_token
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: call_center
+#: model:ir.actions.act_window,name:call_center.action_call_center_configuration
+#: model:ir.ui.menu,name:call_center.action_call_center_configuration_menu
+msgid "Settings"
+msgstr "الاعدادات"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__state_id
+#: model:ir.model.fields,field_description:call_center.field_account_move__state_id
+#: model:ir.model.fields,field_description:call_center.field_account_payment__state_id
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__state_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__state_id
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__state_id
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid "State"
+msgstr "المحافظه"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__state
+msgid "Status"
+msgstr "الحاله"
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__activity_state
+#: model:ir.model.fields,help:call_center.field_delivery_type__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_stock_move
+msgid "Stock Move"
+msgstr "حركة المخزون"
+
+#. module: call_center
+#: code:addons/call_center/models/call_center_order.py:0
+#, python-format
+msgid "Stock Picking"
+msgstr "إلتقاط المخزون"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__street
+#: model:ir.model.fields,field_description:call_center.field_account_move__street
+#: model:ir.model.fields,field_description:call_center.field_account_payment__street
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__street
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__street
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__street
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid "Street"
+msgstr "شارع 1"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__street2
+#: model:ir.model.fields,field_description:call_center.field_account_move__street2
+#: model:ir.model.fields,field_description:call_center.field_account_payment__street2
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__street2
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__street2
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__street2
+msgid "Street2"
+msgstr "شارع 2"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__subtotal
+msgid "Subtotal"
+msgstr "الإجمالي الفرعي"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__tax_ids
+msgid "Tax"
+msgstr "الضريبه"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__tax_amount
+msgid "Tax Amount"
+msgstr "قيمه الضريبه"
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_line__display_type
+msgid "Technical field for UX purpose."
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_stock_move__price_unit
+msgid ""
+"Technical field used to record the product cost set by the user during a "
+"picking confirmation (when costing method used is 'average price' or "
+"'real'). Value given in company currency and in product uom."
+msgstr ""
+"استخدم الحقل التقني لتسجيل تكلفة المنتج الذي حدد من المستخدم خلال تأكيد "
+"الاختيار (عند استخدام منهج تكلفة السعر المتوسط أو الحقيقى ) قيمة معينة في "
+"عملة الشركة وفي UOM المنتج."
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+msgid "Terms and conditions..."
+msgstr ""
+
+#. module: call_center
+#: code:addons/call_center/models/call_center_order.py:0
+#, python-format
+msgid "The Delivery Date Must Be Longer Than Order Date"
+msgstr ""
+
+#. module: call_center
+#: code:addons/call_center/report/call_center_report.py:0
+#, python-format
+msgid "There is no data to print"
+msgstr "لا يوجد بيانان للطباعه"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_stock_picking
+msgid "Transfer"
+msgstr "الشحنة"
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.delivery_type_form
+msgid "Type Name"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__activity_exception_decoration
+#: model:ir.model.fields,help:call_center.field_delivery_type__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_line__unit_price
+#: model:ir.model.fields,field_description:call_center.field_stock_move__price_unit
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_unread
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__message_unread_counter
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: call_center
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_search
+msgid "User"
+msgstr "المستخدم"
+
+#. module: call_center
+#: model:res.groups,name:call_center.group_own_documents_only
+msgid "User: Own Documents Only"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__warehouse_id
+#: model:ir.model.fields,field_description:call_center.field_stock_location__warehouse_id
+msgid "Warehouse"
+msgstr "المخزن"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__website_message_ids
+#: model:ir.model.fields,field_description:call_center.field_delivery_type__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,help:call_center.field_call_center_order__website_message_ids
+#: model:ir.model.fields,help:call_center.field_delivery_type__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: call_center
+#: code:addons/call_center/models/delivery_type.py:0
+#: code:addons/call_center/models/delivery_type.py:0
+#, python-format
+msgid "You cannot select the type of delivery with the same district"
+msgstr "لا يمكنك اختيار نوع تسليم له نفس المنطقه"
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__zip
+msgid "Zip"
+msgstr ""
+
+#. module: call_center
+#: model:ir.model.fields,field_description:call_center.field_account_bank_statement_line__zone_id
+#: model:ir.model.fields,field_description:call_center.field_account_move__zone_id
+#: model:ir.model.fields,field_description:call_center.field_account_payment__zone_id
+#: model:ir.model.fields,field_description:call_center.field_call_center_order__zone_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_address_info__zone_id
+#: model:ir.model.fields,field_description:call_center.field_delivery_type_line__zone_id
+#: model:ir.model.fields,field_description:call_center.field_stock_picking__zone_id
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_form
+#: model_terms:ir.ui.view,arch_db:call_center.account_move_search
+#: model_terms:ir.ui.view,arch_db:call_center.call_center_order_form
+#: model_terms:ir.ui.view,arch_db:call_center.stock_picking_form
+msgid "Zone"
+msgstr "المنطقة الزمنية"
+
+#. module: call_center
+#: model:ir.ui.menu,name:call_center.res_zone_menu
+msgid "Zones"
+msgstr "المناطق الزمنية"
+
+#. module: call_center
+#: model:ir.model,name:call_center.model_report_call_center_order_report_template
+msgid "report.call_center.order_report_template"
+msgstr ""

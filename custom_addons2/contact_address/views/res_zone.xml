@@ -1,0 +1,53 @@
+<odoo>
+    <record id="res_zone_form" model="ir.ui.view">
+        <field name="name">res.country.zone.form</field>
+        <field name="model">res.country.zone</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" string="Name"/>
+                        <h1>
+                            <field name="name" required="1" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="state_id"/>
+                            <field name="country_id"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="res_zone_tree" model="ir.ui.view">
+        <field name="name">res.country.zone.tree</field>
+        <field name="model">res.country.zone</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="state_id" options="{'no_create': True}"/>
+                <field name="country_id" options="{'no_create': True}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_zone_action" model="ir.actions.act_window">
+        <field name="name">Zones</field>
+        <field name="res_model">res.country.zone</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="res_zone_menu"
+            name="Zones"
+            parent="contacts.menu_localisation"
+            action="contact_address.res_zone_action"
+            sequence="2"
+    />
+
+</odoo>

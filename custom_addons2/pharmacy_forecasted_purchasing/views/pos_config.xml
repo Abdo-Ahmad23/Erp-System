@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    <record id="pos_config_view_form_pos_sale" model="ir.ui.view">-->
+    <!--        <field name="name">pos.config.form.pos.sale</field>-->
+    <!--        <field name="model">pos.config</field>-->
+    <!--        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <sheet position='inside'>-->
+    <!--                <group name="call_center" string="Call Center">-->
+    <!--                    <field name='is_call_center'/>-->
+    <!--                    <field name="is_branch"/>-->
+    <!--                </group>-->
+    <!--            </sheet>-->
+    <!--        </field>-->
+    <!--    </record>-->
+</odoo>

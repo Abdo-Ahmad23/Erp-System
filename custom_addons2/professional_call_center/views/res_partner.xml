@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="user_ids" position="before">
+                <field name="mobile_2" widget="phone"/>
+                <field name="mobile_3" widget="phone"/>
+                <field name="mobile_4" widget="phone"/>
+                <field name="mobile_5" widget="phone"/>
+            </field>
+            <xpath expr="//notebook/page[@name='sales_purchases']/group/group[1]" position="inside">
+                <field name="is_customer"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='sales_purchases']/group/group[2]" position="inside">
+                <field name="is_vendor"/>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="customer_code"/>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page name="delivery_address_info" string="Delivery Address Info">
+                    <field name="delivery_address_info_ids">
+                        <tree editable="top">
+                            <field name="street"/>
+                            <field name="street2"/>
+                            <field name="zip"/>
+                            <field name="city"/>
+                            <field name="district_id"/>
+                            <field name="zone_id"/>
+                            <field name="state_id"/>
+                            <field name="country_id"/>
+                            <field name="land_mark"/>
+                            <field name="building_type_id"/>
+                            <field name="building_number"/>
+                            <field name="floor_number"/>
+                            <field name="flat_number"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

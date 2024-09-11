@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="assign_delivery_form" model="ir.ui.view">
+        <field name="name">assign.delivery.form</field>
+        <field name="model">assign.delivery</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="hr_employee_id"/>
+                            <field name="date_time_delivery"/>
+                        </group>
+                        <group>
+                            <field name="partner_zone_id"/>
+                            <field name="region"/>
+                        </group>
+
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="confirm_assign_delivery" string="Confirm" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="assign_delivery_action"
+                name="Assign Delivery"
+                res_model="assign.delivery"
+                view_mode="form" target="new"/>
+
+
+</odoo>

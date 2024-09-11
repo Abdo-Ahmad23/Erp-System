@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inherit_res_partner_form" model="ir.ui.view">
+        <field name="name">inherit.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="is_delivery_boy" attrs="{'invisible': [('company_type', '=', 'company')]}"/>
+            </xpath>
+
+            <xpath expr="//notebook/page[@name='internal_notes']"
+                   position="before">
+                <page string="Delivery Address Information">
+                    <group>
+                        <group>
+                            <field name="building_floor"/>
+                            <field name="special_mark"/>
+                        </group>
+                        <group>
+                            <field name="area_region"/>
+                            <field name="zone"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="Delivery Boy Information"
+                      attrs="{'invisible':[('is_delivery_boy','!=',True)]}">
+                    <group>
+                        <group>
+                            <field name="national"/>
+                        </group>
+                        <group>
+                            <field name="transportation"/>
+                            <field name="plate_number"
+                                   attrs="{'invisible':[('transportation','not in',['1','2'])]}"/>
+                        </group>
+                    </group>
+                </page>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

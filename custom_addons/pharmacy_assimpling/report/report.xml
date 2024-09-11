@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_custom" model="report.paperformat">
+        <field name="name">Recept Stock Picking</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">200</field>
+        <field name="page_width">80</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">3</field>
+        <field name="margin_bottom">3</field>
+        <field name="margin_left">3</field>
+        <field name="margin_right">3</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">3</field>
+        <field name="dpi">80</field>
+    </record>
+
+    <report
+            string="Stock Picking Recept"
+            id="stock_picking_label"
+            model="stock.picking"
+            report_type="qweb-pdf"
+            name="pharmacy_assimpling.factory_receipt_template"
+            file="pharmacy_assimpling.factory_receipt_template"
+            paperformat="paperformat_custom"
+
+    />
+    <!--    <record id="stock_picking_label" model="ir.actions.report">-->
+    <!--        <field name="name">Stock Picking Recept</field>-->
+    <!--        <field name="model">stock.picking</field>-->
+    <!--        <field name="report_type">qweb-pdf</field>-->
+    <!--        <field name="report_name">stock_picking_kanban.factory_receipt_template</field>-->
+
+    <!--    </record>-->
+</odoo>

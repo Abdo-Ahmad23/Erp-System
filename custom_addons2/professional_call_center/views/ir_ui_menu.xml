@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account.res_partner_action_customer" model="ir.actions.act_window">
+        <field name="context">{'default_is_customer': True, 'search_default_customer': 1, 'res_partner_search_mode':
+            'customer', 'default_is_company': True, 'default_customer_rank': 1}
+        </field>
+    </record>
+
+    <menuitem id="call_center_menu"
+              name="Call Center"
+              sequence="1"
+              groups="professional_call_center.group_own_documents_only"
+              web_icon="professional_call_center,static/description/call-center2.png"
+    />
+    <!--                           Call Center Order                        -->
+    <menuitem id="call_center_order_menu"
+              name="Orders"
+              action="call_center_order_action"
+              parent="professional_call_center.call_center_menu"
+              sequence="3"
+    />
+    <!--                           Customer Invoice                             -->
+    <menuitem id="customer_invoice_menu"
+              name="Customers"
+              action="account.res_partner_action_customer"
+              parent="professional_call_center.call_center_menu"
+              sequence="4"
+    />
+
+    <!--                    Reports                                      -->
+    <menuitem id="reports_root_menu"
+              name="Reports"
+              parent="professional_call_center.call_center_menu"
+              sequence="5"
+    />
+    
+    <menuitem id="reports_menu"
+              name="Full Report"
+              action="order_report_wizard_action"
+              parent="reports_root_menu"
+              sequence="1"
+    />
+    <menuitem id="reports_card_menu"
+              name="Product Card"
+              action="call_center_line_action"
+              parent="reports_root_menu"
+              sequence="2"
+    />
+
+    <!--                         Configuration                              -->
+    <menuitem id="call_config_menu"
+              name="Configuration"
+              parent="professional_call_center.call_center_menu"
+              groups="professional_call_center.group_all_documents"
+              sequence="13"
+    />
+
+    <menuitem id="action_call_center_configuration_menu"
+              name="Settings"
+              action="action_call_center_configuration"
+              parent="professional_call_center.call_config_menu"
+              sequence="0"
+    />
+    <menuitem id="call_center_agent_menu"
+              name="Call Center Agent"
+              action="hr_employee_action"
+              parent="professional_call_center.call_config_menu"
+              sequence="3"
+    />
+
+    <menuitem
+            id="res_zone_menu"
+            name="Zones"
+            parent="professional_call_center.call_config_menu"
+            action="contact_address.res_zone_action"
+            sequence="6"
+    />
+    <menuitem
+            id="res_district_menu"
+            name="Districts"
+            parent="professional_call_center.call_config_menu"
+            action="contact_address.res_district_action"
+            sequence="7"
+    />
+    <menuitem
+            id="building_type_menu"
+            name="Building Type"
+            parent="professional_call_center.call_config_menu"
+            action="contact_address.building_type_action"
+            sequence="8"
+    />
+    <menuitem id="delivery_type_menu"
+              name="Delivery Type"
+              action="delivery_type_action"
+              parent="professional_call_center.call_config_menu"
+              sequence="12"
+    />
+
+</odoo>

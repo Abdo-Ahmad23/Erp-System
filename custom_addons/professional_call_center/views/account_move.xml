@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <label for="street" style="font-weight: bold;" string="Street"
+                       attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <div class="d-flex" attrs="{'invisible':[('call_center_order_id','=',False)]}">
+                    <field name="street" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Street2</span>
+                    <field name="street2" force_save="1"/>
+                </div>
+                <label for="zone_id" style="font-weight: bold;" string="Zone"
+                       attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <div class="d-flex" attrs="{'invisible':[('call_center_order_id','=',False)]}">
+                    <field name="zone_id" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">District</span>
+                    <field name="district_id" force_save="1"/>
+                </div>
+                <label for="state_id" style="font-weight: bold;" string="State"
+                       attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <div class="d-flex" attrs="{'invisible':[('call_center_order_id','=',False)]}">
+                    <field name="state_id" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Country</span>
+                    <field name="country_id" force_save="1"/>
+                </div>
+                <label for="land_mark" style="font-weight: bold;" string="Land Mark"
+                       attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <div class="d-flex" attrs="{'invisible':[('call_center_order_id','=',False)]}">
+                    <field name="land_mark" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Building Type</span>
+                    <field name="building_type_id" force_save="1"/>
+                </div>
+                <label for="building_number" style="font-weight: bold;" string="Building Number"
+                       attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                <div class="d-flex" attrs="{'invisible':[('call_center_order_id','=',False)]}">
+                    <field name="building_number" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Floor Number</span>
+                    <field name="floor_number" force_save="1"/>
+                    <span style="font-weight: bold;" class="oe_inline o_form_label mx-4 ">Flat Number</span>
+                    <field name="flat_number" force_save="1"/>
+                </div>
+            </xpath>
+            <xpath expr="//sheet/group" position="after">
+                <group name="call_center_info">
+                    <group>
+                        <field name="call_center_order_id" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                        <field name="picking_id" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                        <field name="order_type" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                        <separator/>
+                        <field name="delivery_date" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                        <field name="delivery_type_id" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                        <field name="attachment" attrs="{'invisible':[('call_center_order_id','=',False)]}"/>
+                        <field name="prepaid" invisible="1"/>
+                    </group>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+    <record id="account_move_search" model="ir.ui.view">
+        <field name="name">inherit.account.move.search</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="zone_id"/>
+                <field name="district_id"/>
+                <field name="call_center_order_id"/>
+            </field>
+            <xpath expr="//search/group" position="inside">
+                <filter string="Zone" name="group_by_zone_id" context="{'group_by':'zone_id'}"/>
+                <filter string="District" name="group_by_district_id" context="{'group_by':'district_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

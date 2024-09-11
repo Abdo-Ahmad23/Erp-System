@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="order_report_wizard_form" model="ir.ui.view">
+        <field name="name">order.report.wizard.form</field>
+        <field name="model">order.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
+                    <group>
+                        <field name="group_by_branch"/>
+                        <field name="warehouse_ids" options="{'no_open': True, 'no_create': True}"
+                               widget="many2many_tags"
+                               attrs="{'invisible':[('group_by_branch','=',False)],'required':[('group_by_branch','=',True)]}"/>
+                    </group>
+                    <group>
+                        <field name="product_ids" options="{'no_open': True, 'no_create': True}"
+                               widget="many2many_tags"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="order_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Order Report Wizard</field>
+        <field name="res_model">order.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

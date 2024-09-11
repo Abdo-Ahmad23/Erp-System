@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="arabic_receipt_design_form" model="ir.ui.view">
+            <field name="name">Arabic Receipt Design</field>
+            <field name="model">arabic.receipt</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string='Arabic Receipt'>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name='receipt_design' widget="ace" options="{'mode': 'xml'}" string="Receipt XML"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="arabic_receipt_tree" model="ir.ui.view">
+            <field name="name">Arabic Receipt Design</field>
+            <field name="model">arabic.receipt</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string='Arabic Receipt Design'>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_arabic_receipt" model="ir.actions.act_window">
+            <field name="name">Arabic Receipt Designs</field>
+            <field name="res_model">arabic.receipt</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="ob_pos_arabic_receipt.arabic_receipt_tree"/>
+        </record>
+        <menuitem name="Arabic Receipt" id="menu_arabic_Receipt" parent="point_of_sale.menu_point_config_product"
+                  action="ob_pos_arabic_receipt.action_arabic_receipt" active="False"/>
+
+    </data>
+</odoo>

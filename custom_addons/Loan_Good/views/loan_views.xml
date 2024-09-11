@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_loan_tree" model="ir.ui.view">
+        <field name="name">loan.loan.tree</field>
+        <field name="model">loan.loan</field>
+        <field name="arch" type="xml">
+            <tree string="Loans">
+                <field name="name"/>
+                <field name="amount"/>
+                <field name="interest_rate"/>
+                <field name="tenure"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="status"/>
+                <field name="applicant_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_loan_form" model="ir.ui.view">
+        <field name="name">loan.loan.form</field>
+        <field name="model">loan.loan</field>
+        <field name="arch" type="xml">
+            <form string="Loan">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="amount"/>
+                        <field name="interest_rate"/>
+                        <field name="tenure"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="status"/>
+                        <field name="applicant_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+ <menuitem id="menu_loan_list" name="Loans" parent="menu_loan_system"
+              action="loan_good.action_loan_list"/></odoo>

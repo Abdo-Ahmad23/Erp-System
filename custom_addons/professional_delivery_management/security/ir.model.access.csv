@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_assign_delivery_boy,assign_delivery_boy,model_assign_delivery_boy,base.group_user,1,1,1,1
+access_delivery_boy_bill,delivery_boy_bill,model_delivery_boy_bill,base.group_user,1,1,1,1
+
+access_account_payment_own,account_payment,account.model_account_payment,group_own_documents_only,1,1,1,0
+access_account_move_own,account_move,account.model_account_move,group_own_documents_only,1,1,1,0
+access_account_move_own_line,account_move_line,account.model_account_move_line,group_own_documents_only,1,1,1,0
+
+access_order_call_center_order_own,Call Center Order,professional_call_center.model_call_center_order,group_own_documents_only,1,1,1,0
+access_order_call_center_order_all,Call Center Order,professional_call_center.model_call_center_order,group_own_documents_only,1,1,1,0
+
+access_order_call_center_line_all,Call Center Line,professional_call_center.model_call_center_line,group_own_documents_only,1,1,1,0

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="card_product_report_form" model="ir.ui.view">
+        <field name="name">card.product.report.form</field>
+        <field name="model">card.product.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date" optional="show"/>
+                <field name="picking_type_name" optional="show"/>
+                <field name="partner_code" optional="show"/>
+                <field name="partner_name" optional="show"/>
+                <field name="stock_picking_name" optional="show"/>
+                <field name="stock_name" optional="show"/>
+                <field name="source_location" optional="show"/>
+                <field name="location_dest" optional="show"/>
+                <field name="operation_type" optional="show"/>
+                <field name="product" optional="show"/>
+                <field name="quantity" optional="show" sum="Total"/>
+                <field name="price_unit" optional="show" sum="Total"/>
+                <field name="amount" optional="show" sum="Total"/>
+                <field name="balance" optional="show" sum="Total"/>
+                <field name="amount_balance" optional="show" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="card_product_report_search" model="ir.ui.view">
+        <field name="name">card.product.report.search</field>
+        <field name="model">card.product.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product"/>
+                <field name="picking_type_name"/>
+                <field name="partner_code"/>
+                <field name="partner_name"/>
+                <field name="stock_picking_name"/>
+                <field name="stock_name"/>
+                <group expand="0" string="Group By">
+                    <filter string="Product" name="group_product" context="{'group_by':'product'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+</odoo>

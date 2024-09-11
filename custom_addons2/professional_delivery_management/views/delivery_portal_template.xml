@@ -1,0 +1,1405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--                                                  Assigned Views                                                                         -->
+    <template id="portal_my_home_transaction" name="Show Delivery / Delivery Order" customize_show="True"
+              inherit_id="portal.portal_my_home" priority="101">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry" groups="base.group_portal">
+                <t t-set="title">Delivery Assigned</t>
+                <t t-set="url" t-value="'/my/transaction'"/>
+                <t t-set="placeholder_count" t-value="'orders_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry" groups="base.group_portal">
+                <t t-set="title">Delivery On Way</t>
+                <t t-set="url" t-value="'/my/way-transaction'"/>
+                <t t-set="placeholder_count" t-value="'on_way_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry" groups="base.group_portal">
+                <t t-set="title">Delivery Arrived</t>
+                <t t-set="url" t-value="'/my/arrived-transaction'"/>
+                <t t-set="placeholder_count" t-value="'arrived_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry" groups="base.group_portal">
+                <t t-set="title">Delivery Collection</t>
+                <t t-set="url" t-value="'/my/received-transaction'"/>
+                <t t-set="placeholder_count" t-value="'received_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry" groups="base.group_portal">
+                <t t-set="title">Delivery Canceled</t>
+                <t t-set="url" t-value="'/my/canceled-transaction'"/>
+                <t t-set="placeholder_count" t-value="'canceled_count'"/>
+            </t>
+        </xpath>
+
+    </template>
+
+    <template id="portal_my_home_menu_transaction" name="Portal layout: transaction menu entry"
+              inherit_id="portal.portal_breadcrumbs" priority="101">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'delivery' or (assign and assign._name == 'account.move')" class="col-lg-2"
+                t-attf-class="breadcrumb-item #{'active ' if not transaction else ''}">
+                <a t-if="assign" t-attf-href="/my/transaction?{{ keep_query() }}">Delivery Assigned</a>
+                <t t-else="">Delivery Assigned</t>
+            </li>
+            <li t-if="assign and assign._name == 'account.move'"
+                class="breadcrumb-item active text-truncate col-8 col-lg-10">
+                <t t-esc="assign.name"/>
+            </li>
+            <li t-if="page_name == 'delivery_on_way' or (on_way and on_way._name == 'account.move')" class="col-lg-2"
+                t-attf-class="breadcrumb-item #{'active ' if not transaction else ''}">
+                <a t-if="on_way" t-attf-href="/my/way-transaction?{{ keep_query() }}">On Way Orders</a>
+                <t t-else="">On Way Orders</t>
+            </li>
+            <li t-if="on_way and on_way._name == 'account.move'"
+                class="breadcrumb-item active text-truncate col-8 col-lg-10">
+                <t t-esc="on_way.name"/>
+            </li>
+            <li t-if="page_name == 'arrived_delivery' or (arrived_order and arrived_order._name == 'account.move')"
+                class="col-lg-2" t-attf-class="breadcrumb-item #{'active ' if not transaction else ''}">
+                <a t-if="arrived_order" t-attf-href="/my/arrived-transaction?{{ keep_query() }}">Arrived Orders</a>
+                <t t-else="">Arrived Orders</t>
+            </li>
+            <li t-if="arrived_order and arrived_order._name == 'account.move'"
+                class="breadcrumb-item active text-truncate col-8 col-lg-10">
+                <t t-esc="arrived_order.name"/>
+            </li>
+            <li t-if="page_name == 'received_money_delivery' or (received_money and received_money._name == 'account.move')"
+                class="col-lg-2" t-attf-class="breadcrumb-item #{'active ' if not transaction else ''}">
+                <a t-if="received_money" t-attf-href="/my/received-transaction?{{ keep_query() }}">Collection Orders</a>
+                <t t-else="">Collection Orders</t>
+            </li>
+            <li t-if="received_money and received_money._name == 'account.move'"
+                class="breadcrumb-item active text-truncate col-8 col-lg-10">
+                <t t-esc="received_money.name"/>
+            </li>
+            <li t-if="page_name == 'canceled_order' or (canceled_order and canceled_order._name == 'account.move')"
+                class="col-lg-2" t-attf-class="breadcrumb-item #{'active ' if not transaction else ''}">
+                <a t-if="canceled_order" t-attf-href="/my/canceled-transaction?{{ keep_query() }}">Canceled Orders</a>
+                <t t-else="">Canceled Orders</t>
+            </li>
+            <li t-if="canceled_order and canceled_order._name == 'account.move'"
+                class="breadcrumb-item active text-truncate col-8 col-lg-10">
+                <t t-esc="canceled_order.name"/>
+            </li>
+        </xpath>
+    </template>
+    
+    <template id="delivery_order_template" name="My Transaction">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Delivery Orders</t>
+            </t>
+            <t t-if="not transactions">
+                <p>There are currently no Orders.</p>
+            </t>
+            <t t-if="transactions" t-call="portal.portal_table">
+                <t t-foreach="grouped_order" t-as="transactions">
+                    <thead>
+                        <tr t-attf-class="{{'thead-light' if not groupby == 'delivery_state' else ''}}">
+                            <th class="text-left">Ref</th>
+                            <th class="text-left">Call Center Order</th>
+                            <th class="text-left">Delivery Date</th>
+                            <th t-if="groupby == 'district_id'" class="text-left">
+                                <em class="font-weight-normal text-muted">
+                                    <span style="color:blue;">District:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().district_id"/>
+                            </th>
+                            <th t-if="groupby == 'zone_id'" class="text-left">
+                                <em class="font-weight-normal text-muted">
+                                    <span style="color:blue;">Zone:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().zone_id"/>
+                            </th>
+                            <th t-if="groupby == 'delivery_state'" class="text-left">
+                                <em class="font-weight-bold text-muted ">
+                                    <span style="color:blue;">Status:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().delivery_state"/>
+                            </th>
+                            <th class="text-left">Customer</th>
+                            <th class="text-left">Amount</th>
+                            <th t-if="groupby != 'district_id'" class="text-left">District</th>
+                            <th t-if="groupby != 'zone_id'" class="text-left">Zone</th>
+                            <th>
+                                Click On
+                                <i style="color:green;" class="fa fa-arrow-down"></i>
+                            </th>
+                            <!-- <th>
+                                Click On
+                                <i style="color:green;" class="fa fa-arrow-down"></i>
+                            </th> -->
+                        </tr>
+                    </thead>
+                    <t t-foreach="transactions" t-as="transaction">
+                        <tr>
+                            <td class="text-left">
+                                <a t-attf-href="/my/transaction/#{transaction.id}">
+                                    <t t-esc="transaction.name"/>
+                                </a>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.call_center_order_id"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.delivery_date"/>
+                            </td>
+                            <td t-if="groupby != 'none'"/>
+                            <td class="text-left">
+                                <span t-field="transaction.partner_id"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.amount_total"/>
+                            </td>
+                            <td t-if="groupby != 'district_id'" class="text-left">
+                                <span t-field="transaction.district_id"/>
+                            </td>
+                            <td t-if="groupby != 'zone_id'" class="text-left">
+                                <span t-field="transaction.zone_id"/>
+                            </td>
+                            <td>
+                                <a t-attf-href="/my/transactions?res_id=#{transaction.id}&amp;state=#{'delivery_assigned_tree'}"
+                                   icon="fa-icon_you_like" t-if="transaction.delivery_state =='delivery_assigned'">
+                                    Delivery In Way
+                                </a>
+                            </td>
+                            <!-- <td>
+                                <a t-attf-href="/my/transactions?res_id=#{transaction.id}&amp;state=#{'delivery_cancel_tree'}"
+                                   icon="fa-icon_you_like">
+                                    Delivery Canceled
+                                </a>
+                            </td> -->
+                        </tr>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="delivery_template_form" name="Order Portal Template" inherit_id="portal.portal_sidebar"
+              primary="True">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=assign.name&amp;id=%s&amp;view_type=form' % (assign.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <span t-field="assign.name" class="col-9 text-truncate"/>
+                                <span style="color:blue;" t-field="assign.call_center_order_id"/>&#160;
+                                <span t-field="assign.delivery_state" class="badge badge-pill badge-info"
+                                      title="Current stage of this order"/>
+                            </h5>
+                            <div class="row" name="action_button">
+                                <div t-if="assign.delivery_state =='delivery_assigned'">
+                                    <a role="button"
+                                       t-attf-href="/my/transactions?res_id=#{assign.id}&amp;state=#{'delivery_assigned'}"
+                                       class="btn btn-sm btn-secondary">
+                                        <span class="fa fa-tasks" role="img" aria-label="Tasks"/>
+                                        <strong>
+                                            Delivery In Way
+                                        </strong>
+                                    </a>
+                                    &#160; &#160;
+                                    <a role="button"
+                                       t-attf-href="/my/transactions?res_id=#{assign.id}&amp;state=#{'delivery_canceled'}"
+                                       class="btn btn-sm btn-secondary">
+                                        <span class="fa fa-tasks" role="img" aria-label="Tasks"/>
+                                        <strong>
+                                            Delivery Canceled
+                                        </strong>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <t t-set="card_body">
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <strong>Customer:</strong>
+                            <span t-field="assign.partner_id"/>
+                            <br/>
+                            <strong>Mobile:</strong>
+                            <span t-field="assign.partner_id.mobile"/>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <strong>Delivery Date:</strong>
+                            <span t-field="assign.delivery_date" t-options='{"widget": "date"}'/>
+                            <br/>
+                            <strong>Zone:</strong>
+                            <span t-field="assign.zone_id"/>
+                            <br/>
+                            <strong>District:</strong>
+                            <span t-field="assign.district_id"/>
+                            <t t-if="assign.partner_id.street">
+                                <strong>Street:</strong>
+                                <span t-field="assign.partner_id.street"/>
+                            </t>
+                            <t t-if="assign.land_mark">
+                                <strong>Land Mark:</strong>
+                                <span t-field="assign.land_mark"/>
+                            </t>
+                            <t t-if="assign.building_type_id">
+                                <strong>Building Type:</strong>
+                                <span t-field="assign.building_type_id"/>
+                            </t>
+                            <t t-if="assign.building_number">
+                                <strong>Building Number:</strong>
+                                <span t-field="assign.building_number"/>
+                            </t>
+                            <t t-if="assign.floor_number">
+                                <strong>Floor Number:</strong>
+                                <span t-field="assign.floor_number"/>
+                            </t>
+                            <t t-if="assign.flat_number">
+                                <strong>Flat Number:</strong>
+                                <span t-field="assign.flat_number"/>
+                            </t>
+                            <br/>
+                            <t t-if="assign.prepaid">
+                                <span class="badge badge-pill badge-success" title="Collection Money Done">
+                                    <strong style="font-size: 15px;">
+                                        Prepaid
+                                    </strong>
+                                </span>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <strong>Order Type:</strong>
+                            <span t-field="assign.order_type"/>
+                            <br/>
+                            <strong>Delivery Type:</strong>
+                            <span t-field="assign.delivery_type_id"/>
+                            <br/>
+                            <t t-if="assign.delivery_state not in ['in_delivery_area','delivery_assigned','delivery_canceled']">
+                                <strong>Send Date:</strong>
+                                <span t-field="assign.send_date"/>
+                                <br/>
+                            </t>
+                            <t t-if="assign.delivery_state not in ['in_delivery_area','delivery_assigned','delivery_canceled','delivery_on_way']">
+                                <strong>Arrived Date:</strong>
+                                <span t-field="assign.arrived_date"/>
+                                <br/>
+                            </t>
+                        </div>
+                    </div>
+                    <div>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th class="text-left">Description</th>
+                                    <th class="text-left">Quantity</th>
+                                    <th class="text-left">Price Unit</th>
+                                    <th class="text-left">Taxes</th>
+                                    <th class="text-right">Price Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="assign.sudo().invoice_line_ids" t-as="line">
+                                    <t t-if="not line.display_type">
+                                        <td class="text-left">
+                                            <t t-esc="line.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="line.quantity"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="line.price_unit"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-foreach="line.tax_ids" t-as="tax">
+                                                <t t-esc="tax.name"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="line.price_subtotal"/>
+                                        </td>
+                                    </t>
+                                    <t t-if="line.display_type == 'line_section'">
+                                        <td colspan="99">
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                        <t t-set="current_section" t-value="line"/>
+                                        <t t-set="current_subtotal" t-value="0"/>
+                                    </t>
+                                    <t t-if="line.display_type == 'line_note'">
+                                        <td colspan="99">
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right" align="left">
+                        <t t-set="tax_amount" t-value="round(assign.amount_total-assign.amount_untaxed,2)"/>
+                        <t t-if="tax_amount>0">
+                            <strong>Untaxed Amount:</strong>
+                            <span style="color:green;" t-field="assign.amount_untaxed"/>
+                            <br/>
+                            <strong>Tax:</strong>
+                            <span style="color:green;" t-esc="tax_amount" class="border-top: 1px dashed red;"/>
+                            <br/>
+                        </t>
+                        <strong>Total:</strong>
+                        <span style="color:green;" t-field="assign.amount_total"/>
+                        <br/>
+                        <t t-if="assign.prepaid">
+                            <strong>Paid Amount:</strong>
+                            <span style="color:green;" t-field="assign.paid_amount"/>
+                            <br/>
+                            <strong>Amount Due:</strong>
+                            <span style="color:blue;" t-field="assign.amount_due" class="border-top: 1px dashed red;"/>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <!--                                                  Delivery On Way Views                                                                         -->
+    <template id="delivery_on_way_order_template" name="My Transaction">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">On Way Orders</t>
+            </t>
+            <t t-if="not transactions">
+                <p>There are currently no Orders.</p>
+            </t>
+            <t t-if="transactions" t-call="portal.portal_table">
+                <t t-foreach="grouped_order" t-as="transactions">
+                    <thead>
+                        <tr t-attf-class="{{'thead-light' if not groupby == 'delivery_state' else ''}}">
+                            <th class="text-left">Ref</th>
+                            <th class="text-left">Call Center Order</th>
+                            <th class="text-left">Delivery Date</th>
+                            <th t-if="groupby == 'district_id'" class="text-left">
+                                <em class="font-weight-normal text-muted">
+                                    <span style="color:blue;">District:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().district_id"/>
+                            </th>
+                            <th t-if="groupby == 'zone_id'" class="text-left">
+                                <em class="font-weight-normal text-muted">
+                                    <span style="color:blue;">Zone:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().zone_id"/>
+                            </th>
+                            <th t-if="groupby == 'delivery_state'" class="text-left">
+                                <em class="font-weight-bold text-muted ">
+                                    <span style="color:blue;">Status:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().delivery_state"/>
+                            </th>
+                            <th class="text-left">Customer</th>
+                            <th class="text-left">Amount</th>
+                            <th t-if="groupby != 'district_id'" class="text-left">District</th>
+                            <th t-if="groupby != 'zone_id'" class="text-left">Zone</th>
+                            <th>
+                                Click On
+                                <i style="color:green;" class="fa fa-arrow-down"></i>
+                            </th>
+                            <!-- <th>
+                                Click On
+                                <i style="color:green;" class="fa fa-arrow-down"></i>
+                            </th> -->
+                        </tr>
+                    </thead>
+                    <t t-foreach="transactions" t-as="transaction">
+                        <tr>
+                            <td class="text-left">
+                                <a t-attf-href="/my/way-transaction/#{transaction.id}">
+                                    <t t-esc="transaction.name"/>
+                                </a>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.call_center_order_id"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.delivery_date"/>
+                            </td>
+                            <td t-if="groupby != 'none'"/>
+                            <td class="text-left">
+                                <span t-field="transaction.partner_id"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.amount_total"/>
+                            </td>
+                            <td t-if="groupby != 'district_id'" class="text-left">
+                                <span t-field="transaction.district_id"/>
+                            </td>
+                            <td t-if="groupby != 'zone_id'" class="text-left">
+                                <span t-field="transaction.zone_id"/>
+                            </td>
+                            <td>
+                                <a t-attf-href="/my/way-transactions?res_id=#{transaction.id}&amp;state=#{'delivery_on_way_tree'}"
+                                   icon="fa-icon_you_like" t-if="transaction.delivery_state =='delivery_on_way'">
+                                    Delivery Arrived
+                                </a>
+                            </td>
+                            <!-- <td>
+                                <a t-attf-href="/my/way-transactions?res_id=#{transaction.id}&amp;state=#{'delivery_cancel_tree'}"
+                                   icon="fa-icon_you_like">
+                                    Delivery Cancel
+                                </a>
+                            </td> -->
+                        </tr>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="delivery_on_way_template_form" name="Order Portal Template" inherit_id="portal.portal_sidebar"
+              primary="True">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=on_way.name&amp;id=%s&amp;view_type=form' % (on_way.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <span t-field="on_way.name" class="col-9 text-truncate"/>
+                                <span style="color:blue;" t-field="on_way.call_center_order_id"/>&#160;
+                                <span t-field="on_way.delivery_state" class="badge badge-pill badge-info"
+                                      title="Current stage of this order"/>
+                            </h5>
+                            <div class="row" name="action_button">
+                                <div t-if="on_way.delivery_state =='delivery_on_way'">
+                                    <a role="button"
+                                       t-attf-href="/my/way-transactions?res_id=#{on_way.id}&amp;state=#{'delivery_on_way'}"
+                                       class="btn btn-sm btn-secondary">
+                                        <span class="fa fa-tasks" role="img" aria-label="Tasks"/>
+                                        <strong>
+                                            Delivery Arrived
+                                        </strong>
+                                    </a>
+                                    &#160; &#160;
+                                    <a role="button"
+                                       t-attf-href="/my/way-transactions?res_id=#{on_way.id}&amp;state=#{'delivery_canceled'}"
+                                       class="btn btn-sm btn-secondary">
+                                        <span class="fa fa-tasks" role="img" aria-label="Tasks"/>
+                                        <strong>
+                                            Delivery Canceled
+                                        </strong>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <t t-set="card_body">
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <strong>Customer:</strong>
+                            <span t-field="on_way.partner_id"/>
+                            <br/>
+                            <strong>Mobile:</strong>
+                            <span t-field="on_way.partner_id.mobile"/>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <strong>Delivery Date:</strong>
+                            <span t-field="on_way.delivery_date" t-options='{"widget": "date"}'/>
+                            <br/>
+                            <strong>Zone:</strong>
+                            <span t-field="on_way.zone_id"/>
+                            <br/>
+                            <strong>District:</strong>
+                            <span t-field="on_way.district_id"/>
+                            <t t-if="on_way.partner_id.street">
+                                <strong>Street:</strong>
+                                <span t-field="on_way.partner_id.street"/>
+                            </t>
+                            <t t-if="on_way.land_mark">
+                                <strong>Land Mark:</strong>
+                                <span t-field="on_way.land_mark"/>
+                            </t>
+                            <t t-if="on_way.building_type_id">
+                                <strong>Building Type:</strong>
+                                <span t-field="on_way.building_type_id"/>
+                            </t>
+                            <t t-if="on_way.building_number">
+                                <strong>Building Number:</strong>
+                                <span t-field="on_way.building_number"/>
+                            </t>
+                            <t t-if="on_way.floor_number">
+                                <strong>Floor Number:</strong>
+                                <span t-field="on_way.floor_number"/>
+                            </t>
+                            <t t-if="on_way.flat_number">
+                                <strong>Flat Number:</strong>
+                                <span t-field="on_way.flat_number"/>
+                            </t>
+                            <br/>
+                            <t t-if="on_way.prepaid">
+                                <span class="badge badge-pill badge-success" title="Collection Money Done">
+                                    <strong style="font-size: 15px;">
+                                        Prepaid
+                                    </strong>
+                                </span>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <strong>Order Type:</strong>
+                            <span t-field="on_way.order_type"/>
+                            <br/>
+                            <strong>Delivery Type:</strong>
+                            <span t-field="on_way.delivery_type_id"/>
+                            <br/>
+                            <t t-if="on_way.delivery_state not in ['in_delivery_area','delivery_assigned','delivery_canceled']">
+                                <strong>Send Date:</strong>
+                                <span t-field="on_way.send_date"/>
+                                <br/>
+                            </t>
+                            <t t-if="on_way.delivery_state not in ['in_delivery_area','delivery_assigned','delivery_canceled','delivery_on_way']">
+                                <strong>Arrived Date:</strong>
+                                <span t-field="on_way.arrived_date"/>
+                                <br/>
+                            </t>
+                        </div>
+                    </div>
+                    <div>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th class="text-left">Description</th>
+                                    <th class="text-left">Quantity</th>
+                                    <th class="text-left">Price Unit</th>
+                                    <th class="text-left">Taxes</th>
+                                    <th class="text-right">Price Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="on_way.sudo().invoice_line_ids" t-as="line">
+                                    <t t-if="not line.display_type">
+                                        <td class="text-left">
+                                            <t t-esc="line.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="line.quantity"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="line.price_unit"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-foreach="line.tax_ids" t-as="tax">
+                                                <t t-esc="tax.name"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="line.price_subtotal"/>
+                                        </td>
+                                    </t>
+                                    <t t-if="line.display_type == 'line_section'">
+                                        <td colspan="99">
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                        <t t-set="current_section" t-value="line"/>
+                                        <t t-set="current_subtotal" t-value="0"/>
+                                    </t>
+                                    <t t-if="line.display_type == 'line_note'">
+                                        <td colspan="99">
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right" align="left">
+                        <t t-set="tax_amount" t-value="round(on_way.amount_total-on_way.amount_untaxed,2)"/>
+                        <t t-if="tax_amount>0">
+                            <strong>Untaxed Amount:</strong>
+                            <span style="color:green;" t-field="on_way.amount_untaxed"/>
+                            <br/>
+                            <strong>Tax:</strong>
+                            <span style="color:green;" t-esc="tax_amount"/>
+                            <br/>
+                        </t>
+                        <separator/>
+                        <strong>Total:</strong>
+                        <span style="color:green;" t-field="on_way.amount_total"/>
+                        <br/>
+                        <t t-if="on_way.prepaid">
+                            <strong>Paid Amount:</strong>
+                            <span style="color:green;" t-field="on_way.paid_amount"/>
+                            <br/>
+                            <strong>Amount Due:</strong>
+                            <span style="color:blue;" t-field="on_way.amount_due" class="border-top: 1px dashed red;"/>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <!--                                                  Arrived Views                                                                         -->
+    <template id="arrived_delivery_order_template" name="My Transaction">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Delivery Orders</t>
+            </t>
+            <t t-if="not transactions">
+                <p>There are currently no Orders.</p>
+            </t>
+            <t t-if="transactions" t-call="portal.portal_table">
+                <t t-foreach="grouped_order" t-as="transactions">
+                    <thead>
+                        <tr t-attf-class="{{'thead-light' if not groupby == 'zone_id' else ''}}">
+                            <th class="text-left">Ref</th>
+                            <th class="text-left">Call Center Order</th>
+                            <th class="text-left">Delivery Date</th>
+                            <th t-if="groupby == 'district_id'" class="text-left">
+                                <em class="font-weight-normal text-muted">
+                                    <span style="color:blue;">District:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().district_id"/>
+                            </th>
+                            <th t-if="groupby == 'zone_id'" class="text-left">
+                                <em class="font-weight-normal text-muted">
+                                    <span style="color:blue;">Zone:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().zone_id"/>
+                            </th>
+                            <th class="text-left">Customer</th>
+                            <th class="text-left">Amount</th>
+                            <th t-if="groupby != 'district_id'" class="text-left">District</th>
+                            <th t-if="groupby != 'zone_id'" class="text-left">Zone</th>
+                            <th>
+                                Click On
+                                <i style="color:green;" class="fa fa-arrow-down"></i>
+                            </th>
+                            <!-- <th>
+                                Click On
+                                <i style="color:green;" class="fa fa-arrow-down"></i>
+                            </th> -->
+                        </tr>
+                    </thead>
+                    <t t-foreach="transactions" t-as="transaction">
+                        <tr>
+                            <td class="text-left">
+                                <a t-attf-href="/my/arrived-transaction/#{transaction.id}">
+                                    <t t-esc="transaction.name"/>
+                                </a>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.call_center_order_id"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.delivery_date"/>
+                            </td>
+                            <td t-if="groupby != 'none'"/>
+                            <td class="text-left">
+                                <span t-field="transaction.partner_id"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.amount_total"/>
+                            </td>
+                            <td t-if="groupby != 'district_id'" class="text-left">
+                                <span t-field="transaction.district_id"/>
+                            </td>
+                            <td t-if="groupby != 'zone_id'" class="text-left">
+                                <span t-field="transaction.zone_id"/>
+                            </td>
+                            <td>
+                                <a t-attf-href="/my/arrived-transactions?res_id=#{transaction.id}&amp;state=#{'delivery_arrived_tree'}"
+                                   icon="fa-icon_you_like" t-if="transaction.delivery_state =='delivery_arrived'">
+                                    Delivery Collection
+                                </a>
+                            </td>
+                            <!-- <td>
+                                <a t-attf-href="/my/way-transactions?res_id=#{transaction.id}&amp;state=#{'delivery_cancel_tree'}"
+                                   icon="fa-icon_you_like">
+                                    Delivery Cancel
+                                </a>
+                            </td> -->
+                        </tr>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="arrived_delivery_template_form" name="Order Portal Template" inherit_id="portal.portal_sidebar"
+              primary="True">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=arrived_order.name&amp;id=%s&amp;view_type=form' % (arrived_order.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <span t-field="arrived_order.name" class="col-9 text-truncate"/>
+                                <span style="color:blue;" t-field="arrived_order.call_center_order_id"/>&#160;
+                                <span t-field="arrived_order.delivery_state" class="badge badge-pill badge-info"
+                                      title="Current stage of this order"/>
+                            </h5>
+                            <div class="row" name="action_button">
+                                <div t-if="arrived_order.delivery_state =='delivery_arrived'">
+                                    <a role="button"
+                                       t-attf-href="/my/arrived-transactions?res_id=#{arrived_order.id}&amp;state=#{'delivery_arrived'}"
+                                       class="btn btn-sm btn-secondary">
+                                        <span class="fa fa-tasks" role="img" aria-label="Tasks"/>
+                                        <strong>
+                                            Received Money
+                                        </strong>
+                                    </a>
+                                    &#160; &#160;
+                                    <a role="button"
+                                       t-attf-href="/my/arrived-transactions?res_id=#{arrived_order.id}&amp;state=#{'delivery_canceled'}"
+                                       class="btn btn-sm btn-secondary">
+                                        <span class="fa fa-tasks" role="img" aria-label="Tasks"/>
+                                        <strong>
+                                            Delivery Canceled
+                                        </strong>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <t t-set="card_body">
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <strong>Customer:</strong>
+                            <span t-field="arrived_order.partner_id"/>
+                            <br/>
+                            <strong>Mobile:</strong>
+                            <span t-field="arrived_order.partner_id.mobile"/>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <strong>Delivery Date:</strong>
+                            <span t-field="arrived_order.delivery_date" t-options='{"widget": "date"}'/>
+                            <br/>
+                            <strong>Zone:</strong>
+                            <span t-field="arrived_order.zone_id"/>
+                            <br/>
+                            <strong>District:</strong>
+                            <span t-field="arrived_order.district_id"/>
+                            <t t-if="arrived_order.partner_id.street">
+                                <strong>Street:</strong>
+                                <span t-field="arrived_order.partner_id.street"/>
+                            </t>
+                            <t t-if="arrived_order.land_mark">
+                                <strong>Land Mark:</strong>
+                                <span t-field="arrived_order.land_mark"/>
+                            </t>
+                            <t t-if="arrived_order.building_type_id">
+                                <strong>Building Type:</strong>
+                                <span t-field="arrived_order.building_type_id"/>
+                            </t>
+                            <t t-if="arrived_order.building_number">
+                                <strong>Building Number:</strong>
+                                <span t-field="arrived_order.building_number"/>
+                            </t>
+                            <t t-if="arrived_order.floor_number">
+                                <strong>Floor Number:</strong>
+                                <span t-field="arrived_order.floor_number"/>
+                            </t>
+                            <t t-if="arrived_order.flat_number">
+                                <strong>Flat Number:</strong>
+                                <span t-field="arrived_order.flat_number"/>
+                            </t>
+                            <br/>
+                            <t t-if="arrived_order.prepaid">
+                                <span class="badge badge-pill badge-success" title="Collection Money Done">
+                                    <strong style="font-size: 15px;">
+                                        Prepaid
+                                    </strong>
+                                </span>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <strong>Order Type:</strong>
+                            <span t-field="arrived_order.order_type"/>
+                            <br/>
+                            <strong>Delivery Type:</strong>
+                            <span t-field="arrived_order.delivery_type_id"/>
+                            <br/>
+                            <t t-if="arrived_order.delivery_state not in ['in_delivery_area','delivery_assigned','delivery_canceled']">
+                                <strong>Send Date:</strong>
+                                <span t-field="arrived_order.send_date"/>
+                                <br/>
+                            </t>
+                            <t t-if="arrived_order.delivery_state not in ['in_delivery_area','delivery_assigned','delivery_canceled','delivery_on_way']">
+                                <strong>Arrived Date:</strong>
+                                <span t-field="arrived_order.arrived_date"/>
+                                <br/>
+                            </t>
+                        </div>
+                    </div>
+                    <div>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th class="text-left">Description</th>
+                                    <th class="text-left">Quantity</th>
+                                    <th class="text-left">Price Unit</th>
+                                    <th class="text-left">Taxes</th>
+                                    <th class="text-right">Price Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="arrived_order.sudo().invoice_line_ids" t-as="line">
+                                    <t t-if="not line.display_type">
+                                        <td class="text-left">
+                                            <t t-esc="line.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="line.quantity"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="line.price_unit"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-foreach="line.tax_ids" t-as="tax">
+                                                <t t-esc="tax.name"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="line.price_subtotal"/>
+                                        </td>
+                                    </t>
+                                    <t t-if="line.display_type == 'line_section'">
+                                        <td colspan="99">
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                        <t t-set="current_section" t-value="line"/>
+                                        <t t-set="current_subtotal" t-value="0"/>
+                                    </t>
+                                    <t t-if="line.display_type == 'line_note'">
+                                        <td colspan="99">
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right" align="left">
+                        <t t-set="tax_amount"
+                           t-value="round(arrived_order.amount_total-arrived_order.amount_untaxed,2)"/>
+                        <t t-if="tax_amount>0">
+                            <strong>Untaxed Amount:</strong>
+                            <span style="color:green;" t-field="arrived_order.amount_untaxed"/>
+                            <br/>
+                            <strong>Tax:</strong>
+                            <span style="color:green;" t-esc="tax_amount"/>
+                            <br/>
+                        </t>
+                        <separator/>
+                        <strong>Total:</strong>
+                        <span style="color:green;" t-field="arrived_order.amount_total"/>
+                        <br/>
+                        <t t-if="arrived_order.prepaid">
+                            <strong>Paid Amount:</strong>
+                            <span style="color:green;" t-field="arrived_order.paid_amount"/>
+                            <br/>
+                            <strong>Amount Due:</strong>
+                            <span style="color:blue;" t-field="arrived_order.amount_due"
+                                  class="border-top: 1px dashed red;"/>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <!--                                                  CollectionViews                                                                         -->
+    <template id="delivery_collection_delivery_order_template" name="My Transaction">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Delivery Orders</t>
+            </t>
+            <t t-if="not transactions">
+                <p>There are currently no Orders.</p>
+            </t>
+            <t t-if="transactions" t-call="portal.portal_table">
+                <t t-foreach="grouped_order" t-as="transactions">
+                    <thead>
+                        <tr t-attf-class="{{'thead-light' if not groupby == 'zone_id' else ''}}">
+                            <th class="text-left">Ref</th>
+                            <th class="text-left">Call Center Order</th>
+                            <th class="text-left">Delivery Date</th>
+                            <th t-if="groupby == 'district_id'" class="text-left">
+                                <em class="font-weight-normal text-muted">
+                                    <span style="color:blue;">District:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().district_id"/>
+                            </th>
+                            <th t-if="groupby == 'zone_id'" class="text-left">
+                                <em class="font-weight-normal text-muted">
+                                    <span style="color:blue;">Zone:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().zone_id"/>
+                            </th>
+                            <th class="text-left">Customer</th>
+                            <th class="text-left">Amount</th>
+                            <th t-if="groupby != 'district_id'" class="text-left">District</th>
+                            <th t-if="groupby != 'zone_id'" class="text-left">Zone</th>
+                        </tr>
+                    </thead>
+                    <t t-foreach="transactions" t-as="transaction">
+                        <tr>
+                            <td class="text-left">
+                                <a t-attf-href="/my/received-transaction/#{transaction.id}">
+                                    <t t-esc="transaction.name"/>
+                                </a>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.call_center_order_id"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.delivery_date"/>
+                            </td>
+                            <td t-if="groupby != 'none'"/>
+                            <td class="text-left">
+                                <span t-field="transaction.partner_id"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.amount_total"/>
+                            </td>
+                            <td t-if="groupby != 'district_id'" class="text-left">
+                                <span t-field="transaction.district_id"/>
+                            </td>
+                            <td t-if="groupby != 'zone_id'" class="text-left">
+                                <span t-field="transaction.zone_id"/>
+                            </td>
+                        </tr>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="delivery_collection_delivery_template_form" name="Order Portal Template"
+              inherit_id="portal.portal_sidebar" primary="True">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=received_money.name&amp;id=%s&amp;view_type=form' % (received_money.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <span t-field="received_money.name" class="col-9 text-truncate"/>
+                                <span style="color:blue;" t-field="received_money.call_center_order_id"/>&#160;
+                                <span t-field="received_money.delivery_state" class="badge badge-pill badge-info"
+                                      title="Current stage of this order"/>
+                            </h5>
+                        </div>
+                    </div>
+                </t>
+                <t t-set="card_body">
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <strong>Customer:</strong>
+                            <span t-field="received_money.partner_id"/>
+                            <br/>
+                            <strong>Mobile:</strong>
+                            <span t-field="received_money.partner_id.mobile"/>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <strong>Delivery Date:</strong>
+                            <span t-field="received_money.delivery_date" t-options='{"widget": "date"}'/>
+                            <br/>
+                            <strong>Zone:</strong>
+                            <span t-field="received_money.zone_id"/>
+                            <br/>
+                            <strong>District:</strong>
+                            <span t-field="received_money.district_id"/>
+                            <t t-if="received_money.partner_id.street">
+                                <strong>Street:</strong>
+                                <span t-field="received_money.partner_id.street"/>
+                            </t>
+                            <t t-if="received_money.land_mark">
+                                <strong>Land Mark:</strong>
+                                <span t-field="received_money.land_mark"/>
+                            </t>
+                            <t t-if="received_money.building_type_id">
+                                <strong>Building Type:</strong>
+                                <span t-field="received_money.building_type_id"/>
+                            </t>
+                            <t t-if="received_money.building_number">
+                                <strong>Building Number:</strong>
+                                <span t-field="received_money.building_number"/>
+                            </t>
+                            <t t-if="received_money.floor_number">
+                                <strong>Floor Number:</strong>
+                                <span t-field="received_money.floor_number"/>
+                            </t>
+                            <t t-if="received_money.flat_number">
+                                <strong>Flat Number:</strong>
+                                <span t-field="received_money.flat_number"/>
+                            </t>
+                            <br/>
+                            <t t-if="received_money.prepaid">
+                                <span class="badge badge-pill badge-success" title="Collection Money Done">
+                                    <strong style="font-size: 15px;">
+                                        Prepaid
+                                    </strong>
+                                </span>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <strong>Order Type:</strong>
+                            <span t-field="received_money.order_type"/>
+                            <br/>
+                            <strong>Delivery Type:</strong>
+                            <span t-field="received_money.delivery_type_id"/>
+                            <br/>
+                            <t t-if="received_money.delivery_state not in ['in_delivery_area','delivery_assigned','delivery_canceled']">
+                                <strong>Send Date:</strong>
+                                <span t-field="received_money.send_date"/>
+                                <br/>
+                            </t>
+                            <t t-if="received_money.delivery_state not in ['in_delivery_area','delivery_assigned','delivery_canceled','delivery_on_way']">
+                                <strong>Arrived Date:</strong>
+                                <span t-field="received_money.arrived_date"/>
+                                <br/>
+                            </t>
+                        </div>
+                    </div>
+                    <div>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th class="text-left">Description</th>
+                                    <th class="text-left">Quantity</th>
+                                    <th class="text-left">Price Unit</th>
+                                    <th class="text-left">Taxes</th>
+                                    <th class="text-right">Price Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="received_money.sudo().invoice_line_ids" t-as="line">
+                                    <t t-if="not line.display_type">
+                                        <td class="text-left">
+                                            <t t-esc="line.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="line.quantity"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="line.price_unit"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-foreach="line.tax_ids" t-as="tax">
+                                                <t t-esc="tax.name"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="line.price_subtotal"/>
+                                        </td>
+                                    </t>
+                                    <t t-if="line.display_type == 'line_section'">
+                                        <td colspan="99">
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                        <t t-set="current_section" t-value="line"/>
+                                        <t t-set="current_subtotal" t-value="0"/>
+                                    </t>
+                                    <t t-if="line.display_type == 'line_note'">
+                                        <td colspan="99">
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right" align="left">
+                        <t t-set="tax_amount"
+                           t-value="round(received_money.amount_total-received_money.amount_untaxed,2)"/>
+                        <t t-if="tax_amount>0">
+                            <strong>Untaxed Amount:</strong>
+                            <span style="color:green;" t-field="received_money.amount_untaxed"/>
+                            <br/>
+                            <strong>Tax:</strong>
+                            <span style="color:green;" t-esc="tax_amount"/>
+                            <br/>
+                        </t>
+                        <separator/>
+                        <strong>Total:</strong>
+                        <span style="color:green;" t-field="received_money.amount_total"/>
+                        <br/>
+                        <t t-if="received_money.prepaid">
+                            <strong>Paid Amount:</strong>
+                            <span style="color:green;" t-field="received_money.paid_amount"/>
+                            <br/>
+                            <strong>Amount Due:</strong>
+                            <span style="color:blue;" t-field="received_money.amount_due"
+                                  class="border-top: 1px dashed red;"/>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <!--                                                 Canceled  Views                                                                          -->
+    <template id="canceled_order_delivery_order_template" name="My Transaction">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Delivery Orders</t>
+            </t>
+            <t t-if="not transactions">
+                <p>There are currently no Orders.</p>
+            </t>
+            <t t-if="transactions" t-call="portal.portal_table">
+                <t t-foreach="grouped_order" t-as="transactions">
+                    <thead>
+                        <tr t-attf-class="{{'thead-light' if not groupby == 'zone_id' else ''}}">
+                            <th class="text-left">Ref</th>
+                            <th class="text-left">Call Center Order</th>
+                            <th class="text-left">Delivery Date</th>
+                            <th t-if="groupby == 'district_id'" class="text-left">
+                                <em class="font-weight-normal text-muted">
+                                    <span style="color:blue;">District:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().district_id"/>
+                            </th>
+                            <th t-if="groupby == 'zone_id'" class="text-left">
+                                <em class="font-weight-normal text-muted">
+                                    <span style="color:blue;">Zone:</span>
+                                </em>
+                                <span t-field="transactions[0].sudo().zone_id"/>
+                            </th>
+                            <th class="text-left">Customer</th>
+                            <th class="text-left">Amount</th>
+                            <th t-if="groupby != 'district_id'" class="text-left">District</th>
+                            <th t-if="groupby != 'zone_id'" class="text-left">Zone</th>
+                        </tr>
+                    </thead>
+                    <t t-foreach="transactions" t-as="transaction">
+                        <tr>
+                            <td class="text-left">
+                                <a t-attf-href="/my/canceled-transaction/#{transaction.id}">
+                                    <t t-esc="transaction.name"/>
+                                </a>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.call_center_order_id"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.delivery_date"/>
+                            </td>
+                            <td t-if="groupby != 'none'"/>
+                            <td class="text-left">
+                                <span t-field="transaction.partner_id"/>
+                            </td>
+                            <td class="text-left">
+                                <span t-field="transaction.amount_total"/>
+                            </td>
+                            <td t-if="groupby != 'district_id'" class="text-left">
+                                <span t-field="transaction.district_id"/>
+                            </td>
+                            <td t-if="groupby != 'zone_id'" class="text-left">
+                                <span t-field="transaction.zone_id"/>
+                            </td>
+                        </tr>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="canceled_order_delivery_template_form" name="Order Portal Template" inherit_id="portal.portal_sidebar"
+              primary="True">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url"
+                       t-value="'/web#model=canceled_order.name&amp;id=%s&amp;view_type=form' % (canceled_order.id)"/>
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <span t-field="canceled_order.name" class="col-9 text-truncate"/>
+                                <span style="color:blue;" t-field="canceled_order.call_center_order_id"/>&#160;
+                                <span t-field="canceled_order.delivery_state" class="badge badge-pill badge-info"
+                                      title="Current stage of this order"/>
+                            </h5>
+                        </div>
+                    </div>
+                </t>
+                <t t-set="card_body">
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <strong>Customer:</strong>
+                            <span t-field="canceled_order.partner_id"/>
+                            <br/>
+                            <strong>Mobile:</strong>
+                            <span t-field="canceled_order.partner_id.mobile"/>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <strong>Delivery Date:</strong>
+                            <span t-field="canceled_order.delivery_date" t-options='{"widget": "date"}'/>
+                            <br/>
+                            <strong>Zone:</strong>
+                            <span t-field="canceled_order.zone_id"/>
+                            <br/>
+                            <strong>District:</strong>
+                            <span t-field="canceled_order.district_id"/>
+                            <t t-if="canceled_order.partner_id.street">
+                                <strong>Street:</strong>
+                                <span t-field="canceled_order.partner_id.street"/>
+                            </t>
+                            <t t-if="canceled_order.land_mark">
+                                <strong>Land Mark:</strong>
+                                <span t-field="canceled_order.land_mark"/>
+                            </t>
+                            <t t-if="canceled_order.building_type_id">
+                                <strong>Building Type:</strong>
+                                <span t-field="canceled_order.building_type_id"/>
+                            </t>
+                            <t t-if="canceled_order.building_number">
+                                <strong>Building Number:</strong>
+                                <span t-field="canceled_order.building_number"/>
+                            </t>
+                            <t t-if="canceled_order.floor_number">
+                                <strong>Floor Number:</strong>
+                                <span t-field="canceled_order.floor_number"/>
+                            </t>
+                            <t t-if="canceled_order.flat_number">
+                                <strong>Flat Number:</strong>
+                                <span t-field="canceled_order.flat_number"/>
+                            </t>
+                            <br/>
+                            <t t-if="canceled_order.prepaid">
+                                <span class="badge badge-pill badge-success" title="Collection Money Done">
+                                    <strong style="font-size: 15px;">
+                                        Prepaid
+                                    </strong>
+                                </span>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6">
+                            <strong>Order Type:</strong>
+                            <span t-field="canceled_order.order_type"/>
+                            <br/>
+                            <strong>Delivery Type:</strong>
+                            <span t-field="canceled_order.delivery_type_id"/>
+                            <br/>
+                            <t t-if="canceled_order.delivery_state not in ['in_delivery_area','delivery_assigned','delivery_canceled']">
+                                <strong>Send Date:</strong>
+                                <span t-field="order.send_date"/>
+                                <br/>
+                            </t>
+                            <t t-if="canceled_order.delivery_state not in ['in_delivery_area','delivery_assigned','delivery_canceled','delivery_on_way']">
+                                <strong>Arrived Date:</strong>
+                                <span t-field="canceled_order.arrived_date"/>
+                                <br/>
+                            </t>
+                        </div>
+                    </div>
+                    <div>
+                        <table class="table table-sm">
+                            <thead class="bg-100">
+                                <tr>
+                                    <th class="text-left">Description</th>
+                                    <th class="text-left">Quantity</th>
+                                    <th class="text-left">Price Unit</th>
+                                    <th class="text-left">Taxes</th>
+                                    <th class="text-right">Price Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="canceled_order.sudo().invoice_line_ids" t-as="line">
+                                    <t t-if="not line.display_type">
+                                        <td class="text-left">
+                                            <t t-esc="line.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="line.quantity"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-esc="line.price_unit"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-foreach="line.tax_ids" t-as="tax">
+                                                <t t-esc="tax.name"/>
+                                            </t>
+                                        </td>
+                                        <td class="text-right">
+                                            <t t-esc="line.price_subtotal"/>
+                                        </td>
+                                    </t>
+                                    <t t-if="line.display_type == 'line_section'">
+                                        <td colspan="99">
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                        <t t-set="current_section" t-value="line"/>
+                                        <t t-set="current_subtotal" t-value="0"/>
+                                    </t>
+                                    <t t-if="line.display_type == 'line_note'">
+                                        <td colspan="99">
+                                            <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right" align="left">
+                        <t t-set="tax_amount"
+                           t-value="round(canceled_order.amount_total-canceled_order.amount_untaxed,2)"/>
+                        <t t-if="tax_amount>0">
+                            <strong>Untaxed Amount:</strong>
+                            <span style="color:green;" t-field="canceled_order.amount_untaxed"/>
+                            <br/>
+                            <strong>Tax:</strong>
+                            <span style="color:green;" t-esc="tax_amount"/>
+                            <br/>
+                        </t>
+                        <separator/>
+                        <strong>Total:</strong>
+                        <span style="color:green;" t-field="canceled_order.amount_total"/>
+                        <br/>
+                        <t t-if="canceled_order.prepaid">
+                            <strong>Paid Amount:</strong>
+                            <span style="color:green;" t-field="canceled_order.paid_amount"/>
+                            <br/>
+                            <strong>Amount Due:</strong>
+                            <span style="color:blue;" t-field="canceled_order.amount_due"
+                                  class="border-top: 1px dashed red;"/>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

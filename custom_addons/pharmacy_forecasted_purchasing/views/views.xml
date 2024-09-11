@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <!--
+            <record model="ir.ui.view" id="noha.list">
+              <field name="name">noha list</field>
+              <field name="model">noha.noha</field>
+              <field name="arch" type="xml">
+                <tree>
+                  <field name="name"/>
+                  <field name="value"/>
+                  <field name="value2"/>
+                </tree>
+              </field>
+            </record>
+        -->
+
+        <!-- actions opening views on models -->
+        <!--
+            <record model="ir.actions.act_window" id="noha.action_window">
+              <field name="name">noha window</field>
+              <field name="res_model">noha.noha</field>
+              <field name="view_mode">tree,form</field>
+            </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="noha.action_server">
+              <field name="name">noha server</field>
+              <field name="model_id" ref="model_noha_noha"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+        <!--
+            <menuitem name="noha" id="noha.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+            <menuitem name="Menu 1" id="noha.menu_1" parent="noha.menu_root"/>
+            <menuitem name="Menu 2" id="noha.menu_2" parent="noha.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+            <menuitem name="List" id="noha.menu_1_list" parent="noha.menu_1"
+                      action="noha.action_window"/>
+            <menuitem name="Server to list" id="noha" parent="noha.menu_2"
+                      action="noha.action_server"/>
+        -->
+    </data>
+</odoo>

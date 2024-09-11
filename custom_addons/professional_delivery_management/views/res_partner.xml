@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+              z  <field name="identification_number"/>
+                <field name="is_delivery_boy" attrs="{'invisible': [('company_type', '=', 'company')]}"/>
+                <field name="transportation"
+                       attrs="{'invisible': ['|',('is_delivery_boy', '=', False),('company_type', '=', 'company')]}"/>
+                <field name="plate_number"
+                       attrs="{'invisible':['|','|',('transportation','!=','car'),('is_delivery_boy', '=', False),('company_type', '=', 'company')],'required':[('transportation','=','car')]}"/>
+                <label for="commission_fees" string="Commission Fees"
+                       attrs="{'invisible': ['|',('is_delivery_boy', '=', False),('company_type', '=', 'company')]}"/>
+                <div class="d-flex"
+                     attrs="{'invisible': ['|',('is_delivery_boy', '=', False),('company_type', '=', 'company')]}">
+                    <field name="commission_fees" attrs="{'required':[('is_delivery_boy','=',True)]}"/>
+                    <span class="oe_inline o_form_label mx-3">%</span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="inherit_res_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="professional_call_center.res_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='delivery_address_info']" position="attributes">
+                <attribute name="attrs">{'invisible': [('is_delivery_boy', '=', True)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_partner_action" model="ir.actions.act_window">
+        <field name="name">Vendors</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'create': False}</field>
+        <field name="domain">[('is_delivery_boy', '=', True), ('company_type', '=', 'person')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new document
+            </p>
+        </field>
+    </record>
+
+</odoo>

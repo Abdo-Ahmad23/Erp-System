@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_mrp_group_form" model="ir.ui.view">
+        <field name="name">report.mrp.group.form</field>
+        <field name="model">report.mrp.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="test"/>
+                    </group>
+                    <notebook>
+                        <page string="Lines">
+                            <field name="mrp_group_lines_ids">               <!-- add  context="{'default_field' : field}" to set default value -->
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="report_mrp_group_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="report_mrp_group_action"
+                name="Report Mrp Group"
+                res_model="report.mrp.group"
+                view_mode="form"
+                target="new"
+    />
+
+</odoo>

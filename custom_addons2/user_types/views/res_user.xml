@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inherit_res_users_search" model="ir.ui.view">
+        <field name="name">inherit.res.users.search</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='Inactive']" position="after">
+                <group expand="0" string="Group By">
+                    <filter string="User Types" name="group_user" context="{'group_by':'user_types'}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

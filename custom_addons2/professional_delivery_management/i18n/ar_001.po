@@ -1,0 +1,1110 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* delivery_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-08 17:00+0000\n"
+"PO-Revision-Date: 2023-05-08 17:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid ""
+"<br/>\n"
+"                            <strong>Amount Due:</strong>"
+msgstr "<br/>\n"
+       "                            <strong>المبلغ المدفوع:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid ""
+"<br/>\n"
+"                            <strong>Delivery Type:</strong>"
+msgstr "<br/>\n"
+       "                            <strong>نوع التوصيل:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid ""
+"<br/>\n"
+"                            <strong>District:</strong>"
+msgstr "<br/>\n"
+       "                            <strong>المنطقه:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid ""
+"<br/>\n"
+"                            <strong>Mobile:</strong>"
+msgstr "<br/>\n"
+       "                            <strong>المحمول:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid ""
+"<br/>\n"
+"                            <strong>Tax:</strong>"
+msgstr "<br/>\n"
+       "                            <strong>الضريبه:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid ""
+"<br/>\n"
+"                            <strong>Zone:</strong>"
+msgstr "<br/>\n"
+       "                            <strong>المنطقه الزمنيه:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid ""
+"<em class=\"font-weight-bold text-muted \">\n"
+"                                    <span style=\"color:blue;\">Status:</span>\n"
+"                                </em>"
+msgstr ""
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid ""
+"<em class=\"font-weight-normal text-muted\">\n"
+"                                    <span style=\"color:blue;\">District:</span>\n"
+"                                </em>"
+msgstr "<em class=\"font-weight-normal text-muted\">\n"
+       "                                    <span style=\"color:blue;\">المنطقه:</span>\n"
+       "                                </em>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid ""
+"<em class=\"font-weight-normal text-muted\">\n"
+"                                    <span style=\"color:blue;\">Zone:</span>\n"
+"                                </em>"
+msgstr "<em class=\"font-weight-normal text-muted\">\n"
+       "                                    <span style=\"color:blue;\">المنطقه الزمنيه:</span>\n"
+       "                                </em>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid ""
+"<span class=\"badge badge-pill badge-success\" title=\"Collection Money Done\">\n"
+"                                    <strong style=\"font-size: 15px;\">\n"
+"                                        Prepaid\n"
+"                                    </strong>\n"
+"                                </span>"
+msgstr "<span class=\"badge badge-pill badge-success\" title=\"تم تحصيل المبلغ\">\n"
+       "                                    <strong style=\"font-size: 15px;\">\n"
+       "                                        Prepaid\n"
+       "                                    </strong>\n"
+       "                                </span>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+msgid ""
+"<span class=\"fa fa-tasks\" role=\"img\" aria-label=\"Tasks\"/>\n"
+"                                        <strong>\n"
+"                                            Delivery Arrived\n"
+"                                        </strong>"
+msgstr ""
+"<span class=\"fa fa-tasks\" role=\"img\" aria-label=\"Tasks\"/>\n"
+"                                        <strong>\n"
+"                                            وصول الطلب\n"
+"                                        </strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid ""
+"<span class=\"fa fa-tasks\" role=\"img\" aria-label=\"Tasks\"/>\n"
+"                                        <strong>\n"
+"                                            Delivery Canceled\n"
+"                                        </strong>"
+msgstr ""
+"<span class=\"fa fa-tasks\" role=\"img\" aria-label=\"Tasks\"/>\n"
+"                                        <strong>\n"
+"                                            الغاء الطلب\n"
+"                                        </strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid ""
+"<span class=\"fa fa-tasks\" role=\"img\" aria-label=\"Tasks\"/>\n"
+"                                        <strong>\n"
+"                                            Delivery In Way\n"
+"                                        </strong>"
+msgstr ""
+"<span class=\"fa fa-tasks\" role=\"img\" aria-label=\"Tasks\"/>\n"
+"                                        <strong>\n"
+"                                            الطلب فى الطريق \n"
+"                                        </strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+msgid ""
+"<span class=\"fa fa-tasks\" role=\"img\" aria-label=\"Tasks\"/>\n"
+"                                        <strong>\n"
+"                                            Received Money\n"
+"                                        </strong>"
+msgstr ""
+"<span class=\"fa fa-tasks\" role=\"img\" aria-label=\"Tasks\"/>\n"
+"                                        <strong>\n"
+"                                           استلام الطلب \n"
+"                                        </strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_boy_bill_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.res_partner_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.res_users_form
+msgid "<span class=\"oe_inline o_form_label mx-3\">%</span>"
+msgstr ""
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Arrived Date:</strong>"
+msgstr "<strong>تاريخ الوصول:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Building Number:</strong>"
+msgstr "<strong>رقم المبنى:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Building Type:</strong>"
+msgstr  "<strong>نوع المبنى:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Customer:</strong>"
+msgstr "<strong>العميل:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Delivery Date:</strong>"
+msgstr "<strong>تاريخ الاستلام:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Flat Number:</strong>"
+msgstr  "<strong>رقم الشقه:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Floor Number:</strong>"
+msgstr "<strong>رقم الطابق:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Land Mark:</strong>"
+msgstr "<strong>علامه مميزه:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Order Type:</strong>"
+msgstr  "<strong>نوع الطلب:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Paid Amount:</strong>"
+msgstr  "<strong>المبلغ المدفوع:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Send Date:</strong>"
+msgstr "<strong>تاريخ الارسال:</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Street:</strong>"
+msgstr "<strong>:شارع</strong>"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Total:</strong>"
+msgstr  "<strong>المبلغ الكلى</strong>"
+
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "<strong>Untaxed Amount:</strong>"
+msgstr "<strong>المبلغ بدون ضريبه</strong>"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_assign_delivery_boy__account_move_ids
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__account_move_ids
+msgid "Account Move"
+msgstr ""
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Accounting Date"
+msgstr ""
+
+#. module: delivery_management
+#: model:res.groups,name:delivery_management.group_administrator
+msgid "Administrator"
+msgstr ""
+
+#. module: delivery_management
+#: model:res.groups,name:delivery_management.group_all_documents
+msgid "All Documents"
+msgstr ""
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Amount Due"
+msgstr "المبلغ المدفوع"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__amount_total
+msgid "Amount Total"
+msgstr "المبلغ الكلى"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_account_bank_statement_line__arrived_date
+#: model:ir.model.fields,field_description:delivery_management.field_account_move__arrived_date
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment__arrived_date
+msgid "Arrived Date"
+msgstr "تاريخ الوصول"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.portal_my_home_menu_transaction
+msgid "Arrived Orders"
+msgstr "الطلبات التى تم وصولها"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.assign_delivery_boy_form
+msgid "Assign"
+msgstr "مشار "
+
+#. module: delivery_management
+#: model:ir.actions.server,name:delivery_management.assign_delivery_boy_server_action
+#: model:ir.model,name:delivery_management.model_assign_delivery_boy
+#: model_terms:ir.ui.view,arch_db:delivery_management.account_move_tree
+msgid "Assign Delivery Boy"
+msgstr "اشاره صبى التوصيل"
+
+#. module: delivery_management
+#: code:addons/delivery_management/models/account_move.py:0
+#, python-format
+msgid "Assign To"
+msgstr "مشار اي"
+
+#. module: delivery_management
+#: model:ir.model.fields.selection,name:delivery_management.selection__account_move__transportation__bike
+#: model:ir.model.fields.selection,name:delivery_management.selection__assign_delivery_boy__transportation__bike
+#: model:ir.model.fields.selection,name:delivery_management.selection__res_partner__transportation__bike
+msgid "Bike"
+msgstr "عجله"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Bill Date"
+msgstr "تاريخ الفاتوره"
+
+#. module: delivery_management
+#: model:ir.ui.menu,name:delivery_management.delivery_boy_bill_account_move_menu
+msgid "Bills"
+msgstr "فواتير المورد"
+
+#. module: delivery_management
+#: model:ir.ui.menu,name:delivery_management.branch_parent_menu
+msgid "Branch Invoices"
+msgstr "فواتير الفرع"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_account_bank_statement_line__call_center_done
+#: model:ir.model.fields,field_description:delivery_management.field_account_move__call_center_done
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment__call_center_done
+msgid "Call Center Done"
+msgstr "تم تاكيد مركز الاتصال"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid "Call Center Order"
+msgstr "مركز الاتصال"
+
+#. module: delivery_management
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#, python-format
+msgid "Call Center Ref"
+msgstr "مرجع مركز الاتصال"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.assign_delivery_boy_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_boy_bill_form
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.account_move_tree
+msgid "Cancel Delivery"
+msgstr "الغاء التوصيل"
+
+#. module: delivery_management
+#: model:ir.model.fields.selection,name:delivery_management.selection__account_move__delivery_state__delivery_canceled
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+msgid "Canceled"
+msgstr "الغاء"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.portal_my_home_menu_transaction
+msgid "Canceled Orders"
+msgstr "الطلبات الملغاة"
+
+#. module: delivery_management
+#: model:ir.model.fields.selection,name:delivery_management.selection__account_move__transportation__car
+#: model:ir.model.fields.selection,name:delivery_management.selection__assign_delivery_boy__transportation__car
+#: model:ir.model.fields.selection,name:delivery_management.selection__res_partner__transportation__car
+msgid "Car"
+msgstr "سياره"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid ""
+"Click On\n"
+"                                <i style=\"color:green;\" class=\"fa fa-arrow-down\"/>"
+msgstr ""
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid ""
+"Click On\n"
+"                            <i style=\"color:green;\" class=\"fa fa-arrow-down\"/>"
+msgstr ""
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.portal_my_home_menu_transaction
+msgid "Collection Orders"
+msgstr "الطلبات المحصله"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__commission_amount
+msgid "Commission Amount"
+msgstr "مبلغ العموله"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__commission_fees
+#: model:ir.model.fields,field_description:delivery_management.field_res_partner__commission_fees
+#: model:ir.model.fields,field_description:delivery_management.field_res_users__commission_fees
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_boy_bill_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.res_partner_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.res_users_form
+msgid "Commission Fees"
+msgstr "رسوم العمولة"
+
+#. module: delivery_management
+#: model:ir.ui.menu,name:delivery_management.commission_order_account_move_menu
+msgid "Commission Orders"
+msgstr "رسوم العمولة"
+
+#. module: delivery_management
+#: model:ir.ui.menu,name:delivery_management.account_payment_menu
+msgid "Commission Payment"
+msgstr "مدفوعات العموله"
+
+#. module: delivery_management
+#: model:ir.model,name:delivery_management.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_boy_bill_form
+msgid "Create &View Delivery Boy Bill"
+msgstr "انشاء & عرض فاتوة صبى التوصيل"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.account_move_tree
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_boy_bill_form
+msgid "Create Delivery Boy Bill"
+msgstr "انشاء فاتوة صبى التوصيل "
+
+#. module: delivery_management
+#: model_terms:ir.actions.act_window,help:delivery_management.res_partner_action
+#: model_terms:ir.actions.act_window,help:delivery_management.res_users_action
+msgid "Create a new document"
+msgstr "قم بإنشاء مستند جديد"
+
+#. module: delivery_management
+#: model_terms:ir.actions.act_window,help:delivery_management.delivery_boy_bill_account_move_action
+msgid "Create new document"
+msgstr "قم بإنشاء مستند جديد"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_assign_delivery_boy__create_uid
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__create_uid
+msgid "Created by"
+msgstr "انشئ بواسطة"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_assign_delivery_boy__create_date
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__create_date
+msgid "Created on"
+msgstr "انشئ فى"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "Current stage of this order"
+msgstr "المرحله الحاليه فو الطلب"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid "Customer"
+msgstr "العميل"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.delivery_arrived_account_move_action
+#: model:ir.model.fields.selection,name:delivery_management.selection__account_move__delivery_state__delivery_arrived
+#: model:ir.ui.menu,name:delivery_management.delivery_arrived_account_move_menu
+#: model_terms:ir.ui.view,arch_db:delivery_management.account_move_tree
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.portal_my_home_transaction
+msgid "Delivery Arrived"
+msgstr "وصول الطلب"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.assign_delivery_account_move_action
+#: model:ir.model.fields.selection,name:delivery_management.selection__account_move__delivery_state__delivery_assigned
+#: model:ir.ui.menu,name:delivery_management.assign_delivery_account_move_menu
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.portal_my_home_menu_transaction
+#: model_terms:ir.ui.view,arch_db:delivery_management.portal_my_home_transaction
+msgid "Delivery Assigned"
+msgstr "تعيين التسليم"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_account_bank_statement_line__delivery_billed
+#: model:ir.model.fields,field_description:delivery_management.field_account_move__delivery_billed
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment__delivery_billed
+msgid "Delivery Billed"
+msgstr "فاتوره التوصيل"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.res_users_action
+#: model:ir.model.fields,field_description:delivery_management.field_account_bank_statement_line__delivery_boy_id
+#: model:ir.model.fields,field_description:delivery_management.field_account_move__delivery_boy_id
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment__delivery_boy_id
+#: model:ir.model.fields,field_description:delivery_management.field_assign_delivery_boy__delivery_boy_id
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__delivery_boy_id
+#: model:ir.ui.menu,name:delivery_management.delivery_boy_parent_menu
+#: model_terms:ir.ui.view,arch_db:delivery_management.account_move_search
+msgid "Delivery Boy"
+msgstr "صبى التسليم"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.delivery_boy_bill_account_move_action
+#: model:ir.model,name:delivery_management.model_delivery_boy_bill
+#: model:ir.model.fields,field_description:delivery_management.field_account_bank_statement_line__delivery_boy_bill
+#: model:ir.model.fields,field_description:delivery_management.field_account_move__delivery_boy_bill
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment__delivery_boy_bill
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment_register__delivery_boy_bill
+msgid "Delivery Boy Bill"
+msgstr "فاتوره فتى التسليم"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.res_users_form
+msgid "Delivery Boy Info"
+msgstr "معلومات فتى التوصييل"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+msgid "Delivery Boy Received Money"
+msgstr "صبى التوصيل استلم الفلوس"
+
+#. module: delivery_management
+#: model:ir.ui.menu,name:delivery_management.delivery_boy_menu
+msgid "Delivery Boy Users"
+msgstr "مستخدم صبى التوصيل"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+msgid "Delivery Cancel"
+msgstr "الغاء الطلب"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.delivery_canceled_account_move_action
+#: model:ir.ui.menu,name:delivery_management.delivery_canceled_account_move_menu
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.portal_my_home_transaction
+msgid "Delivery Canceled"
+msgstr "الغاء الطلب"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.delivery_collection_account_move_action
+#: model:ir.model.fields.selection,name:delivery_management.selection__account_move__delivery_state__delivery_collection
+#: model:ir.ui.menu,name:delivery_management.delivery_collection_account_move_menu
+#: model_terms:ir.ui.view,arch_db:delivery_management.account_move_tree
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.portal_my_home_transaction
+msgid "Delivery Collection"
+msgstr "تحصيل الطلب"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.commission_order_account_move_action
+msgid "Delivery Commission Orders"
+msgstr " عموله الطلبات "
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.delivery_boy_commission_payment_action
+msgid "Delivery Commission Payment"
+msgstr "مدفوعات عموله الطلبات"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment__delivery_customer_invoice
+msgid "Delivery Customer Invoice"
+msgstr "فاتورت العميل"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.delivery_customer_payment_action
+#: model:ir.ui.menu,name:delivery_management.delivery_customer_payment_menu
+msgid "Delivery Customer Payment"
+msgstr "مدفوعات العميل"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid "Delivery Date"
+msgstr "تاريخ الاستلام"
+
+#. module: delivery_management
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#, python-format
+msgid "Delivery Date & Time"
+msgstr "تايخ&وقت التسلم"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid "Delivery In Way"
+msgstr "الطلب فى الطريق"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.account_move_action
+#: model:ir.ui.menu,name:delivery_management.account_move_menu
+msgid "Delivery Invoice"
+msgstr "فاتوره التسليم"
+
+#. module: delivery_management
+#: model:ir.ui.menu,name:delivery_management.invoices_parent_menu
+msgid "Delivery Invoices"
+msgstr "فواتير التسليم"
+
+#. module: delivery_management
+#: model:ir.module.category,name:delivery_management.delivery_management_category
+#: model:ir.ui.menu,name:delivery_management.delivery_management_menu
+msgid "Delivery Management"
+msgstr "اداره التسليم"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.delivery_on_way_account_move_action
+#: model:ir.model.fields.selection,name:delivery_management.selection__account_move__delivery_state__delivery_on_way
+#: model:ir.ui.menu,name:delivery_management.delivery_on_way_account_move_menu
+#: model_terms:ir.ui.view,arch_db:delivery_management.account_move_tree
+#: model_terms:ir.ui.view,arch_db:delivery_management.portal_my_home_transaction
+msgid "Delivery On Way"
+msgstr "الطلب فى الطريق"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid "Delivery Orders"
+msgstr "طلبات التسليم"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.delivery_paid_account_move_action
+#: model:ir.ui.menu,name:delivery_management.delivery_paid_account_move_menu
+msgid "Delivery Paid"
+msgstr "مدفوعات النسليم"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_account_bank_statement_line__delivery_state
+#: model:ir.model.fields,field_description:delivery_management.field_account_move__delivery_state
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment__delivery_state
+msgid "Delivery State"
+msgstr "مراحل التسليم"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_assign_delivery_boy__display_name
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: delivery_management
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+#, python-format
+msgid "District"
+msgstr "المنطقه"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_assign_delivery_boy__id
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__id
+msgid "ID"
+msgstr ""
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.in_branch_invoices_account_move_action
+msgid "In Branch Invoices"
+msgstr "الفواتير فى الفرع"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+msgid "In Delivery Area"
+msgstr "فى مرحله التسليم"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Invoice Date"
+msgstr "تاريخ الفاتوره"
+
+#. module: delivery_management
+#: model:ir.model.fields.selection,name:delivery_management.selection__account_move__delivery_state__delivery_invoices
+#: model:ir.ui.menu,name:delivery_management.in_branch_invoices_account_move_menu
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Invoices"
+msgstr "الفواتير"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_res_partner__is_delivery_boy
+#: model:ir.model.fields,field_description:delivery_management.field_res_users__is_delivery_boy
+msgid "Is Delivery Boy"
+msgstr "صبى توصيل"
+
+#. module: delivery_management
+#: model:ir.model,name:delivery_management.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_assign_delivery_boy____last_update
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_assign_delivery_boy__write_uid
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_assign_delivery_boy__write_date
+#: model:ir.model.fields,field_description:delivery_management.field_delivery_boy_bill__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_account_bank_statement_line__mobile
+#: model:ir.model.fields,field_description:delivery_management.field_account_move__mobile
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment__mobile
+#: model_terms:ir.ui.view,arch_db:delivery_management.res_users_form
+msgid "Mobile"
+msgstr "المحمول"
+
+#. module: delivery_management
+#: model:ir.model.fields.selection,name:delivery_management.selection__account_move__transportation__motorcycle
+#: model:ir.model.fields.selection,name:delivery_management.selection__assign_delivery_boy__transportation__motorcycle
+#: model:ir.model.fields.selection,name:delivery_management.selection__res_partner__transportation__motorcycle
+msgid "Motorcycle"
+msgstr "موتوسيكل"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_res_partner__identification_number
+#: model:ir.model.fields,field_description:delivery_management.field_res_users__identification_number
+msgid "National ID"
+msgstr "رقم الهويه"
+
+#. module: delivery_management
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#, python-format
+msgid "None"
+msgstr ""
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.portal_my_home_menu_transaction
+msgid "On Way Orders"
+msgstr "التسليم فى الطريق"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.account_move_tree
+msgid "Order Amount Due"
+msgstr "مبلغ الطلب المستحق"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+msgid "Order Paid amount"
+msgstr "مبلغ الطلب المدفوع"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+msgid "Order amount Due"
+msgstr "مبلغ الطلب المستحق"
+
+#. module: delivery_management
+#: model:ir.model,name:delivery_management.model_account_payment
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_res_partner__plate_number
+#: model:ir.model.fields,field_description:delivery_management.field_res_users__plate_number
+msgid "Plate Number"
+msgstr ""
+
+#. module: delivery_management
+#: code:addons/delivery_management/models/account_move.py:0
+#, python-format
+msgid "Please Select Orders With Same Delivery Boy"
+msgstr "الرجاء اخيار طلب لديه نفس صبي التوصيل"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "Price Subtotal"
+msgstr "الإجمالي الفرعي"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "Price Unit"
+msgstr "ثمن الوحده"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "Quantity"
+msgstr "الكميه"
+
+#. module: delivery_management
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+#, python-format
+msgid "Ref"
+msgstr "المرجع"
+
+#. module: delivery_management
+#: model:ir.model,name:delivery_management.model_account_payment_register
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Register Payment"
+msgstr "تسجيل دفعة"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Salesperson"
+msgstr "مندوب المبيعات "
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_account_bank_statement_line__send_date
+#: model:ir.model.fields,field_description:delivery_management.field_account_move__send_date
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment__send_date
+msgid "Send Date"
+msgstr "تاريخ الارسال"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.call_center_account_move_form
+msgid "Set To  Draft"
+msgstr "وضعه فى مسوده"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.account_move_tree
+msgid "Set To Invoices"
+msgstr "وضعه فى مسوده"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Source Document"
+msgstr ""
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Tax"
+msgstr "الضريبه"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Tax Excluded"
+msgstr ""
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_template_form
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_template_form
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+msgid "There are currently no Orders."
+msgstr ""
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Total"
+msgstr "المبلغ الكلى"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Total in Currency"
+msgstr ""
+
+#. module: delivery_management
+#: model:ir.model.fields,field_description:delivery_management.field_account_bank_statement_line__transportation
+#: model:ir.model.fields,field_description:delivery_management.field_account_move__transportation
+#: model:ir.model.fields,field_description:delivery_management.field_account_payment__transportation
+#: model:ir.model.fields,field_description:delivery_management.field_assign_delivery_boy__transportation
+#: model:ir.model.fields,field_description:delivery_management.field_res_partner__transportation
+#: model:ir.model.fields,field_description:delivery_management.field_res_users__transportation
+msgid "Transportation"
+msgstr "مواصلات"
+
+#. module: delivery_management
+#: model:res.groups,name:delivery_management.group_own_documents_only
+msgid "User: Own Documents Only"
+msgstr ""
+
+#. module: delivery_management
+#: model:ir.model,name:delivery_management.model_res_users
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: delivery_management
+#: model_terms:ir.ui.view,arch_db:delivery_management.branch_account_move_tree
+msgid "Vendor"
+msgstr "المورد"
+
+#. module: delivery_management
+#: code:addons/delivery_management/wizard/delivery_boy_bill.py:0
+#, python-format
+msgid "Vendor Bill"
+msgstr "فاتوره المورد"
+
+#. module: delivery_management
+#: code:addons/delivery_management/models/account_move.py:0
+#, python-format
+msgid "Vendor Bill Info"
+msgstr " معلومات فاتوره المورد"
+
+#. module: delivery_management
+#: model:ir.actions.act_window,name:delivery_management.res_partner_action
+#: model:ir.ui.menu,name:delivery_management.res_partner_action_menu
+msgid "Vendors"
+msgstr "الموردين"
+
+#. module: delivery_management
+#: code:addons/delivery_management/models/account_move.py:0
+#, python-format
+msgid "You can not assign orders not in status  delivery invoice"
+msgstr "لا يمكنك الاشاره الي طلب ليس فى حاله فاتوره التوصيل"
+
+#. module: delivery_management
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: code:addons/delivery_management/controllers/delivery_portal.py:0
+#: model_terms:ir.ui.view,arch_db:delivery_management.arrived_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.canceled_order_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_collection_delivery_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_on_way_order_template
+#: model_terms:ir.ui.view,arch_db:delivery_management.delivery_order_template
+#, python-format
+msgid "Zone"
+msgstr "المنطقه الزمنيه"
+
+#. module: delivery_management
+#: code:addons/delivery_management/models/account_move.py:0
+#, python-format
+msgid "cannot assign more than 200 orders per time"
+msgstr ""

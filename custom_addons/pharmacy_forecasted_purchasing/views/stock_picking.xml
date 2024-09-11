@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inherit_stock_picking_form2" model="ir.ui.view">
+        <field name="name">inherit.stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_open_label_layout']" position="before">
+                <button name="action_view_assign_delivery" string="Assign Delivery" type="object"
+                        attrs="{'invisible': ['|',('state', '!=', 'done'),('from_sale', '!=', True)]}"
+                        class="oe_highlight"/>
+                <button name="%(delivery_arrived_action)d" string="Delivery Arrived" type="action" states="on_delivery"
+                        class="oe_highlight"/>
+            </xpath>
+
+            <field name="origin" position="after">
+                <field name="hr_employee_id" readonly="1"
+                       attrs="{'invisible': ['|',('state', 'not in', ['on_delivery','delivery_arrived']),('from_sale', '!=', True)]}"/>
+                <field name="date_time_delivery" readonly="1"
+                       attrs="{'invisible': ['|',('state', 'not in', ['on_delivery','delivery_arrived']),('from_sale', '!=', True)]}"/>
+                <field name="partner_zone_id" readonly="1"
+                       attrs="{'invisible': ['|',('state', 'not in', ['on_delivery','delivery_arrived']),('from_sale', '!=', True)]}"/>
+                <field name="region" readonly="1"
+                       attrs="{'invisible': ['|',('state', 'not in', ['on_delivery','delivery_arrived']),('from_sale', '!=', True)]}"/>
+                <field name="from_sale" invisible="0"/>
+                <field name="delivery_arrived" readonly="1"
+                       attrs="{'invisible': ['|',('state', '!=', 'delivery_arrived'),('from_sale', '!=', True)]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

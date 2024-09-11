@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_forecasted_purchasing_user,forecasted_purchasing,model_forecasted_purchasing,base.group_user,1,1,1,1
+access_forecasted_purchasing_manager,forecasted_purchasing,model_forecasted_purchasing,base.group_erp_manager,1,1,1,1
+access_forecasted_purchasing_information_user,forecasted_purchasing_information,model_forecasted_purchasing_information,base.group_user,1,1,1,1
+access_forecasted_purchasing_information_manager,forecasted_purchasing_information,model_forecasted_purchasing_information,base.group_erp_manager,1,1,1,1
+access_type_of_product,type_of_product,model_type_of_product,base.group_user,1,1,1,1
+access_using_way,using_way,model_using_way,base.group_user,1,1,1,1
+access_producing_company,producing_company,model_producing_company,base.group_user,1,1,1,1
+access_product_template,product_template,model_product_template,pharmacy_forecasted_purchasing.group_product_creation,1,1,1,1
+access_partner_zone_user,partner_zone,model_partner_zone,base.group_user,1,1,1,1
+access_partner_zone_manager,partner_zone,model_partner_zone,base.group_erp_manager,1,1,1,1
+access_assign_delivery_user,assign_delivery,model_assign_delivery,base.group_user,1,1,1,1
+access_assign_delivery_manager,assign_delivery,model_assign_delivery,base.group_erp_manager,1,1,1,1
+access_delivery_arrived_user,delivery_arrived,model_delivery_arrived,base.group_user,1,1,1,1
+access_delivery_arrived_manager,delivery_arrived,model_delivery_arrived,base.group_erp_manager,1,1,1,1
+access_scientific_group,scientific_group,model_scientific_group,base.group_user,1,1,1,1
+access_product_origin,product_origin,model_product_origin,base.group_user,1,1,1,1

@@ -1,0 +1,16 @@
+<odoo>
+
+    <record id="owner_view_tree" model="ir.ui.view">
+         <field name="name">view order form</field>
+         <field name="model">model.my.res</field>
+         <field name="inherit_id" ref="base.view_partner_form"/>
+         <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="price"/>
+
+            </field>
+            
+         </field>
+    </record>
+
+</odoo>

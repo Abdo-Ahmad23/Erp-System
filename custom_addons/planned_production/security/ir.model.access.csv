@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_direct_labour_cost,direct_labour_cost,model_direct_labour_cost,base.group_user,1,1,1,1
+access_direct_overhead_cost,direct_overhead_cost,model_direct_overhead_cost,base.group_user,1,1,1,1
+access_planned_manufacturing,planned_manufacturing,model_planned_manufacturing,base.group_user,1,1,1,1
+access_planned_manufacturing_orders,planned_manufacturing_orders,model_planned_manufacturing_orders,base.group_user,1,1,1,1
+access_report_mrp_group,report_mrp_group,model_report_mrp_group,base.group_user,1,1,1,1
+access_mrp_make_requisition,mrp_make_requisition,model_mrp_make_requisition,base.group_user,1,1,1,1
+access_mrp_requisition_lines,mrp_requisition_lines,model_mrp_requisition_lines,base.group_user,1,1,1,1

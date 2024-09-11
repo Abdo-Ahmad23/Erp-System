@@ -1,0 +1,14 @@
+<odoo>
+    <menuitem
+       id = "import_lines_root_menu"
+       name = "Import Line"
+       web_icon="import_line,static/description/icon.png"
+    />
+
+    <menuitem
+       id = "import_line_menu"
+       name = "Import Lines Mod"
+       parent = "import_lines_root_menu"
+    />
+
+</odoo>

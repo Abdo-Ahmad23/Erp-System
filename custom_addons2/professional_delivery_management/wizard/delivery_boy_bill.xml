@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="delivery_boy_bill_form" model="ir.ui.view">
+        <field name="name">delivery.boy.bill.form</field>
+        <field name="model">delivery.boy.bill</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="delivery_boy_id"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="account_move_ids" invisible="1"/>
+                            <field name="amount_total"/>
+                        </group>
+                        <group>
+                            <label for="commission_fees" string="Commission Fees"/>
+                            <div class="d-flex">
+                                <field name="commission_fees"/>
+                                <span class="oe_inline o_form_label mx-3">%</span>
+                            </div>
+                            <field name="commission_amount"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="create_delivery_boy_bill" string="Create Delivery Boy Bill" type="object"
+                            class="btn-primary"/>
+                    <button name="create_delivery_boy_bill" string="Create &amp;View Delivery Boy Bill" type="object"
+                            context="{'view_bill':1}" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

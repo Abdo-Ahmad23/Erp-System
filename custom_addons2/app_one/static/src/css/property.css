@@ -1,0 +1,33 @@
+.header_custom table thead > tr  {
+    text-align:center;
+    background-color: turquoise;
+    color: white;
+}
+
+.header_custom table tbody > tr {
+   text-align:center;
+   /*background-color:green;*/
+}
+
+.header_custom table thead > tr > th:nth-child(3) {
+   text-align:center;
+   /*color:green;*/
+}
+
+.btn22 {
+    border-radius: 10px ;
+    background-color: #794866;
+    color: white;
+}
+
+.btn23 {
+    border-radius: 10px ;
+    background-color: #00a3b8;
+    color: white;
+}
+
+.btn24 {
+    border-radius: 10px ;
+    background-color: #00ac49;
+    color: white;
+}

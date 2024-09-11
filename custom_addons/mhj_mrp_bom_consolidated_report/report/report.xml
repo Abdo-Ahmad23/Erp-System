@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                id="report_bom_consolidated_menu"
+                string="Consolidated BoM"
+                model="mrp.production" report_type="qweb-pdf"
+                file="mhj_mrp_bom_consolidated_report.bom_consolidated_report"
+                name="mhj_mrp_bom_consolidated_report.bom_consolidated_report"
+        />
+
+        <template id="mhj_mrp_bom_consolidated_report.bom_consolidated_report">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+
+                    <div class="page">
+                        <t t-set="all_products" t-value="docs.mapped('bom_id.bom_line_ids.product_id')"/>
+                        <t t-set="all_raw_moves" t-value="docs.mapped('move_raw_ids')"/>
+                        <center>
+                            <h2>Consolidated Material Requirement</h2>
+                            <p>for</p>
+                            <p>
+                                <span t-esc="' , '.join(d.name for d in docs)"/>
+                            </p>
+                        </center>
+                        <table class="table table-condensed">
+                            <tr>
+                                <td>Product</td>
+                                <td>QTY</td>
+                                <td>UoM</td>
+                            </tr>
+                            <t t-foreach="all_products" t-as="product">
+                                <t t-set="prod_moves"
+                                   t-value="all_raw_moves.filtered(lambda m: m.product_id == product)"/>
+                                <t t-set="prod_qty"
+                                   t-value="sum(m.product_uom._compute_quantity(m.product_uom_qty,product.uom_id) for m in prod_moves)"/>
+                                <tr>
+                                    <td>
+                                        <span t-esc="product.name +' '+ product.code"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="prod_qty"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="product.uom_id.name"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ClientDetailsEdit" t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('client-details-left')]" position="inside">
+            <div class="client-detail">
+                <span class="label">Code</span>
+                <input class="detail client-loyalty" name="customer_code"
+                       t-att-value="props.partner.customer_code || ''" t-on-change="captureChange"/>
+            </div>
+            <!--            <div class="client-detail">-->
+            <!--                        <span class="label">Warehouse</span>-->
+            <!--                <select class="detail client-address-country needsclick" name="stock_warehouse_id"-->
+            <!--                        t-on-change="captureChange">-->
+            <!--                            <option value="">None</option>-->
+            <!--                    <t t-foreach="props.partner.stock_warehouse_id" t-as="stock" t-key="stock.id">-->
+            <!--                            <option t-att-value="stock.id"-->
+            <!--                                    t-att-selected="props.partner.stock_warehouse_id ? ((stock.id === props.partner.stock_warehouse_id[0]) ? true : undefined) : undefined">-->
+            <!--                                <t t-esc="stock.name"/>-->
+            <!--                            </option>-->
+            <!--                    </t>-->
+            <!--                </select>-->
+            <!--            </div>-->
+            <div class="client-detail">
+                <span class="label">Special Marque</span>
+                <input class="detail client-loyalty" name="special_marque"
+                       t-att-value="props.partner.special_marque || ''" t-on-change="captureChange"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('client-details-right')]" position="inside">
+            <div class="client-detail">
+                        <span class="label">Mobile 1</span>
+                <input class="detail client-phone" name="mobile" type="tel"
+                       t-on-change="captureChange"
+                       t-att-value="props.partner.mobile || ''"/>
+                    </div>
+            <div class="client-detail">
+                        <span class="label">Mobile 2</span>
+                <input class="detail client-phone" name="mobile_2" type="tel"
+                       t-on-change="captureChange"
+                       t-att-value="props.partner.mobile_2 || ''"/>
+                    </div>
+            <div class="client-detail">
+                        <span class="label">Mobile 3</span>
+                <input class="detail client-phone" name="mobile_3" type="tel"
+                       t-on-change="captureChange"
+                       t-att-value="props.partner.mobile_3 || ''"/>
+                    </div>
+            <div class="client-detail">
+                        <span class="label">Mobile 4</span>
+                <input class="detail client-phone" name="mobile_4" type="tel"
+                       t-on-change="captureChange"
+                       t-att-value="props.partner.mobile_4 || ''"/>
+                    </div>
+            <div class="client-detail">
+                        <span class="label">Mobile 5</span>
+                <input class="detail client-phone" name="mobile_5" type="tel"
+                       t-on-change="captureChange"
+                       t-att-value="props.partner.mobile_5 || ''"/>
+                    </div>
+
+        </xpath>
+    </t>
+ </templates>
+

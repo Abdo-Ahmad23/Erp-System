@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="product_card_menu"
+              name="Product Card"
+              sequence="1"
+              web_icon="product_card,static/description/icon.png"
+    />
+    <!--                          Product Card_menu Order                        -->
+    <menuitem id="product_card_order_menu"
+              name="Product Now"
+              action="product_card_order_action"
+              parent="product_card_menu"
+              sequence="3"
+    />
+
+
+    <menuitem id="reports_root_menu"
+              name="Product Done"
+              parent="product_card_menu"
+              action="product_card_order_action"
+              sequence="5"
+    />
+    
+
+
+</odoo>

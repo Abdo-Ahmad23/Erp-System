@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="inherit_hr_employee_form" model="ir.ui.view">
+        <field name="name">inherit.hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="journal_id" options="{'no_open': True, 'no_create': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='coach_id']" position="after">
+                <field name="fellowship_fund"/>
+            </xpath>
+        </field>
+    </record>
+    <!--                        hr employee public                              -->
+    <record id="inherit_hr_employee_public_form" model="ir.ui.view">
+        <field name="name">inherit.hr.employee.public.form</field>
+        <field name="model">hr.employee.public</field>
+        <field name="inherit_id" ref="hr.hr_employee_public_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="journal_id" options="{'no_open': True, 'no_create': True}"/>
+                <field name="fellowship_fund"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,51 @@
+<odoo>
+    <record id="uom_uom_tree" model="ir.ui.view">
+         <field name="name">uom.uom.tree</field>
+         <field name="model">uom.uom</field>
+         <field name="arch" type="xml">
+            <tree multi_edit="1"  edit="1" create="1" delete="1" class="header_custom">
+               <field name="name" decoration-bf="uom_type == 'reference'"/>
+               <field name="uom_type" decoration-bf="uom_type == 'reference'"/>
+               <field name="factor" invisible="1"/>
+               <field name="factor_inv" invisible="1"/>
+               <field name="ratio" string="Ratio" attrs="{'readonly': [('uom_type', '=', 'reference')]}" digits="[42,5]"/>
+               <field name="active"/>
+               <field name="rounding" digits="[42, 5]"/>
+            </tree>
+         </field>
+    </record>
+
+    <record id="uom_uom_form" model="ir.ui.view">
+         <field name="name">uom.uom.form</field>
+         <field name="model">uom.uom</field>
+         <field name="arch" type="xml">
+           <form>
+              <sheet>
+                  <group>
+                      <group>
+                        <field name="name" decoration-bf="uom_type == 'reference'"/>
+                        <field name="uom_type" decoration-bf="uom_type == 'reference'"/>
+                        <field name="factor" invisible="1"/>
+                        <field name="factor_inv" invisible="1"/>
+                        <field name="ratio" string="Ratio" attrs="{'readonly': [('uom_type', '=', 'reference')]}" digits="[42,5]"/>
+                        <field name="active"/>
+                        <field name="rounding" digits="[42, 5]"/>
+                      </group>
+                  </group>
+              </sheet>
+           </form>
+         </field>
+    </record>
+
+    <record id="uom_uom_action" model="ir.actions.act_window">
+         <field name="name">Uom_uom</field>
+         <field name="res_model">uom.uom</field>
+         <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+       id = "property_menu_item"
+       name = "uom_lines"
+       parent = "properties_menu"
+       action = "uom_uom_action"
+    />
+</odoo>

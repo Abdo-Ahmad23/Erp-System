@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="delivery_management_menu"
+              name="Delivery Management"
+              sequence="1"
+              groups="professional_delivery_management.group_own_documents_only"
+              web_icon="professional_delivery_management,static/description/delivery.gif"
+    />
+    <!--                     In Branch Invoices                          -->
+    <menuitem id="branch_parent_menu"
+              name="Branch Invoices"
+              groups="professional_delivery_management.group_own_documents_only"
+              sequence="3"
+              web_icon="professional_delivery_management,static/description/branch.png"/>
+
+    <menuitem id="in_branch_invoices_account_move_menu"
+              name="Invoices"
+              action="in_branch_invoices_account_move_action"
+              parent="branch_parent_menu"
+              sequence="1"
+    />
+    <!--                        Invoices                            -->
+    <menuitem id="invoices_parent_menu"
+              name="Delivery Invoices"
+              parent="professional_delivery_management.delivery_management_menu"
+              sequence="3"
+    />
+    <menuitem id="account_move_menu"
+              action="account_move_action"
+              parent="professional_delivery_management.invoices_parent_menu"
+              sequence="2"
+    />
+    <menuitem id="assign_delivery_account_move_menu"
+              action="assign_delivery_account_move_action"
+              parent="professional_delivery_management.invoices_parent_menu"
+              sequence="5"
+    />
+    <menuitem id="delivery_on_way_account_move_menu"
+              action="delivery_on_way_account_move_action"
+              parent="professional_delivery_management.invoices_parent_menu"
+              sequence="6"
+    />
+    <menuitem id="delivery_arrived_account_move_menu"
+              action="delivery_arrived_account_move_action"
+              parent="professional_delivery_management.invoices_parent_menu"
+              sequence="7"
+    />
+    <menuitem id="delivery_collection_account_move_menu"
+              action="delivery_collection_account_move_action"
+              parent="professional_delivery_management.invoices_parent_menu"
+              sequence="8"
+    />
+    <menuitem id="delivery_paid_account_move_menu"
+              name="Delivery Paid"
+              action="delivery_paid_account_move_action"
+              parent="professional_delivery_management.invoices_parent_menu"
+              sequence="9"
+    />
+    <menuitem id="commission_order_account_move_menu"
+              name="Commission Orders"
+              action="commission_order_account_move_action"
+              parent="professional_delivery_management.invoices_parent_menu"
+              sequence="11"
+    />
+    <menuitem id="delivery_customer_payment_menu"
+              name="Delivery Customer Payment"
+              action="delivery_customer_payment_action"
+              parent="professional_delivery_management.invoices_parent_menu"
+              sequence="13"
+    />
+    <menuitem id="delivery_canceled_account_move_menu"
+              action="delivery_canceled_account_move_action"
+              parent="professional_delivery_management.invoices_parent_menu"
+              sequence="20"
+    />
+    Delivery Boy -->
+    <menuitem id="delivery_boy_parent_menu"
+              name="Delivery Boy"
+              parent="professional_delivery_management.delivery_management_menu"
+              sequence="5"
+    />
+    <menuitem id="delivery_boy_menu"
+              name="Delivery Boy Users"
+              action="res_users_action"
+              groups="professional_delivery_management.group_all_documents"
+              parent="professional_delivery_management.delivery_boy_parent_menu"
+              sequence="2"/>
+
+    <menuitem id="res_partner_action_menu"
+              name="Vendors"
+              action="res_partner_action"
+              parent="professional_delivery_management.delivery_boy_parent_menu"
+              sequence="6"
+    />
+    <menuitem id="delivery_boy_bill_account_move_menu"
+              name="Bills"
+              action="delivery_boy_bill_account_move_action"
+              parent="professional_delivery_management.delivery_boy_parent_menu"
+              sequence="9"
+    />
+    <menuitem id="account_payment_menu"
+              name="Commission Payment"
+              action="delivery_boy_commission_payment_action"
+              parent="professional_delivery_management.delivery_boy_parent_menu"
+              sequence="12"
+    />
+</odoo>
